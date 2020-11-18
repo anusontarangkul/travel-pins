@@ -10,6 +10,11 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false
     },
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+        },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -25,9 +30,10 @@ module.exports = function(sequelize, DataTypes) {
    
   });
   User.associate = function(models) {
-    User.hasMany(models.Photos, {
-      onDelete: "cascade"
-    });
+    User.hasMany(models.Photos, {onDelete: "cascade"});
+    User.hasMany(models.Followers, {onDelete: "cascade"});
+    User.hasMany(models.Comments, {onDelete: "cascade"});
+    User.hasMany(models.Countries, {onDelete: "cascade"});
   };
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database

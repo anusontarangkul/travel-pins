@@ -4,18 +4,14 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        comments:{
-            type: DataTypes.ARRAY,
+        country:{
+            type: DataTypes.STRING,
             allowNull: false,
-        },
+        }
     });
     Photos.associate = function(models) {
-        Photos.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-
+        Photos.belongsTo(models.User, {foreignKey: {allowNull: false}});
+        Photos.hasMany(models.Comments, {onDelete: "cascade"});
     }
     return Photos;
 
