@@ -1,0 +1,29 @@
+{
+  "name": "travel-pins",
+  "version": "1.0.0",
+  "description": "Creating a social media app that will inspire people to travel the world.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anusontarangkul/travel-pins.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anusontarangkul/travel-pins/issues"
+  },
+  "homepage": "https://github.com/anusontarangkul/travel-pins#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "sequelize": "^6.3.5"
+  }
+}
