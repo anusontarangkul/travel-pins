@@ -11,6 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     });
     Photos.associate = function(models) {
         Photos.belongsTo(models.User, {foreignKey: {allowNull: false}});
+        Photos.belongsTo(models.Countries, {foreignKey: {allowNull: false}});
         Photos.hasMany(models.Comments, {onDelete: "cascade"});
     }
     return Photos;
