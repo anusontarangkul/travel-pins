@@ -1,15 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
     var Countries = sequelize.define("Countries", {
-        //add stuff here
-    });
-    Countries.associate = function(models) {
-        Countries.belongsTo(models.User, {
-          foreignKey: {
+        id: {
+            type: Sequelize.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        CountryName: {
+            type: DataTypes.STRING,
             allowNull: false
-          }
-        });
-
-    }
+        }
+    });
     return Countries;
 
 }

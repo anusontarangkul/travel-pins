@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
         },
     });
     Followers.associate = function(models) {
-        Followers.belongsTo(models.User, {foreignKey: {allowNull: false}});
+        Followers.hasMany(models.User, {foreignKey: {allowNull: false}});
     }
     return Followers;
 

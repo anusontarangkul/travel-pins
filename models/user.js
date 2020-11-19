@@ -2,6 +2,11 @@ var bcrypt = require("bcryptjs");
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
+    id: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+  },
     firstName: {
         type: DataTypes.STRING,
         allowNull: false
@@ -33,7 +38,8 @@ module.exports = function(sequelize, DataTypes) {
     User.hasMany(models.Photos, {onDelete: "cascade"});
     User.hasMany(models.Followers, {onDelete: "cascade"});
     User.hasMany(models.Comments, {onDelete: "cascade"});
-    User.hasMany(models.Countries, {onDelete: "cascade"});
+    User.hasMany(models.UserCountries, {onDelete: "cascade"});
+    //make a join table to countries they went to 
   };
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
