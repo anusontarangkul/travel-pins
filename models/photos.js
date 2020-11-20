@@ -1,5 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
     var Photos = sequelize.define("Photos", {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
         photoUrl:{
             type: DataTypes.STRING,
             allowNull: false,

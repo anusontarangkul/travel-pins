@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Countries = sequelize.define("Countries", {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },

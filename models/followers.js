@@ -1,5 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
     var Followers = sequelize.define("Followers", {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
         followerId: {
             type: DataTypes.STRING,
             allowNull: false
@@ -7,10 +12,10 @@ module.exports = function(sequelize, DataTypes) {
         followeeId: {
             type: DataTypes.STRING,
             allowNull: false
-        },
+        }
     });
     Followers.associate = function(models) {
-        Followers.hasMany(models.User, {foreignKey: {allowNull: false}});
+        Followers.belongsTo(models.User, {foreignKey: {allowNull: false}});
     }
     return Followers;
 
