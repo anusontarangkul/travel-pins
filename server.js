@@ -1,6 +1,7 @@
 var express = require("express");
 var session = require("express-session");
 //var passport = require("./config/passport");
+const routes = require("./routes");
 
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -16,8 +17,7 @@ app.use(express.json());
 
 //passport stuff
 
-// require("./routes/api-routes.js")(app);
-// require("./routes/html-routes.js")(app);
+app.use(routes);
 
 db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
