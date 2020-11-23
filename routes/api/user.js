@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController.js");
+var passport = require("../../config/passport");
 
 router
   .route("/signup")
@@ -7,8 +8,8 @@ router
 
   //maybe passport here 
 router
-  .route("/login")
-  .post(userController.findOne)
+  .post("/login/local", passport.authenticate("local"), function(req, res) {
+  res.json(req.user);});
 
 router
   .route("/all")
