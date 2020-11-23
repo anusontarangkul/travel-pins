@@ -1,6 +1,6 @@
 var express = require("express");
 var session = require("express-session");
-//var passport = require("./config/passport");
+const passport = require("./config/passport");
 const routes = require("./routes");
 
 var app = express();
@@ -13,9 +13,12 @@ var db = require("./models");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//app.use(express.static(__dirname + '/public'));
+//passport 
+app.use(session({ secret: "pinwin", resave: true, saveUninitialized: true }));
+// initializes passport 
+app.use(passport.initialize());
+app.use(passport.session());
 
-//passport stuff
 
 app.use(routes);
 
