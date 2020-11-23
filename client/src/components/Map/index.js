@@ -2,19 +2,19 @@ import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import './style.css';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiYWFyb25kaWciLCJhIjoiY2tobnMzNnYwMDR1ejM1bzU1b2cyNnljNCJ9.qtupNlfb7Jam-q_Gdg0z2Q';
+mapboxgl.accessToken = 'pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5cGV1ZnE2c2VsYiJ9.mOoyaL49RBuUijTy3MmiRw';
 
 const Map = () => {
   const mapContainerRef = useRef(null);
 
-  // initialize map when component mounts
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
-      style: 'mapbox://styles/aarondig/ckhns66tw0zj71apj50vubwrq',
-      center: [-40.9876, 14.7405],
-      zoom: .4,
-      attributionControl: false
+      style: 'mapbox://styles/codingdavid/ckhtww0zw4dbf19qin49td8jk',
+      center: [-32.9876, 9.7405],
+      zoom: 1.5,
+      attributionControl: false,
+      logoEnabled: false
     });
 
     // clean up on unmount
