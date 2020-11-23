@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Wrapper from './components/Wrapper';
+import Navbar from './components/Navbar'
 import Map from './components/Map'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Wrapper>
         <Map/>
+        <Navbar/>
       </Wrapper>
     </div>
   );
