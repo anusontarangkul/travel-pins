@@ -14,10 +14,8 @@ const Map = () => {
       style: 'mapbox://styles/aarondig/ckhns66tw0zj71apj50vubwrq',
       center: [-40.9876, 14.7405],
       zoom: .4,
+      attributionControl: false
     });
-
-    // add navigation control (the +/- zoom buttons)
-    map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
     // clean up on unmount
     return () => map.remove();
