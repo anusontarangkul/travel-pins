@@ -9,3 +9,7 @@
     justify-content: space-around;
     text-align: center;
 }
+
+.nav-item {
+    line-height: 100px;
+}
