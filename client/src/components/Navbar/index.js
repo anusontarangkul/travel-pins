@@ -3,19 +3,20 @@ import './style.css';
 import { MdHome } from "react-icons/md";
 import { FiMapPin, FiHome, FiUser, FiMenu  } from "react-icons/fi";
 
+
 function Navbar(){
     return <div className="navbar">
             <div className="nav-item">
-                <FiHome />
+                <i><FiHome/></i>
             </div>
             <div className="nav-item">
-                <FiMapPin/>
+                <i><FiMapPin/></i>
             </div>
             <div className="nav-item">
-                <FiUser/>
+                <i><FiUser/></i>
             </div>
             <div className="nav-item">
-                <FiMenu/>
+                <i><FiMenu/></i>
             </div>
     </div> ;
 

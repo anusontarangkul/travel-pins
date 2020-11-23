@@ -17,9 +17,12 @@ const Map = () => {
       logoEnabled: false
     });
 
+
+    //Add Geocoder (Search)
+
     // clean up on unmount
     return () => map.remove();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return <div className="map-container" ref={mapContainerRef} />;
 };
