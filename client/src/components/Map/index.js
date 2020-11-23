@@ -3,7 +3,10 @@ import mapboxgl from 'mapbox-gl';
 
 import './style.css';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiYWFyb25kaWciLCJhIjoiY2tobnMzNnYwMDR1ejM1bzU1b2cyNnljNCJ9.qtupNlfb7Jam-q_Gdg0z2Q';
+// email: anusontarangkul.d@gmail.com
+// password: project 3
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5cGV1ZnE2c2VsYiJ9.mOoyaL49RBuUijTy3MmiRw';
 
 const Map = () => {
   const mapContainerRef = useRef(null);

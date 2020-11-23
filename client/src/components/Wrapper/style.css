@@ -1,4 +1,5 @@
 .wrapper {
-    background: #eae7dc !important;
-    height: 100vh;
+  background: #eae7dc !important;
+  height: 100vh;
+  /* min-height: 100vh; */
 }
