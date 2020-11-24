@@ -41,6 +41,21 @@ const Map = () => {
       fetch(`https://restcountries.eu/rest/v2/alpha/${countryCode}`) // Using tempalate tags to create the API request
         .then((data) => data.json()) //fetch returns an object with a .json() method, which returns a promise
         .then((country) => { //country contains the data from the API request
+          map.addLayer({
+            'id': 'traveled',
+            'source': {
+              'type': 'vector',
+              'url': 'mapbox://codingdavid.00075afe',
+            },
+            'source-layer': 'ne_10m_admin_0_countries-cdqk4p',
+            'type': 'fill',
+            'paint': {
+              'fill-color': '#63A583',
+              'fill-outline-color': '#111B1E',
+
+            },
+          });
+          map.setFilter('traveled', ['in', 'ADM0_A3_IS'].concat(countryCode));
           // Let's build our HTML in a template tag
           const html = `
             <div>
@@ -58,6 +73,8 @@ const Map = () => {
             .setLngLat(mapElement.lngLat) // Set where we want it to appear (where we clicked)
             .setHTML(html) // Add the HTML we just made to the popup
             .addTo(map); // Add the popup to the map
+          // Need to remove opacity
+
         });
     });
 
