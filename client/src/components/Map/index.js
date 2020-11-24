@@ -63,7 +63,7 @@ const Map = () => {
               <img class="flag-icon" src='${country.flag}'/>
             </div>
             <div>
-              <button>Traveled<button>
+              <button class="travled">Traveled<button>
               <button>Photos<button>
               </div>
 
@@ -73,7 +73,13 @@ const Map = () => {
             .setLngLat(mapElement.lngLat) // Set where we want it to appear (where we clicked)
             .setHTML(html) // Add the HTML we just made to the popup
             .addTo(map); // Add the popup to the map
-          // Need to remove opacity
+
+          // Event listener for traveled counries
+
+          const addTraveledCountry = (country) => {
+            console.log(this.country.name)
+          }
+          document.querySelector(".travled").addEventListener("click", addTraveledCountry)
 
         });
     });
