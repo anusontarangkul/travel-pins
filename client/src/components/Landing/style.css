@@ -1,4 +1,4 @@
-@import url('https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css');
+@import url("https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css");
 @import url("https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp");
 
 .landing {
@@ -21,30 +21,84 @@
   font-family: "GothamPro";
   font-style: Bold;
 }
-.iconContainer {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    bottom: -250px;
-    right: -250px;
-    padding: 20px;
-    border-radius: 360px;
-    background: rgb(217, 215, 215);
+.sphere {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  bottom: -250px;
+  right: -250px;
+  padding: 20px;
+  border-radius: 360px;
+  border-width: 10px rgb(255, 255, 255);
+  background: radial-gradient(
+    circle at 100px 100px,
+    #ffffff,
+    hsla(0, 0%, 79%, 0.306)
+  );
+  z-index: 0;
+  overflow: hidden;
 }
-.iconInner {
+#line1 {
     position: absolute;
     width: 250px;
-    height: 250px;
-    bottom: -125px;
-    right: -125px;
-    padding: 20px;
-    border-radius: 360px;
-    background: rgb(203, 203, 203);
+    height: 100px;
+    border: solid 5px #000;
+    border-color: transparent #000 #000 transparent;
+    border-radius: 50%;
+    z-index: 1;
+    margin-top: -40px;
+    right: 210px;
+}
+/* #line2 {
+    position: absolute;
+    width: 300px;
+    height: 450px;
+    border: solid 5px #000;
+    border-color: transparent transparent transparent #000;
+    border-radius: 50%;
+    z-index: 1;
+    margin-top: -45px;
+    right: 150px;
+    transform: rotate(20deg);
+} */
+#line3 {
+    width: 320px;
+    height: 100px;
+    border: dashed 10px;
+    border-color: transparent transparent rgb(0, 0, 0) transparent;
+    border-radius: 0 0 240px 50%/50px;
+    z-index: 1;
+    margin-left: -40px;
+    margin-top: 100px;
+    transform: rotate(2deg);
+}
+
+/* #line4 {
+    position: absolute;
+    width: 150px;
+    height: 800px;
+    border: solid 5px #000;
+    border-color: transparent transparent transparent #000;
+    border-radius: 50%;
+    z-index: 1;
+    top: -65px;
+    right: 120px;
+    transform: rotate(-15deg);
+} */
+
+.iconContainer {
+  position: relative;
+  width: 50px;
+  height: auto;
+  padding: 20px;
+  border-radius: 360px;
+  background: linear-gradient(180deg, #0080ff, #0072ff);
+  z-index: 5;
 }
 #pinButton {
-    font-size: 100px;
-    background: linear-gradient(to bottom,#D31027 0%,#EA384D 100%);
-    background-clip: text;
-    -webkit-text-fill-color:transparent;
-    font-weight: 100;
+  font-size: 80px;
+  background: linear-gradient(to bottom, #d31027 0%, #ea384d 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 100;
 }
