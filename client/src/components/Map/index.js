@@ -58,9 +58,7 @@ const Map = () => {
           });
           map.setFilter('traveled', ['in', 'ADM0_A3_IS'].concat(countryCode));
           // Let's build our HTML in a template tag
-          function addTraveledCountry(clicked_id) {
-            console.log(clicked_id)
-          }
+
           const html = `
             <div>
               <h3 class="country-name">${country.name}</h3>
@@ -70,11 +68,7 @@ const Map = () => {
               <button id=${country.name} class="traveled">Traveled<button>
               <button>Photos<button>
               </div>
-            <script type="text/javascript">
-            function addTraveledCountry(clicked_id){
-              console.log(clicked_id)
-            }
-            </script>
+         
            
           `; // Now we have a good looking popup HTML segment.
           new mapboxgl.Popup() //Create a new popup
@@ -84,7 +78,21 @@ const Map = () => {
 
           // Event listener for traveled counries
           $(".traveled").click(function () {
-            console.log(this.id)
+            map.addLayer({
+              'id': 'visited',
+              'source': {
+                'type': 'vector',
+                'url': 'mapbox://codingdavid.00075afe',
+              },
+              'source-layer': 'ne_10m_admin_0_countries-cdqk4p',
+              'type': 'fill',
+              'paint': {
+                'fill-color': '#63A583',
+                'fill-outline-color': '#111B1E'
+
+              },
+            });
+            map.setFilter('traveled', ['in', 'ADM0_A3_IS'].concat("ARG"));
           });
 
           // document.getElementById(country.name).onclick = addTraveledCountry;
