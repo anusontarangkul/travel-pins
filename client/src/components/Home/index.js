@@ -1,8 +1,15 @@
 import React from "react";
 import "./style.css";
 
-function Wrapper(props) {
-    return <main className="wrapper" {...props} />;
+function Home(props) {
+    return (
+      <div>
+        <p>Home</p>
+        <button>login</button>
+        <button>sign up</button>
+      </div>
+    )
   }
-  
-  export default Wrapper;
+
+
+  export default Home
