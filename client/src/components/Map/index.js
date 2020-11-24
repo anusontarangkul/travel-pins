@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import './style.css';
+import $ from "jquery";
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5cGV1ZnE2c2VsYiJ9.mOoyaL49RBuUijTy3MmiRw';
 
@@ -57,16 +58,23 @@ const Map = () => {
           });
           map.setFilter('traveled', ['in', 'ADM0_A3_IS'].concat(countryCode));
           // Let's build our HTML in a template tag
+          function addTraveledCountry(clicked_id) {
+            console.log(clicked_id)
+          }
           const html = `
             <div>
               <h3 class="country-name">${country.name}</h3>
               <img class="flag-icon" src='${country.flag}'/>
             </div>
             <div>
-              <button class="travled">Traveled<button>
+              <button id=${country.name} class="traveled">Traveled<button>
               <button>Photos<button>
               </div>
-
+            <script type="text/javascript">
+            function addTraveledCountry(clicked_id){
+              console.log(clicked_id)
+            }
+            </script>
            
           `; // Now we have a good looking popup HTML segment.
           new mapboxgl.Popup() //Create a new popup
@@ -75,11 +83,16 @@ const Map = () => {
             .addTo(map); // Add the popup to the map
 
           // Event listener for traveled counries
+          $(".traveled").click(function () {
+            console.log(this.id)
+          });
 
-          const addTraveledCountry = (country) => {
-            console.log(this.country.name)
-          }
-          document.querySelector(".travled").addEventListener("click", addTraveledCountry)
+          // document.getElementById(country.name).onclick = addTraveledCountry;
+
+
+          // var traveledID = document.querySelector(".travled")
+          // traveledID.addEventListener("click", addTraveledCountry())
+
 
         });
     });
