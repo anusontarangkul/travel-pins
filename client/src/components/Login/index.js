@@ -4,7 +4,10 @@ import API from "../../utils/API";
 
 function Login (){
 
-    const [loginState, setLogin] = useState({});
+    const [loginState, setLogin] = useState({
+        username: "",
+        password: ""
+    });
 
     const handleLogin = (event) => {
         event.preventDefault();
