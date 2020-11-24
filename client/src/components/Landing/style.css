@@ -106,6 +106,7 @@
   width: 50px;
   height: auto;
   padding: 20px;
+  margin-top: 20px;
   border-radius: 360px;
   background: linear-gradient(180deg, #0080ff, #0072ff);
   z-index: 5;
