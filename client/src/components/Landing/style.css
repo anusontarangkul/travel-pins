@@ -21,6 +21,9 @@
     font-size: 20px;
     text-align: left;
     margin-top: -50px;
+    /* background: linear-gradient(to right, #787ff6 0%, #4ADEDE 100%); */
+  /* background-clip: text;
+  -webkit-text-fill-color: transparent; */
     
   }
 .title {
@@ -29,6 +32,7 @@
   margin-left: 40px;
   font-family: "GothamPro";
   font-style: Bold;
+  
 }
 .sphereContainer {
     display: flex;
@@ -45,9 +49,9 @@
   padding: 20px;
   border-radius: 100%;
   background: radial-gradient(
-    circle at 250px 50px,
-    #ffffff,
-    hsla(0, 0%, 80%, 0.347)
+    circle at 400px -100px, #4ADEDE
+    20%, #0080ff
+    70%
   );
   z-index: 0;
   overflow: hidden;
@@ -106,14 +110,13 @@
   width: 50px;
   height: auto;
   padding: 20px;
-  margin-top: 20px;
   border-radius: 360px;
   background: linear-gradient(180deg, #0080ff, #0072ff);
   z-index: 5;
 }
 #pinButton {
   font-size: 150px;
-  background: linear-gradient(to bottom, #ee0979 0%, #ff6a00 100%);
+  background: linear-gradient(to bottom, #9AFF00 0%, #3DFF73 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   /* transform: rotate(270deg); */
