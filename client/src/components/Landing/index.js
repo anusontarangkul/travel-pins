@@ -1,9 +1,17 @@
 import React from "react";
+import $ from "jquery"
+import { findDOMNode } from "react-dom";
 import "./style.css";
 
 function Landing(props) {
 
 
+  // const displayNone = useRef(null);
+
+  // const handleClick = () => {
+  //   const fadeOut = findDOMNode(displayNone)
+  //   $(fadeOut).fadeOut();
+  // }
 
 
 
