@@ -5,7 +5,7 @@
   width: 100%;
   height: 100vh;
   background: linear-gradient(180deg, #00c6ff, #0072ff);
-  position: absolute;
+  position: relative;
   overflow: hidden;
 }
 .mainHeader {
@@ -14,6 +14,15 @@
   justify-content: space-around;
   margin-top: 20vh;
 }
+.mainSub {
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    text-align: left;
+    margin-top: -50px;
+    
+  }
 .title {
   font-size: 80px;
   text-align: left;
@@ -21,22 +30,28 @@
   font-family: "GothamPro";
   font-style: Bold;
 }
+.sphereContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
 .sphere {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  bottom: -250px;
-  right: -250px;
+  position: relative;
+  width: 800px;
+  height: 800px;
+  /* bottom: -250px;
+  right: -250px; */
   padding: 20px;
-  border-radius: 360px;
-  border-width: 10px rgb(255, 255, 255);
+  border-radius: 100%;
   background: radial-gradient(
-    circle at 100px 100px,
+    circle at 250px 50px,
     #ffffff,
-    hsla(0, 0%, 79%, 0.306)
+    hsla(0, 0%, 80%, 0.347)
   );
   z-index: 0;
   overflow: hidden;
+  box-shadow:0 30px 50px rgba(33, 33, 33, 0.662);
 }
 #line1 {
     position: absolute;
@@ -96,9 +111,9 @@
   z-index: 5;
 }
 #pinButton {
-  font-size: 80px;
-  background: linear-gradient(to bottom, #d31027 0%, #ea384d 100%);
+  font-size: 150px;
+  background: linear-gradient(to bottom, #ee0979 0%, #ff6a00 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 100;
+  /* transform: rotate(270deg); */
 }

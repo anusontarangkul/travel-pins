@@ -6,18 +6,24 @@ function Landing(props) {
     <div className="landing" {...props}>
       <div className="mainHeader">
         <h1 className="title">travel pins</h1>
-        <h1 className="space"></h1>
+        <h2 className="space"></h2>
+        
       </div>
-      {/* <div className="iconContainer">
-        <i className="material-icons material-icons-outlined" id="pinButton">
+      
+      <div className="mainSub">
+        <h2 className="subhead">Sharing the world.</h2>
+        <h2 className="space"></h2>
+      </div>
+      <i className="material-icons material-icons-outlined" id="pinButton">
           room
         </i>
-      </div> */}
-      <div className="sphere">
-        <div id="line1" />
-        <div id="line2" />
-        <div id="line3" />
-        <div id="line4" />
+      <div className="sphereContainer">
+        <div className="sphere">
+          {/* <div id="line1" />
+          <div id="line2" />
+          <div id="line3" />
+          <div id="line4" /> */}
+        </div>
       </div>
     </div>
   );
