@@ -29,9 +29,9 @@ function Signup (){
         <form >
             <h2>Signup</h2>
             <h5>firstname</h5>
-            <input id="firstname" name="firstname" autocomplete="off" className="input" type="text" onChange={(e) => handleChange(e)}/>
+            <input id="firstname" name="firstName" autocomplete="off" className="input" type="text" onChange={(e) => handleChange(e)}/>
             <h5>last name</h5>
-            <input id="lastname" name="lastname" autocomplete="off" className="input" type="text" onChange={(e) => handleChange(e)}/>
+            <input id="lastname" name="lastName" autocomplete="off" className="input" type="text" onChange={(e) => handleChange(e)}/>
             <h5>username</h5>
             <input id="username" name="username" autocomplete="off" className="input" type="text" onChange={(e) => handleChange(e)}/>
             <h5>email</h5>
