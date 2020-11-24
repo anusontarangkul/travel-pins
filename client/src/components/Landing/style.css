@@ -1,0 +1,120 @@
+@import url("https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css");
+@import url("https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp");
+
+.landing {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, #00c6ff, #0072ff);
+  position: relative;
+  overflow: hidden;
+}
+.mainHeader {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20vh;
+}
+.mainSub {
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    text-align: left;
+    margin-top: -50px;
+    
+  }
+.title {
+  font-size: 80px;
+  text-align: left;
+  margin-left: 40px;
+  font-family: "GothamPro";
+  font-style: Bold;
+}
+.sphereContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.sphere {
+  position: relative;
+  width: 800px;
+  height: 800px;
+  /* bottom: -250px;
+  right: -250px; */
+  padding: 20px;
+  border-radius: 100%;
+  background: radial-gradient(
+    circle at 250px 50px,
+    #ffffff,
+    hsla(0, 0%, 80%, 0.347)
+  );
+  z-index: 0;
+  overflow: hidden;
+  box-shadow:0 30px 50px rgba(33, 33, 33, 0.662);
+}
+#line1 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+    border: solid 5px #000;
+    border-color: transparent #000 #000 transparent;
+    border-radius: 50%;
+    z-index: 1;
+    margin-top: -40px;
+    right: 210px;
+}
+/* #line2 {
+    position: absolute;
+    width: 300px;
+    height: 450px;
+    border: solid 5px #000;
+    border-color: transparent transparent transparent #000;
+    border-radius: 50%;
+    z-index: 1;
+    margin-top: -45px;
+    right: 150px;
+    transform: rotate(20deg);
+} */
+#line3 {
+    width: 320px;
+    height: 100px;
+    border: dashed 10px;
+    border-color: transparent transparent rgb(0, 0, 0) transparent;
+    border-radius: 0 0 240px 50%/50px;
+    z-index: 1;
+    margin-left: -40px;
+    margin-top: 100px;
+    transform: rotate(2deg);
+}
+
+/* #line4 {
+    position: absolute;
+    width: 150px;
+    height: 800px;
+    border: solid 5px #000;
+    border-color: transparent transparent transparent #000;
+    border-radius: 50%;
+    z-index: 1;
+    top: -65px;
+    right: 120px;
+    transform: rotate(-15deg);
+} */
+
+.iconContainer {
+  position: relative;
+  width: 50px;
+  height: auto;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 360px;
+  background: linear-gradient(180deg, #0080ff, #0072ff);
+  z-index: 5;
+}
+#pinButton {
+  font-size: 150px;
+  background: linear-gradient(to bottom, #ee0979 0%, #ff6a00 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* transform: rotate(270deg); */
+}
