@@ -1,26 +1,31 @@
-import react, {useState , useRef} from "react";
+import react, {useState} from "react";
 import API from "../../utils/API";
 
 
 function Login (){
 
     const [loginState, setLogin] = useState({});
-    const userRef = useRef();
-    const passRef = useRef();
 
     const handleLogin = (event) => {
         event.preventDefault();
-        console.log(userRef.current.value);
-        console.log(passRef.current.value);
+        API.login(loginState)
+        .then(res => {
+            console.log("login success");
+            window.location.href = "/map";
+        })
+        .catch(err => {console.log(err)});
+    }
+    const handleChange = (event) =>{
+        setLogin({...loginState, [event.target.name]: event.target.value})
     }
 
     return (
         <form>
             <h2>login</h2>
             <h5>username</h5>
-            <input id="username" name="username" autocomplete="off" className="input" type="text" ref = {userRef}></input>
+            <input id="username" name="username" autocomplete="off" className="input" type="text" onChange={(e) => handleChange(e)}></input>
             <h5>password</h5>
-            <input id="password" name="password" autocomplete="off" className="input" type="password" ref = {passRef}/>
+            <input id="password" name="password" autocomplete="off" className="input" type="password" onChange={(e) => handleChange(e)}/>
             <button type="button" onClick={handleLogin}>Login</button>
         </form>
     )
