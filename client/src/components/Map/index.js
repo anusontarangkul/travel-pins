@@ -51,7 +51,7 @@ const Map = () => {
             'source-layer': 'ne_10m_admin_0_countries-cdqk4p',
             'type': 'fill',
             'paint': {
-              'fill-color': '#63A583',
+              'fill-color': '#e4dbd9',
               'fill-outline-color': '#111B1E',
 
             },
@@ -79,7 +79,7 @@ const Map = () => {
           // Event listener for traveled counries
           $(".traveled").click(function () {
             map.addLayer({
-              'id': 'visited',
+              'id': countryCode,
               'source': {
                 'type': 'vector',
                 'url': 'mapbox://codingdavid.00075afe',
@@ -92,7 +92,7 @@ const Map = () => {
 
               },
             });
-            map.setFilter('traveled', ['in', 'ADM0_A3_IS'].concat("ARG"));
+            map.setFilter(countryCode, ['in', 'ADM0_A3_IS'].concat(countryCode));
           });
 
           // document.getElementById(country.name).onclick = addTraveledCountry;
