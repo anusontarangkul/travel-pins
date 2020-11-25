@@ -8,12 +8,12 @@ router
 
   //maybe passport here 
 router
-  .post("/login/local", passport.authenticate("local"), function(req, res) {
+  .post("/login", passport.authenticate("local"), function(req, res) {
   res.json(req.user);});
 
 router
-  .route("/all")
-  .get(userController.findAllUser)
+  .route("/user_data")
+  .get(userController.findAllUserInfo)
 
 
 //maybe log out

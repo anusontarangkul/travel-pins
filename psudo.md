@@ -27,3 +27,24 @@ table for countries
 
  make a seed for countries 
 
+
+code for landing page not home page
+
+  const handleClick = (event) =>{
+    event.preventDefault();
+    //console.log(event.target.name)
+    if(event.target.name === "login"){
+      window.location.href = "/login";
+    }
+    else if(event.target.name === "signup"){
+      window.location.href = "/signup";
+    }
+  }
+    return (
+      <div>
+        <p>Home</p>
+        <button name="login" onClick={(e) => handleClick(e)}>login</button>
+        <button name="signup" onClick={(e) => handleClick(e)}>sign up</button>
+      </div>
+    )
+  }
