@@ -109,13 +109,49 @@
   z-index: 5;
 }
 #pinButton {
-  font-size: 150px;
-  background: linear-gradient(to bottom, #9aff00 0%, #3dff73 100%);
+  position: absolute;
+  right: -500px;
+  top: -40px;
+  font-size: 1000px;
+  background: white;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   /* transform: rotate(270deg); */
+  display:block;
+  opacity: .2;
+  transition: opacity .05s ease-in-out;
 }
 
+
+/* INSIDE BUTTON */
+
+/* #pinButton {
+    font-size: 60px;
+    background: white;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display:block;
+    opacity: 1;
+    transition: opacity .05s ease-in-out;
+  } */
+
+#globe {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 60px;
+    background: white;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .3s, visibility .04s ease-in-out;
+}
+
+#getStarted:hover #globe {
+    opacity: 0;
+    visibility: hidden;
+  }
 .container {
   display: flex;
   justify-content: space-around;
@@ -124,13 +160,14 @@
 #getStarted {
   width: 100px;
   height: 100px;
-  background: white;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
   border: none;
   box-shadow: 0 0 25px rgba(33, 33, 33, 0.662);
-  transition: all 0.4s ease-in-out;
+  transition: width 0.4s, border-radius 0.5s, box-shadow 0.5s, transform .3s, background .6s ease-in-out;
+  margin-top: 15vh;
+  background: linear-gradient(to left, #00F260 0%, #38ef7d 100%);
 }
 #getStarted:focus {
   outline: none;
@@ -140,12 +177,16 @@
   border-radius: 50px;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
   transform: translateY(-10px);
+  background: linear-gradient(to left, #EB3349 0%, #F45C43 100%);
+
 }
 .button-text {
   opacity: 0;
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   word-wrap: none !important;
   font-size: 20px;
+  /* font-family: "GothamPro"; */
+  color: white;
 }
 #getStarted:hover .button-text {
   opacity: 1;
@@ -169,3 +210,23 @@
     opacity: 0.01;
     transition: opacity 300ms ease-in;
   } */
+
+
+/* MOBILE */
+
+@media only screen and (max-width: 900px) {
+    #pinButton {
+        position: absolute;
+        right: -500px;
+        top: -40px;
+        font-size: 1000px;
+        background: white;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        /* transform: rotate(270deg); */
+        display:block;
+        opacity: .2;
+        transition: opacity .05s ease-in-out;
+        pointer-events: none;
+      }
+  }

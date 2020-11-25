@@ -19,8 +19,8 @@ function Landing(props) {
         <h2 className="space"></h2>
       </div>
       <i className="material-icons material-icons-outlined" id="pinButton">
-        room
-      </i>
+          room
+        </i>
       {/* {showContainer && (
         
         <div className="sphereContainer">
@@ -46,7 +46,10 @@ function Landing(props) {
     </CSSTransition> */}
     <div className="container">
       <button id="getStarted">
-        <h3 class="button-text">Get Started</h3>
+        <i class="material-icons" id="globe">
+        done
+        </i>
+        <h2 class="button-text">GET STARTED</h2>
       </button>
     </div>
     </div>
