@@ -45,9 +45,10 @@ function Landing(props) {
           </button>
     </CSSTransition> */}
     <div className="container">
-      <button id="getStarted" />
+      <button id="getStarted">
+        <h3 class="button-text">Get Started</h3>
+      </button>
     </div>
-      
     </div>
   );
 }
