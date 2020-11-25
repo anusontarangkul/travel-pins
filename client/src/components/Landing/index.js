@@ -4,8 +4,12 @@ import "./style.css";
 
 function Landing(props) {
 
-  const [showContainer, setShowContainer] = useState(true);
-  const [showLogin, setShowLogin] = useState(false);
+  // const [showContainer, setShowContainer] = useState(true);
+  // const [showLogin, setShowLogin] = useState(false);
+  
+  const handleClick = () => {
+    window.location.href = "/login";
+  }
 
   return (
     <div className="landing" {...props}>
@@ -44,8 +48,8 @@ function Landing(props) {
             Close
           </button>
     </CSSTransition> */}
-    <div className="container">
-      <button id="getStarted">
+    <div className="buttonContainer">
+      <button id="getStarted" onClick={handleClick}>
         <i class="material-icons" id="globe">
         done
         </i>

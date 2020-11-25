@@ -16,28 +16,26 @@ function App() {
     <div className="App">
 
 
-      {/* <Router>
+      <Router>
         <Wrapper>
 
           <Route exact path = "/">
-            <Home></Home>
+            <Landing/>
           </Route>
+            <Route exact path = "/login">
+              <Login/>
+            </Route>
 
-          <Route exact path = "/login">
-            <Login></Login>
-          </Route>
-
-          <Route exact path = "/signup">
-            <Signup></Signup>
-          </Route>
-
+            <Route exact path = "/signup">
+              <Signup/>
+            </Route>
           <Route exact path = "/map">
             <Map/>
             <Navbar/>
           </Route>
         </Wrapper>
-      </Router> */}
-     <Landing/>
+      </Router>
+     
 
     </div>
   );

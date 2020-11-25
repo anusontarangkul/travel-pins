@@ -1,0 +1,74 @@
+.login {
+    background:#fefefe;
+    height: 100vh;
+    overflow: hidden;
+}
+.logoHeader {
+    width: 100%;
+    background: linear-gradient(180deg, #00c6ff, #0072ff);
+    /* border-radius: 0  0 50px 50px ;
+    background: #fefefe; */
+    font-family: "GothamPro";
+    font-size: 0px;
+    text-align: left;
+    /* box-shadow: 0 10px 50px rgba(33, 33, 33, 0.573); */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.loginCard {
+    width: 80%;
+    height: 100vh;
+    border-radius: 50px  50px 0 0 ;
+    background: linear-gradient(180deg, #00F260 0%, #38ef7d 100%);
+    display: flex;
+    justify-content: space-around;
+    transition: 0.4s ease-out;
+    position: relative;
+    box-shadow: 0 10px 50px rgba(33, 33, 33, 0.573);
+}
+#loginTitle {
+    color: #fefefe;
+    margin-top: 50px;
+    font-size: 50px;
+}
+ 
+
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,500px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both
+}
+
+.animatedFadeInUp {
+    opacity: 0
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
