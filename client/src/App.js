@@ -7,6 +7,7 @@ import Map from './components/Map';
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import Landing from "./components/Landing";
 
 function App() {
   return (
@@ -14,21 +15,21 @@ function App() {
       <Router>
         <Wrapper>
 
-          <Route exact path = "/">
-            <Home></Home>
+          <Route exact path="/">
+            <Landing />
           </Route>
 
-          <Route exact path = "/login">
+          <Route exact path="/login">
             <Login></Login>
           </Route>
 
-          <Route exact path = "/signup">
+          <Route exact path="/signup">
             <Signup></Signup>
           </Route>
 
-          <Route exact path = "/map">
-            <Map/>
-            <Navbar/>
+          <Route exact path="/map">
+            <Map />
+            <Navbar />
           </Route>
         </Wrapper>
       </Router>

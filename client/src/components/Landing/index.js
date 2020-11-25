@@ -1,4 +1,6 @@
+
 import React, { useState } from "react";
+
 import { CSSTransition } from 'react-transition-group';
 import "./style.css";
 
@@ -12,7 +14,6 @@ function Landing(props) {
       <div className="mainHeader">
         <h1 className="title">travel pins</h1>
         <h2 className="space"></h2>
-
       </div>
       <div className="mainSub">
         <h2 className="subhead">Sharing the world.</h2>
