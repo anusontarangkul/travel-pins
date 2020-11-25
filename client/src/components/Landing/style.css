@@ -121,3 +121,39 @@
   -webkit-text-fill-color: transparent;
   /* transform: rotate(270deg); */
 }
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+#getStarted {
+    
+    width: 20%;
+    padding: 20px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 0 25px rgba(33, 33, 33, 0.662);
+    
+}
+
+
+
+/* ANIMATIONS */
+/* .alert-enter {
+    opacity: 0.01;
+  }
+  
+  .alert-enter.alert-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .alert-leave {
+    opacity: 1;
+  }
+  
+  .alert-leave.alert-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+  } */

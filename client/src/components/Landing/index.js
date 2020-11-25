@@ -1,20 +1,11 @@
-import React from "react";
-import $ from "jquery"
-import { findDOMNode } from "react-dom";
+import React, {useState} from "react";
+import { CSSTransition } from 'react-transition-group';
 import "./style.css";
 
 function Landing(props) {
 
-
-  // const displayNone = useRef(null);
-
-  // const handleClick = () => {
-  //   const fadeOut = findDOMNode(displayNone)
-  //   $(fadeOut).fadeOut();
-  // }
-
-
-
+  const [showContainer, setShowContainer] = useState(true);
+  const [showLogin, setShowLogin] = useState(false);
 
   return (
     <div className="landing" {...props}>
@@ -23,22 +14,40 @@ function Landing(props) {
         <h2 className="space"></h2>
         
       </div>
-      
       <div className="mainSub">
         <h2 className="subhead">Sharing the world.</h2>
         <h2 className="space"></h2>
       </div>
       <i className="material-icons material-icons-outlined" id="pinButton">
-          room
-        </i>
-      <div className="sphereContainer">
-        <div className="sphere">
-          {/* <div id="line1" />
-          <div id="line2" />
-          <div id="line3" />
-          <div id="line4" /> */}
+        room
+      </i>
+      {/* {showContainer && (
+        
+        <div className="sphereContainer">
+          <div className="sphere" onClick={() => setShowLogin(true)}>
+            <div id="line1" />
+            <div id="line2" />
+            <div id="line3" />
+            <div id="line4" />
+          </div>
         </div>
-      </div>
+      )}<CSSTransition
+      in={showLogin}
+      
+      timeout={300}
+      classNames="alert"
+      unmountOnExit
+      onEnter={() => setShowContainer(false)}
+      onExited={() => setShowContainer(true)}
+    >
+      <button onClick={() => setShowLogin(false)}>
+            Close
+          </button>
+    </CSSTransition> */}
+    <div className="container">
+      <button id="getStarted" />
+    </div>
+      
     </div>
   );
 }
