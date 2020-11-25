@@ -1,5 +1,8 @@
+
 import react, {useState} from "react";
 import API from "../../utils/API";
+
+import './style.css';
 
 function Signup (){
 

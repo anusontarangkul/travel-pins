@@ -4,6 +4,9 @@ import './App.css';
 import Wrapper from './components/Wrapper';
 import Navbar from './components/Navbar';
 import Map from './components/Map';
+
+import Landing from './components/Landing';
+
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -11,7 +14,9 @@ import Login from "./components/Login";
 function App() {
   return (
     <div className="App">
-      <Router>
+
+
+      {/* <Router>
         <Wrapper>
 
           <Route exact path = "/">
@@ -31,7 +36,9 @@ function App() {
             <Navbar/>
           </Route>
         </Wrapper>
-      </Router>
+      </Router> */}
+     <Landing/>
+
     </div>
   );
 }
