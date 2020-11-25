@@ -13,5 +13,9 @@ export default {
     saveCountry: function (country) {
         console.log(country);
         return axios.post("api/user/traveled", country)
+    },
+    //Get user countries to render in beginning
+    getCountry: function () {
+        return axios.get("api/user/saved")
     }
 };

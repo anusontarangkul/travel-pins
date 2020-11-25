@@ -24,5 +24,14 @@ module.exports = {
       CountryName: req.body.country,
       UserId: req.user.id
     })
+  },
+
+  findAllCountries: function (req, res) {
+    db.UserCountries.findAll({
+
+    })
+      .then((user) => res.json(user))
+      .catch((err) => res.status(422).json(err));
   }
+  //findaAlluser countries for user id (req.user.id)
 };

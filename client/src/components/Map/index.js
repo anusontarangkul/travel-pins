@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import './style.css';
 import $ from "jquery";
@@ -11,6 +11,25 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5c
 
 const Map = () => {
   const mapContainerRef = useRef(null);
+
+  // useState for countries users have been to
+  // useEffect to make API call  to userCountries
+  // setState of users
+  // render countries green in array in 2nd layer
+  // const [savedCountry, setSavedCountry] = useState([]);
+
+  useEffect(() => {
+    getCountryDb();
+  }, []);
+
+  const getCountryDb = () => {
+    API.getCountry()
+      .then(res => {
+        // setSavedCountry(res.data);
+        console.log(res.data)
+      }).catch(err => { console.log(err) });
+  }
+
 
   useEffect(() => {
     const map = new mapboxgl.Map({
