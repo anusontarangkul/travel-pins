@@ -1,8 +1,31 @@
-import react from "react";
+
+import react, {useState} from "react";
+import API from "../../utils/API";
 import './style.css';
 
+//login 
 function Login (){
+
+    const [loginState, setLogin] = useState({
+        username: "",
+        password: ""
+    });
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        API.login(loginState)
+        .then(res => {
+            console.log("login success");
+            window.location.href = "/map";
+        })
+        .catch(err => {console.log(err)});
+    }
+    const handleChange = (event) =>{
+        setLogin({...loginState, [event.target.name]: event.target.value})
+    }
+
     return (
+
         <div className="login">
             <div className="logoHeader">
                 <div className="container">
@@ -39,6 +62,7 @@ function Login (){
             </div>
             
         </div>
+
     )
 }
 
