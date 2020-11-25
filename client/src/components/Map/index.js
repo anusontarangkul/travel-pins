@@ -83,7 +83,7 @@ const Map = () => {
           // Event listener for traveled counries
           $(".traveled").click(function () {
             console.log(typeof countryCode)
-            API.saveCountry(countryCode).then(res => { console.log("saved") }).catch(err => (console.log(err)))
+            API.saveCountry({ country: countryCode }).then(res => { console.log("saved") }).catch(err => (console.log(err)))
             map.addLayer({
               'id': countryCode,
               'source': {
