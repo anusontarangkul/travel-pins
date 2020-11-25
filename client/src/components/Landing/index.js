@@ -6,7 +6,9 @@ function Landing(props) {
 
   const [showContainer, setShowContainer] = useState(true);
   const [showLogin, setShowLogin] = useState(false);
-
+  const handleClick = () => {
+    window.location.href = "/login";
+  }
   return (
     <div className="landing" {...props}>
       <div className="mainHeader">
@@ -45,7 +47,7 @@ function Landing(props) {
           </button>
     </CSSTransition> */}
     <div className="container">
-      <button id="getStarted">
+      <button onClick = {handleClick} id="getStarted">
         <i class="material-icons" id="globe">
         done
         </i>
