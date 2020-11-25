@@ -1,4 +1,5 @@
 import react from "react";
+import './style.css';
 
 function Login (){
     return (
