@@ -25,16 +25,6 @@ function Login() {
     }
 
     return (
-<<<<<<< HEAD
-        <form>
-            <h2>login</h2>
-            <h5>username</h5>
-            <input id="username" name="username" autocomplete="off" className="input" type="text" onChange={(e) => handleChange(e)}></input>
-            <h5>password</h5>
-            <input id="password" name="password" autocomplete="off" className="input" type="password" onChange={(e) => handleChange(e)} />
-            <button type="button" onClick={handleLogin}>Login</button>
-        </form>
-=======
 
         <div className="login">
             <div className="logoHeader">
@@ -52,7 +42,7 @@ function Login() {
                         <h5>username</h5>
                         <input id="username" name="username" autocomplete="off" class="input" type="text" ></input>
                         <h5>password</h5>
-                        <input id="password" name="password" autocomplete="off" class="input" type="password"/>
+                        <input id="password" name="password" autocomplete="off" class="input" type="password" />
                     </form>
                 </div>
             </div>
@@ -60,20 +50,19 @@ function Login() {
 
 
             <div className="loginC container">
-            <div className="loginCard animatedS animatedFadeInUp fadeInUp">
-                <h1 id="loginTitle">LOGIN</h1>
-                <form>
-                    <h5>username</h5>
-                    <input id="username" name="username" autocomplete="off" class="input" type="text" ></input>
-                    <h5>password</h5>
-                    <input id="password" name="password" autocomplete="off" class="input" type="password"/>
-                </form>
+                <div className="loginCard animatedS animatedFadeInUp fadeInUp">
+                    <h1 id="loginTitle">LOGIN</h1>
+                    <form>
+                        <h5>username</h5>
+                        <input id="username" name="username" autocomplete="off" class="input" type="text" ></input>
+                        <h5>password</h5>
+                        <input id="password" name="password" autocomplete="off" class="input" type="password" />
+                    </form>
+                </div>
             </div>
-            </div>
-            
+
         </div>
 
->>>>>>> main
     )
 }
 
