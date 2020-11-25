@@ -18,10 +18,10 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   addTraveled: function (req, res) {
-    console.log(req.body.countryCode)
+    console.log(req.body)
     console.log(req.user)
     db.UserCountries.create({
-      CountryName: req.body,
+      CountryName: req.body.country,
       UserId: req.user.id
     })
   }

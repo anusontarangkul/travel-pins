@@ -11,6 +11,7 @@ export default {
     },
     // Country Code Post
     saveCountry: function (country) {
+        console.log(country);
         return axios.post("api/user/traveled", country)
     }
 };
