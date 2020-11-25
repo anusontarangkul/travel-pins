@@ -22,22 +22,20 @@ function App() {
           <Route exact path = "/">
             <Landing/>
           </Route>
+            <Route exact path = "/login">
+              <Login/>
+            </Route>
 
-          <Route exact path = "/login">
-            <Login></Login>
-          </Route>
-
-          <Route exact path = "/signup">
-            <Signup></Signup>
-          </Route>
-
+            <Route exact path = "/signup">
+              <Signup/>
+            </Route>
           <Route exact path = "/map">
             <Map/>
             <Navbar/>
           </Route>
         </Wrapper>
       </Router>
-     <Landing/>
+
 
     </div>
   );
