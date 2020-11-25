@@ -16,11 +16,11 @@ function App() {
     <div className="App">
 
 
-      {/* <Router>
+      <Router>
         <Wrapper>
 
           <Route exact path = "/">
-            <Home></Home>
+            <Landing/>
           </Route>
 
           <Route exact path = "/login">
@@ -36,7 +36,7 @@ function App() {
             <Navbar/>
           </Route>
         </Wrapper>
-      </Router> */}
+      </Router>
      <Landing/>
 
     </div>
