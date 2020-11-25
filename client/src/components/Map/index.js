@@ -16,7 +16,8 @@ const Map = () => {
   // useEffect to make API call  to userCountries
   // setState of users
   // render countries green in array in 2nd layer
-  // const [savedCountry, setSavedCountry] = useState([]);
+
+  const [savedCountry, setSavedCountry] = useState([]);
 
   useEffect(() => {
     getCountryDb();
@@ -25,11 +26,17 @@ const Map = () => {
   const getCountryDb = () => {
     API.getCountry()
       .then(res => {
-        // setSavedCountry(res.data);
-        console.log(res.data)
+        for (let i = 0; i < res.data.length; i++) {
+
+          console.log(res.data[i].CountryName)
+          setSavedCountry(res.data[i].CountryName);
+        }
+
+
       }).catch(err => { console.log(err) });
   }
 
+  // const savedCountryLayers = savedCountry.map
 
   useEffect(() => {
     const map = new mapboxgl.Map({

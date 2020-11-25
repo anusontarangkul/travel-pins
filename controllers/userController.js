@@ -28,7 +28,9 @@ module.exports = {
 
   findAllCountries: function (req, res) {
     db.UserCountries.findAll({
-
+      where: {
+        UserId: req.user.id,
+      }
     })
       .then((user) => res.json(user))
       .catch((err) => res.status(422).json(err));
