@@ -16,8 +16,10 @@
     -webkit-text-fill-color: transparent;
 }
 .loginCard {
+    
     width: 80%;
-    height: 100vh;
+    height: 600px;
+    margin-top: 100px;
     border-radius: 50px  50px 0 0 ;
     background: linear-gradient(180deg, #00F260 0%, #38ef7d 100%);
     display: flex;
@@ -25,12 +27,33 @@
     transition: 0.4s ease-out;
     position: relative;
     box-shadow: 0 10px 50px rgba(33, 33, 33, 0.573);
+    z-index: 5;
 }
 #loginTitle {
     color: #fefefe;
     margin-top: 50px;
     font-size: 50px;
 }
+.signupC {
+    position: absolute;
+}
+.signupCard {
+    position: absolute;
+    width: 70%;
+    height: 600px;
+    margin-top: 50px;
+    border-radius: 50px  50px 0 0 ;
+    background: linear-gradient(to left, #EB3349 0%, #F45C43 100%);
+    display: flex;
+    justify-content: space-around;
+    transition: 0.4s ease-out;
+    position: relative;
+    box-shadow: 0 10px 50px rgba(33, 33, 33, 0.573);
+    z-index: 0;
+}
+
+
+
  
 
 
@@ -60,6 +83,13 @@
     animation-duration: 1s;
     animation-fill-mode: both;
     -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both
+}
+
+.animatedS {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 2s;
     -webkit-animation-fill-mode: both
 }
 

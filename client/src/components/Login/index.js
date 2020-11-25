@@ -12,21 +12,7 @@ function Login (){
                     <h2 className="subhead">Sharing the world.</h2>
                 </div>
             </div>
-            <div className="signup">
-                <h2 className="signupTitle">signup</h2>
-            </div>
-            <div className="container">
-            <div className="loginCard animated animatedFadeInUp fadeInUp">
-                <h1 id="loginTitle">LOGIN</h1>
-                <form>
-                    <h5>username</h5>
-                    <input id="username" name="username" autocomplete="off" class="input" type="text" ></input>
-                    <h5>password</h5>
-                    <input id="password" name="password" autocomplete="off" class="input" type="password"/>
-                </form>
-            </div>
-            </div>
-            <div className="container">
+            <div className="signupC container">
             <div className="signupCard animated animatedFadeInUp fadeInUp">
                 <h1 id="signupTitle">Signup</h1>
                 <form>
@@ -37,6 +23,21 @@ function Login (){
                 </form>
             </div>
             </div>
+
+
+
+            <div className="loginC container">
+            <div className="loginCard animatedS animatedFadeInUp fadeInUp">
+                <h1 id="loginTitle">LOGIN</h1>
+                <form>
+                    <h5>username</h5>
+                    <input id="username" name="username" autocomplete="off" class="input" type="text" ></input>
+                    <h5>password</h5>
+                    <input id="password" name="password" autocomplete="off" class="input" type="password"/>
+                </form>
+            </div>
+            </div>
+            
         </div>
     )
 }
