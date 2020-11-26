@@ -39,7 +39,9 @@
     box-shadow: 0 0 30px rgba(33, 33, 33, 0.573);
     z-index: 0;
 }
-
+.inputSize{
+    height: 50px;
+}
 #loginTitle {
     color: #fefefe;
     margin-top: 50px;
