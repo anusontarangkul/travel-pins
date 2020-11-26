@@ -13,5 +13,8 @@ export default {
     saveCountry: function (country) {
         console.log(country);
         return axios.post("api/user/traveled", country)
+    },
+    logout: function(){
+        return axios.get("api/user/logout")
     }
 };

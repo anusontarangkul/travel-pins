@@ -20,7 +20,10 @@ router
   .route("/traveled")
   .post(userController.addTraveled)
 
-//maybe log out
+router
+  .route("/logout")
+  .get(userController.logout)
+
 
 
 module.exports = router;
