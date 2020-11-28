@@ -24,5 +24,11 @@ module.exports = {
       CountryName: req.body.country,
       UserId: req.user.id
     })
+  },
+  logout: function(req, res) {
+    console.log("logged out");
+    req.logout();
+    res.redirect('/');
   }
+
 };
