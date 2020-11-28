@@ -17,5 +17,9 @@ export default {
     //Get user countries to render in beginning
     getCountry: function () {
         return axios.get("api/user/saved")
+
+    },
+    logout: function () {
+        return axios.get("api/user/logout")
     }
 };

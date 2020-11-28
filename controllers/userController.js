@@ -34,6 +34,12 @@ module.exports = {
     })
       .then((user) => res.json(user))
       .catch((err) => res.status(422).json(err));
-  }
+  },
   //findaAlluser countries for user id (req.user.id)
+  logout: function (req, res) {
+    console.log("logged out");
+    req.logout();
+    res.redirect('/');
+  }
+
 };

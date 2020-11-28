@@ -25,8 +25,15 @@ router
 
   .post(userController.addTraveled)
 
+<<<<<<< HEAD
 
 //maybe log out
+=======
+router
+  .route("/logout")
+  .get(userController.logout)
+
+>>>>>>> main
 
 
 module.exports = router;
