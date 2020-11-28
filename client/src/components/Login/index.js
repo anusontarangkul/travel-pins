@@ -1,4 +1,3 @@
-
 import react, { useState } from "react";
 import API from "../../utils/API";
 import './style.css';
@@ -27,10 +26,6 @@ function Login() {
             })
             .catch(err => { console.log(err) });
     }
-<<<<<<< HEAD
-    const handleChange = (event) => {
-        setLogin({ ...loginState, [event.target.name]: event.target.value })
-=======
     const handleSignup = (event) => {
         event.preventDefault();
         //console.log(signupState);
@@ -42,9 +37,8 @@ function Login() {
             .catch(err => { console.log(err) });
 
     }
-    const handleLoginChange = (event) =>{
-        setLogin({...loginState, [event.target.name]: event.target.value})
->>>>>>> main
+    const handleLoginChange = (event) => {
+        setLogin({ ...loginState, [event.target.name]: event.target.value })
     }
     const handleSignupChange = (event) => {
         setSignupState({ ...signupState, [event.target.name]: event.target.value })
@@ -64,22 +58,18 @@ function Login() {
             <div className="signupC container">
                 <div className="signupCard animated animatedFadeInUp fadeInUp">
                     <h1 id="signupTitle">Signup</h1>
-                    <form className = "inputSize">
+                    <form className="inputSize">
                         <h5>firstname</h5>
                         <input id="firstname" name="firstName" autocomplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         <h5>last name</h5>
-                        <input id="lastname" name="lastName" autocomplete="off" className="input" type="text"  onChange={(e) => handleSignupChange(e)}/>
+                        <input id="lastname" name="lastName" autocomplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         <h5>username</h5>
-                        <input id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleSignupChange(e)}/>
+                        <input id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         <h5>email</h5>
                         <input id="email" name="email" autocomplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         <h5>password</h5>
-<<<<<<< HEAD
-                        <input id="password" name="password" autocomplete="off" class="input" type="password" />
-=======
-                        <input id="password" name="password" autocomplete="off" class="input" type="password" onChange={(e) => handleSignupChange(e)}/>
+                        <input id="password" name="password" autocomplete="off" class="input" type="password" onChange={(e) => handleSignupChange(e)} />
                         <button type="button" onClick={handleSignup}>Signup</button>
->>>>>>> main
                     </form>
                 </div>
             </div>
@@ -87,28 +77,16 @@ function Login() {
 
 
             <div className="loginC container">
-<<<<<<< HEAD
                 <div className="loginCard animatedS animatedFadeInUp fadeInUp">
                     <h1 id="loginTitle">LOGIN</h1>
                     <form>
                         <h5>username</h5>
-                        <input id="username" name="username" autocomplete="off" class="input" type="text" ></input>
+                        <input id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleLoginChange(e)}></input>
                         <h5>password</h5>
-                        <input id="password" name="password" autocomplete="off" class="input" type="password" />
+                        <input id="password" name="password" autocomplete="off" class="input" type="password" onChange={(e) => handleLoginChange(e)} />
+                        <button type="button" onClick={handleLogin}>login</button>
                     </form>
                 </div>
-=======
-            <div className="loginCard animatedS animatedFadeInUp fadeInUp">
-                <h1 id="loginTitle">LOGIN</h1>
-                <form>
-                    <h5>username</h5>
-                    <input id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleLoginChange(e)}></input>
-                    <h5>password</h5>
-                    <input id="password" name="password" autocomplete="off" class="input" type="password" onChange={(e) => handleLoginChange(e)}/>
-                    <button type="button" onClick={handleLogin}>login</button>
-                </form>
-            </div>
->>>>>>> main
             </div>
 
         </div>
