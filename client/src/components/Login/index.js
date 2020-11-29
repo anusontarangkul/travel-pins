@@ -58,7 +58,7 @@ function Login() {
 
             <div className="signupC container">
                 <div className="signupCard animated animatedFadeInUp fadeInUp">
-                    <h1 className="formTitle">Signup</h1>
+                    <h1 className="formTitle">Sign Up</h1>
                     <form>
                         <h5>username</h5>
                         <input id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleSignupChange(e)} />
@@ -67,7 +67,7 @@ function Login() {
                         <input id="email" name="email" autocomplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         <h5>password</h5>
                         <input id="password" name="password" autocomplete="off" class="input" type="password" onChange={(e) => handleSignupChange(e)} />
-                        <button type="button" onClick={handleSignup}>Signup</button>
+                        <button type="button" onClick={handleSignup}>Sign Up</button>
                     </form>
                 </div>
             </div>
@@ -75,13 +75,13 @@ function Login() {
 
             <div className="loginC container">
                 <div className="loginCard animatedS animatedFadeInUp fadeInUp">
-                    <h1 className="formTitle active">Login</h1>
+                    <h1 className="formTitle active">Sign In</h1>
                     <form>
                         <h5>username</h5>
                         <input id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleLoginChange(e)}></input>
                         <h5>password</h5>
                         <input id="password" name="password" autocomplete="off" class="input" type="password" onChange={(e) => handleLoginChange(e)}/>
-                        <button type="button" onClick={handleLogin}>Login</button>
+                        <button type="button" onClick={handleLogin}>Sign In</button>
                     </form>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 .navbar {
     width: 100%;
-    height: 140px;
+    height: 100px;
     display: grid;
     background: #ffffff;
     position: fixed;
@@ -18,11 +18,21 @@
     left: 10%; */
 }
 
-.material-icons.material-icons-outlined {
-    line-height: 150px;
-    font-size: 80px;
+.navicon {
+    line-height: 110px !important;
+    font-size: 60px !important;
     color: #f4f4f4;
     background: linear-gradient(100deg, #00c6ff, #0073ffc3);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+@media only screen and (min-width: 800px) {
+    .navbar {
+        height: 160px;
+      }
+      .navicon {
+        line-height: 160px !important;
+        font-size: 80px !important;
+      }
+  }
