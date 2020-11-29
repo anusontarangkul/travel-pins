@@ -64,12 +64,8 @@ function Login() {
                         <h5>last name</h5>
                         <input id="lastname" name="lastName" autocomplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         <h5>username</h5>
-<<<<<<< HEAD
                         <input id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleSignupChange(e)} />
-=======
-                        <input id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleSignupChange(e)}/>
 
->>>>>>> main
                         <h5>email</h5>
                         <input id="email" name="email" autocomplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         <h5>password</h5>
