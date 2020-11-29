@@ -172,6 +172,7 @@ const Map = ({setCountry, setPopup}) => {
                 "fill-outline-color": "#111B1E",
               },
             });
+            
             map.setFilter(
               countryCode,
               ["in", "ADM0_A3_IS"].concat(countryCode)
