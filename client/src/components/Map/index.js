@@ -7,10 +7,9 @@ import API from "../../utils/API";
 // username: dave
 // password: password
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5cGV1ZnE2c2VsYiJ9.mOoyaL49RBuUijTy3MmiRw";
+mapboxgl.accessToken = "pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5cGV1ZnE2c2VsYiJ9.mOoyaL49RBuUijTy3MmiRw";
 
-const Map = () => {
+const Map = ({setCountry, setPopup}) => {
   const mapContainerRef = useRef(null);
 
   // useState for countries users have been to
@@ -92,6 +91,12 @@ const Map = () => {
       }
       getCountryDb();
     });
+
+   map.on("click", function(){
+    setPopup(false);
+   });
+
+
     map.on("click", "countries", function (mapElement) {
       const countryCode = mapElement.features[0].properties.ADM0_A3_IS;
 
@@ -130,24 +135,25 @@ const Map = () => {
           map.setFilter("traveled", ["in", "ADM0_A3_IS"].concat(countryCode));
           // Let's build our HTML in a template tag
 
+          setCountry(country);
+          setPopup(true);
+          if (document.getElementsByClassName("popupBox") === 0) {
+            
+            console.log("hit")
+          }
           const html = `
-            <article class="popup">
-              <h3 class="country-name">${country.name}</h3>
-              <img class="flag-icon" src='${country.flag}'/>
+            <div class="popupBox">
+              
             </div>
-            <div>
-              <button id=${country.name} class="traveled">Traveled</button>
-              <button>Photos</button>
-            </article>
          
            
           `;
           // Now we have a good looking popup HTML segment.
 
-          new mapboxgl.Popup() //Create a new popup
-            .setLngLat(mapElement.lngLat) // Set where we want it to appear (where we clicked)
-            .setHTML(html) // Add the HTML we just made to the popup
-            .addTo(map); // Add the popup to the map
+          // new mapboxgl.Popup() //Create a new popup
+          //   .setLngLat(mapElement.lngLat) // Set where we want it to appear (where we clicked)
+          //   .setHTML(html).setMaxWidth("none") // Add the HTML we just made to the popup
+          //   .addTo(map); // Add the popup to the map
 
           // Event listener for traveled counries (On Click)
           $(".traveled").click(function () {
@@ -187,6 +193,7 @@ const Map = () => {
     //Add Geocoder (Search)
 
     // clean up on unmount
+    
     return () => map.remove();
   }, []);
 
