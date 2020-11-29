@@ -4,6 +4,7 @@ import "./style.css";
 
 function Landing(props) {
 
+
   // const [showContainer, setShowContainer] = useState(true);
   // const [showLogin, setShowLogin] = useState(false);
   
@@ -48,8 +49,10 @@ function Landing(props) {
             Close
           </button>
     </CSSTransition> */}
+
     <div className="buttonContainer">
       <button id="getStarted" onClick={handleClick}>
+
         <i class="material-icons" id="globe">
         done
         </i>

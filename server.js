@@ -12,7 +12,10 @@ var db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+//using static for production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 //passport 
 app.use(session({ secret: "pinwin", resave: true, saveUninitialized: true }));
 // initializes passport 
