@@ -64,18 +64,18 @@ const Map = () => {
           // Let's build our HTML in a template tag
 
           const html = `
-            <div>
+            <article class="popup">
               <h3 class="country-name">${country.name}</h3>
               <img class="flag-icon" src='${country.flag}'/>
             </div>
             <div>
               <button id=${country.name} class="traveled">Traveled</button>
               <button>Photos</button>
-              </div>
+            </article>
          
            
           `; // Now we have a good looking popup HTML segment.
-          new mapboxgl.Popup() //Create a new popup
+          const popup = new mapboxgl.Popup() //Create a new popup
             .setLngLat(mapElement.lngLat) // Set where we want it to appear (where we clicked)
             .setHTML(html) // Add the HTML we just made to the popup
             .addTo(map); // Add the popup to the map
@@ -98,6 +98,7 @@ const Map = () => {
 
               },
             });
+            $(".mapboxgl-popup").fadeOut();
             map.setFilter(countryCode, ['in', 'ADM0_A3_IS'].concat(countryCode));
           });
 

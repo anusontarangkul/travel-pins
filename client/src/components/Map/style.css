@@ -17,7 +17,18 @@
   height: 2rem;
   width: auto;
 }
+
 .mapboxgl-popup-content {
  border-radius: 25px;
- width: 80%;
+ 
+ 
+}
+
+.mapboxgl-popup{
+  transform:none !important;
+}
+.mapboxgl-popup-tip{display:none;}
+.mapboxgl-popup-close-button {
+  outline: none;
+  padding: 10px;
 }
