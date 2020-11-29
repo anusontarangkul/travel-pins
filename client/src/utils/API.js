@@ -18,5 +18,14 @@ export default {
     Upload: function (imageData) {
         console.log("hit image data");
         return axios.post("api/user/upload", imageData)
+
+    },
+        //Get user countries to render in beginning
+    getCountry: function () {
+        return axios.get("api/user/saved")
+
+    },
+    logout: function () {
+        return axios.get("api/user/logout")
     }
 };

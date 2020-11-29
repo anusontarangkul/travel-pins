@@ -16,11 +16,14 @@
     -webkit-text-fill-color: transparent;
 }
 .loginCard {
-    width: 80%;
+    width: 100%;
     height: 600px;
-    border-radius: 50px  50px 0 0 ;
+    padding: 0 20px;
+    border-radius: 50px;
     background: linear-gradient(180deg, #00F260 0%, #38ef7d 100%);
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     transition: 0.4s ease-out;
     position: relative;
@@ -29,30 +32,33 @@
 }
 
 .signupCard {
-    width: 70%;
+    width: 80%;
     height: 500px;
+    padding: 0 20px;
     border-radius: 50px;
     background: linear-gradient(to left, #EB3349 0%, #F45C43 100%);
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     position: relative;
     box-shadow: 0 0 30px rgba(33, 33, 33, 0.573);
     z-index: 0;
-}
-.inputSize{
-    height: 50px;
-}
-#loginTitle {
-    color: #fefefe;
-    margin-top: 50px;
-    font-size: 50px;
+    transition: width .5s, box-shadow .5s ease-in-out;
 }
 
-#signupTitle {
+.formTitle {
     color: #fefefe;
-    margin-top: 50px;
-    font-size: 50px;
+    margin-top: -20px;
+    font-size: 60px;
+    padding-bottom: -40px;
+    /* transform: rotate(-90deg); */
 }
+.formTitle.active{
+    font-size: 80px;
+}
+
+
 .signupC {
     position: fixed;
     margin-top: 50px;
@@ -61,6 +67,10 @@
 
 .signupC:hover {
     transform: translateY(-250px);
+}
+.signupC:hover .signupCard{
+    width: 85%;
+    box-shadow: 0 -5px 20px rgba(33, 33, 33, 0.573);
 }
 .loginC {
     margin-top: 100px;

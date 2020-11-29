@@ -17,10 +17,18 @@ router
   .get(userController.findAllUserInfo)
 
 router
+  .route("/saved")
+  .get(userController.findAllCountries)
+
+router
   .route("/traveled")
+
   .post(userController.addTraveled)
 
-//maybe log out
+router
+  .route("/logout")
+  .get(userController.logout)
+
 
 router
   .route("/upload")

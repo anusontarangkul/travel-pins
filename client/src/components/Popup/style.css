@@ -1,0 +1,25 @@
+
+.popupContainer{
+  position: fixed ;
+  bottom: 0;
+  width: 100%;
+  height: 350px;
+  display: flex ;
+  border-radius: 25px;
+  background: linear-gradient(100deg, #00c6ff, #0072ff);
+  justify-content: center;
+}
+
+.countryTitle {
+  width: 100vw;
+}
+
+.contentWrap {
+  display: flex;
+  justify-content: space-around;
+}
+
+#traveledbtn {
+  width: 100px;
+  height: 50px;
+}
