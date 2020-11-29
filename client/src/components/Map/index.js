@@ -69,8 +69,8 @@ const Map = () => {
               <img class="flag-icon" src='${country.flag}'/>
             </div>
             <div>
-              <button id=${country.name} class="traveled">Traveled<button>
-              <button>Photos<button>
+              <button id=${country.name} class="traveled">Traveled</button>
+              <button>Photos</button>
               </div>
          
            
@@ -80,7 +80,7 @@ const Map = () => {
             .setHTML(html) // Add the HTML we just made to the popup
             .addTo(map); // Add the popup to the map
 
-          // Event listener for traveled counries
+          // Event listener for traveled counries (On Click)
           $(".traveled").click(function () {
             console.log(typeof countryCode)
             API.saveCountry({ country: countryCode }).then(res => { console.log("saved") }).catch(err => (console.log(err)))

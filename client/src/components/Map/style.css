@@ -17,3 +17,6 @@
   height: 2rem;
   width: auto;
 }
+.mapboxgl-popup-content {
+ border-radius: 25px;
+}
