@@ -78,9 +78,10 @@ function Login() {
                     <h1 className="formTitle active">Login</h1>
                     <form>
                         <h5>username</h5>
-                        <input id="username" name="username" autocomplete="off" class="input" type="text" ></input>
+                        <input id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleLoginChange(e)}></input>
                         <h5>password</h5>
-                        <input id="password" name="password" autocomplete="off" class="input" type="password"/>
+                        <input id="password" name="password" autocomplete="off" class="input" type="password" onChange={(e) => handleLoginChange(e)}/>
+                        <button type="button" onClick={handleLogin}>Login</button>
                     </form>
                 </div>
             </div>
