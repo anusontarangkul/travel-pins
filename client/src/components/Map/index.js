@@ -91,11 +91,10 @@ const Map = ({setCountry, setPopup}) => {
       }
       getCountryDb();
     });
-
+    // Every Click on map popup is false
    map.on("click", function(){
     setPopup(false);
    });
-
 
     map.on("click", "countries", function (mapElement) {
       const countryCode = mapElement.features[0].properties.ADM0_A3_IS;
@@ -133,21 +132,18 @@ const Map = ({setCountry, setPopup}) => {
             },
           });
           map.setFilter("traveled", ["in", "ADM0_A3_IS"].concat(countryCode));
-          // Let's build our HTML in a template tag
+          // Call Popup Component
 
           setCountry(country);
           setPopup(true);
-          if (document.getElementsByClassName("popupBox") === 0) {
-            
-            console.log("hit")
-          }
-          const html = `
-            <div class="popupBox">
+        
+          // const html = `
+          //   <div class="popupBox">
               
-            </div>
+          //   </div>
          
            
-          `;
+          // `;
           // Now we have a good looking popup HTML segment.
 
           // new mapboxgl.Popup() //Create a new popup
@@ -156,7 +152,7 @@ const Map = ({setCountry, setPopup}) => {
           //   .addTo(map); // Add the popup to the map
 
           // Event listener for traveled counries (On Click)
-          $(".traveled").click(function () {
+          $("#traveledbtn").click(function () {
             console.log(typeof countryCode);
             API.saveCountry({ country: countryCode })
               .then((res) => {
@@ -176,7 +172,6 @@ const Map = ({setCountry, setPopup}) => {
                 "fill-outline-color": "#111B1E",
               },
             });
-            $(".mapboxgl-popup").fadeOut();
             map.setFilter(
               countryCode,
               ["in", "ADM0_A3_IS"].concat(countryCode)
