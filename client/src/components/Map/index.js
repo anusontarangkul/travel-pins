@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import './style.css';
 import $ from "jquery";
@@ -12,7 +12,23 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5c
 const Map = () => {
   const mapContainerRef = useRef(null);
 
+  // useState for countries users have been to
+  // useEffect to make API call  to userCountries
+  // setState of users
+  // render countries green in array in 2nd layer
+
+  // const [savedCountry, setSavedCountry] = useState([]);
+
+  // useEffect(() => {
+
+  // }, []);
+
+
+
+  // const savedCountryLayers = savedCountry.map
+
   useEffect(() => {
+
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/codingdavid/ckhtww0zw4dbf19qin49td8jk',
@@ -38,7 +54,44 @@ const Map = () => {
         },
       });
       // map.setFilter('countries', ['in', 'ADM0_A3_IS'].concat(['USA', 'AUS', 'NGA']));
+      const getCountryDb = () => {
+        API.getCountry()
+          .then(res => {
+            // for (let i = 0; i < res.data.length; i++) {
+            res.data.forEach(function (country) {
+
+              // console.log(res.data[i].CountryName)
+              // setSavedCountry(res.data[i].CountryName);
+
+              console.log(country.CountryName)
+              map.addLayer({
+                // 'id': res.data[i].CountryName,
+                'id': country.CountryName,
+                'source': {
+                  'type': 'vector',
+                  'url': 'mapbox://codingdavid.00075afe',
+                },
+                'source-layer': 'ne_10m_admin_0_countries-cdqk4p',
+                'type': 'fill',
+                'paint': {
+                  'fill-color': '#63A583',
+                  'fill-outline-color': '#111B1E'
+
+                },
+              });
+              map.setFilter(country.CountryName, ['in', 'ADM0_A3_IS'].concat(country.CountryName));
+
+
+            })
+
+
+          }).catch(err => { console.log(err) });
+      }
+      getCountryDb();
     });
+
+
+
     map.on('click', 'countries', function (mapElement) {
       const countryCode = mapElement.features[0].properties.ADM0_A3_IS;
 
