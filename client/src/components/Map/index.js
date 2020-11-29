@@ -4,12 +4,13 @@ import './style.css';
 import $ from "jquery";
 import API from "../../utils/API"
 
+
 // username: dave
 // password: password
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5cGV1ZnE2c2VsYiJ9.mOoyaL49RBuUijTy3MmiRw';
 
-const Map = () => {
+const Map = ({setCountryState, setUploadState}) => {
   const mapContainerRef = useRef(null);
 
   useEffect(() => {
@@ -39,6 +40,8 @@ const Map = () => {
       });
       // map.setFilter('countries', ['in', 'ADM0_A3_IS'].concat(['USA', 'AUS', 'NGA']));
     });
+    
+
     map.on('click', 'countries', function (mapElement) {
       const countryCode = mapElement.features[0].properties.ADM0_A3_IS;
 
@@ -62,23 +65,27 @@ const Map = () => {
           });
           map.setFilter('traveled', ['in', 'ADM0_A3_IS'].concat(countryCode));
           // Let's build our HTML in a template tag
-
-          const html = `
-            <div>
-              <h3 class="country-name">${country.name}</h3>
-              <img class="flag-icon" src='${country.flag}'/>
-            </div>
-            <div>
-              <button id=${country.name} class="traveled">Traveled<button>
-              <button>Photos<button>
-              </div>
+          setCountryState(countryCode);
+          //console.log(document.getElementsByClassName("country-name"));
+          // if(document.getElementsByClassName("country-name" === undefined)){
+          //   setUploadState(false);
+          // }
+          // const html = `
+          //   <div>
+          //     <h3 class="country-name">${country.name}</h3>
+          //     <img class="flag-icon" src='${country.flag}'/>
+          //   </div>
+          //   <div>
+          //     <button id=${country.name} class="traveled">Traveled<button>
+          //     <button class="photos">Photos<button>
+          //     </div>
          
            
-          `; // Now we have a good looking popup HTML segment.
-          new mapboxgl.Popup() //Create a new popup
-            .setLngLat(mapElement.lngLat) // Set where we want it to appear (where we clicked)
-            .setHTML(html) // Add the HTML we just made to the popup
-            .addTo(map); // Add the popup to the map
+          // `; // Now we have a good looking popup HTML segment.
+          // new mapboxgl.Popup() //Create a new popup
+          //   .setLngLat(mapElement.lngLat) // Set where we want it to appear (where we clicked)
+          //   .setHTML(html) // Add the HTML we just made to the popup
+          //   .addTo(map); // Add the popup to the map
 
           // Event listener for traveled counries
           $(".traveled").click(function () {
@@ -101,6 +108,11 @@ const Map = () => {
             map.setFilter(countryCode, ['in', 'ADM0_A3_IS'].concat(countryCode));
           });
 
+          $(".photos").on("click" , (event) =>{
+            event.preventDefault();
+            setUploadState(true);
+          })
+
           // document.getElementById(country.name).onclick = addTraveledCountry;
 
 
@@ -117,7 +129,16 @@ const Map = () => {
     return () => map.remove();
   }, []);
 
-  return <div className="map-container" ref={mapContainerRef} />;
-};
+  return(
+    <div className="map-container" ref={mapContainerRef}  ></div>
+  )};
 
 export default Map;
+
+/*<div>
+<div className="map-container" ref={mapContainerRef}  ></div>
+
+{uploadState && (
+    <Upload country = {CountryState}/>
+  )}
+</div>*/

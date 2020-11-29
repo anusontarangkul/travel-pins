@@ -1,9 +1,11 @@
 import react, {useState} from "react";
 import API from "../../utils/API";
+import "./style.css";
 
 
-function Upload(){
-
+function Upload({country}){
+    console.log(country);
+    console.log("hit upload")
     const [selectedFile, setSelectedFile] = useState();
     const [previewSource, setPreviewSource] = useState('');
 
@@ -32,7 +34,7 @@ function Upload(){
         reader.readAsDataURL(selectedFile);
         reader.onloadend = () => {
             //uploadImage(reader.result);
-            API.Upload({ data: reader.result })
+            API.Upload({ data: reader.result , countryCode: country })
             .then(res =>{
                 console.log("upload success");
             })
@@ -46,7 +48,7 @@ function Upload(){
     };
 
     return(
-        <div>
+        <div className = "upload">
             <h3>Upload</h3>
             <form className="form">
             <input

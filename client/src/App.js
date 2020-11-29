@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Wrapper from './components/Wrapper';
@@ -13,6 +13,8 @@ import Login from "./components/Login";
 import Upload from "./components/Upload";
 
 function App() {
+  const [uploadState, setUploadState] = useState(false);
+  const [CountryState, setCountryState] = useState("");
   return (
     <div className="App">
 
@@ -31,7 +33,8 @@ function App() {
               <Signup/>
             </Route>
           <Route exact path = "/map">
-            <Map/>
+            <Map setUploadState = {setUploadState} setCountryState = {setCountryState}/>
+            {uploadState && (<Upload country = {CountryState}/>)}
             <Navbar/>
           </Route>
           <Route exact path = "/upload">
