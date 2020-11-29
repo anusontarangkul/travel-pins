@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { CSSTransition } from 'react-transition-group';
+import { useSpring, animated} from 'react-spring';
 import "./style.css";
 
 function Landing(props) {
