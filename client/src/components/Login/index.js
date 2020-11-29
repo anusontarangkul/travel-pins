@@ -30,7 +30,7 @@ function Login (){
     const handleSignup = (event) => {
         event.preventDefault();
         //console.log(signupState);
-        API.userSignup(signupState)
+        API.userSignup(JSON.stringify({signupState}))
             .then(res => {
                 console.log("sign up success");
                 window.location.href = "/login";

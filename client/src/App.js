@@ -10,6 +10,7 @@ import Landing from './components/Landing';
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import Upload from "./components/Upload";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
           <Route exact path = "/map">
             <Map/>
             <Navbar/>
+          </Route>
+          <Route exact path = "/upload">
+            <Upload/>
           </Route>
         </Wrapper>
       </Router>

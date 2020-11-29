@@ -22,5 +22,9 @@ router
 
 //maybe log out
 
+router
+  .route("/upload")
+  .post(userController.uploadImage)
+
 
 module.exports = router;

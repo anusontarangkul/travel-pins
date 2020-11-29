@@ -11,7 +11,8 @@ var db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+//sets limit to 50mb
+app.use(express.json({limit: '50mb'}));
 //using static for production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

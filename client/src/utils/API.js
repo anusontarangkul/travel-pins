@@ -1,4 +1,5 @@
 import axios from "axios";
+import Upload from "../components/Upload";
 
 export default {
     login: function (loginData) {
@@ -13,5 +14,9 @@ export default {
     saveCountry: function (country) {
         console.log(country);
         return axios.post("api/user/traveled", country)
+    },
+    Upload: function (imageData) {
+        console.log("hit image data");
+        return axios.post("api/user/upload", imageData)
     }
 };
