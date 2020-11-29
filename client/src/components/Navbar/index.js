@@ -1,7 +1,5 @@
 import react from 'react';
 import './style.css';
-import { MdHome } from "react-icons/md";
-import { FiMapPin, FiHome, FiUser, FiMenu  } from "react-icons/fi";
 import API from "../../utils/API";
 
 function handleLogout(event){
@@ -18,16 +16,26 @@ function handleLogout(event){
 function Navbar(){
     return <div className="navbar">
             <div className="nav-item">
-                <i><FiHome/></i>
+                <i className="material-icons material-icons-outlined" id="homeButton">
+                home
+                </i>
             </div>
             <div className="nav-item">
-                <i><FiMapPin/></i>
+                <i className="material-icons material-icons-outlined" id="mapButton">
+                room
+                </i>
             </div>
             <div className="nav-item">
-                <i><FiUser/></i>
+                <i className="material-icons material-icons-outlined" id="userButton">
+                person_outline
+                </i>
             </div>
             <div className="nav-item" >
-                <button onClick = {e => handleLogout(e)}><i ><FiMenu/></i></button>
+                <a onClick={handleLogout}>
+                    <i className="material-icons material-icons-outlined" id="menuButton">
+                    menu
+                    </i>
+                </a>
             </div>
     </div> ;
 

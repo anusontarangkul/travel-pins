@@ -17,7 +17,7 @@ const Map = () => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/codingdavid/ckhtww0zw4dbf19qin49td8jk",
-      center: [-30.9876, 9.7405],
+      center: [-85, 9.7405],
       zoom: 1.5,
       attributionControl: false,
       logoEnabled: false,
@@ -53,16 +53,12 @@ const Map = () => {
           ".json?&access_token=" +
           mapboxgl.accessToken,
         success: function (res) {
-          console.log(res);
           map.easeTo({
             center: res.features[0].center,
-            zoom: 2,
-            speed: 1, // make the flying slow
-            
+            speed: 1, // make the flying slow 
           });
         },
       });
-
       // Grab the country code from the map properties.
       fetch(`https://restcountries.eu/rest/v2/alpha/${countryCode}`) // Using tempalate tags to create the API request
         .then((data) => data.json()) //fetch returns an object with a .json() method, which returns a promise
