@@ -25,9 +25,16 @@
 }
 
 .mapboxgl-popup{
-  transform:none !important;
+  position: fixed !important;
+  bottom: 0 !important;
+  transform: none !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
 }
-.mapboxgl-popup-tip{display:none;}
+.mapboxgl-popup-tip {
+  display: none;
+}
 .mapboxgl-popup-close-button {
   outline: none;
   padding: 10px;

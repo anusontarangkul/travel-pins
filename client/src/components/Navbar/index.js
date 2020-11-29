@@ -16,23 +16,23 @@ function handleLogout(event){
 function Navbar(){
     return <div className="navbar">
             <div className="nav-item">
-                <i className="material-icons material-icons-outlined" id="homeButton">
+                <i className="material-icons material-icons-outlined navicon" id="homeButton">
                 home
                 </i>
             </div>
             <div className="nav-item">
-                <i className="material-icons material-icons-outlined" id="mapButton">
+                <i className="material-icons material-icons-outlined navicon" id="mapButton">
                 room
                 </i>
             </div>
             <div className="nav-item">
-                <i className="material-icons material-icons-outlined" id="userButton">
+                <i className="material-icons material-icons-outlined navicon" id="userButton">
                 person_outline
                 </i>
             </div>
             <div className="nav-item" >
                 <a onClick={handleLogout}>
-                    <i className="material-icons material-icons-outlined" id="menuButton">
+                    <i className="material-icons material-icons-outlined navicon" id="menuButton">
                     menu
                     </i>
                 </a>
