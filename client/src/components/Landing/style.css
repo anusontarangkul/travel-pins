@@ -1,0 +1,195 @@
+@import url("https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css");
+@import url("https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp");
+
+.landing {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, #00c6ff, #0072ff);
+  position: relative;
+  overflow: hidden;
+}
+.mainHeader {
+  color: #f4f4f4;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20vh;
+}
+.mainSub {
+  color: #f4f4f4;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  text-align: left;
+  margin-top: -50px;
+  /* background: linear-gradient(to right, #787ff6 0%, #4ADEDE 100%); */
+  /* background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+.title {
+  font-size: 80px;
+  text-align: left;
+  margin-left: 40px;
+  font-family: "GothamPro";
+  font-style: Bold;
+}
+.sphereContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.sphere {
+  position: relative;
+  width: 800px;
+  height: 800px;
+  /* bottom: -250px;
+  right: -250px; */
+  padding: 20px;
+  border-radius: 100%;
+  background: radial-gradient(circle at 400px -100px, #4adede 20%, #0080ff 70%);
+  z-index: 0;
+  overflow: hidden;
+  box-shadow: 0 30px 50px rgba(33, 33, 33, 0.662);
+}
+
+.iconContainer {
+  position: relative;
+  width: 50px;
+  height: auto;
+  padding: 20px;
+  border-radius: 360px;
+  background: linear-gradient(180deg, #0080ff, #0072ff);
+  z-index: 5;
+}
+#pinButton {
+  position: absolute;
+  right: -500px;
+  top: -40px;
+  font-size: 1000px;
+  background: #f4f4f4;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* transform: rotate(270deg); */
+  display:block;
+  opacity: .2;
+  transition: opacity .05s ease-in-out;
+}
+
+
+/* INSIDE BUTTON */
+
+/* #pinButton {
+    font-size: 60px;
+    background: #f4f4f4;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display:block;
+    opacity: 1;
+    transition: opacity .05s ease-in-out;
+  } */
+
+
+
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20vh;
+}
+
+#getStarted {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  box-shadow: 0 10px 50px rgba(33, 33, 33, 0.573);
+  background: linear-gradient(to left, #00F260 0%, #38ef7d 100%);
+  transition: width 0.5s, border-radius 0.45s, box-shadow 0.5s, transform .3s, background .6s ease-in-out;
+}
+.button-text {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    word-wrap: none !important;
+    font-size: 20px;
+    /* font-family: "GothamPro"; */
+    color: #f4f4f4;
+  }
+
+  #globe {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 60px;
+    background: #f4f4f4;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .3s, visibility .04s ease-in-out;
+}
+
+#getStarted:focus {
+  outline: none;
+}
+#getStarted:hover {
+  width: 80%;
+  border-radius: 50px;
+  box-shadow: 0 20px 50px rgba(33, 33, 33, 0.662);
+  transform: translateY(-10px);
+  background: linear-gradient(to left, #EB3349 0%, #F45C43 100%);
+}
+#getStarted:hover #globe {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+#getStarted:hover .button-text {
+  opacity: 1;
+}
+
+/* ANIMATIONS */
+/* .alert-enter {
+    opacity: 0.01;
+  }
+  
+  .alert-enter.alert-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .alert-leave {
+    opacity: 1;
+  }
+  
+  .alert-leave.alert-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+  } */
+
+  @media only screen and (min-width: 900px) {
+    #getStarted:hover {
+        width: 600px;
+      }
+  }
+
+
+/* MOBILE */
+
+@media only screen and (max-width: 900px) {
+    #pinButton {
+        position: absolute;
+        right: -500px;
+        top: -40px;
+        font-size: 1000px;
+        background: #f4f4f4;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        /* transform: rotate(270deg); */
+        display:block;
+        opacity: .2;
+        transition: opacity .05s ease-in-out;
+        pointer-events: none;
+      }
+  }
