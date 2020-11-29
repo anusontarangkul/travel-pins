@@ -6,17 +6,24 @@ router
   .route("/signup")
   .post(userController.create)
 
-  //maybe passport here 
+//maybe passport here 
 router
-  .post("/login/local", passport.authenticate("local"), function(req, res) {
-  res.json(req.user);});
+  .post("/login", passport.authenticate("local"), function (req, res) {
+    res.json(req.user);
+  });
 
 router
-  .route("/all")
-  .get(userController.findAllUser)
+  .route("/user_data")
+  .get(userController.findAllUserInfo)
 
+router
+  .route("/traveled")
+  .post(userController.addTraveled)
 
-//maybe log out
+router
+  .route("/logout")
+  .get(userController.logout)
+
 
 
 module.exports = router;

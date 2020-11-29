@@ -1,8 +1,52 @@
-import react from "react";
+
+import react, {useState} from "react";
+import API from "../../utils/API";
 import './style.css';
 
+//login 
 function Login (){
+
+    const [loginState, setLogin] = useState({
+        username: "",
+        password: ""
+    });
+    const [signupState, setSignupState] = useState({
+        firstName: "",
+        lastName: "",
+        username: "",
+        email: "",
+        password: "",
+    });
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        API.login(loginState)
+        .then(res => {
+            console.log("login success");
+            window.location.href = "/map";
+        })
+        .catch(err => {console.log(err)});
+    }
+    const handleSignup = (event) => {
+        event.preventDefault();
+        //console.log(signupState);
+        API.userSignup(signupState)
+            .then(res => {
+                console.log("sign up success");
+                window.location.href = "/login";
+            })
+            .catch(err => { console.log(err) });
+
+    }
+    const handleLoginChange = (event) =>{
+        setLogin({...loginState, [event.target.name]: event.target.value})
+    }
+    const handleSignupChange = (event) => {
+        setSignupState({ ...signupState, [event.target.name]: event.target.value })
+    }
+
     return (
+
         <div className="login">
             <div className="logoHeader">
                 <div className="container">
@@ -18,9 +62,13 @@ function Login (){
                     <h1 className="formTitle">Signup</h1>
                     <form>
                         <h5>username</h5>
-                        <input id="username" name="username" autocomplete="off" class="input" type="text" ></input>
+                        <input id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleSignupChange(e)}/>
+
+                        <h5>email</h5>
+                        <input id="email" name="email" autocomplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         <h5>password</h5>
-                        <input id="password" name="password" autocomplete="off" class="input" type="password"/>
+                        <input id="password" name="password" autocomplete="off" class="input" type="password" onChange={(e) => handleSignupChange(e)}/>
+                        <button type="button" onClick={handleSignup}>Signup</button>
                     </form>
                 </div>
             </div>
@@ -39,6 +87,7 @@ function Login (){
             </div>
             
         </div>
+
     )
 }
 

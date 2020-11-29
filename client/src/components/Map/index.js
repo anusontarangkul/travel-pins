@@ -1,6 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import './style.css';
+import $ from "jquery";
+import API from "../../utils/API"
+
+// username: dave
+// password: password
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5cGV1ZnE2c2VsYiJ9.mOoyaL49RBuUijTy3MmiRw';
 
@@ -50,30 +55,58 @@ const Map = () => {
             'source-layer': 'ne_10m_admin_0_countries-cdqk4p',
             'type': 'fill',
             'paint': {
-              'fill-color': '#63A583',
+              'fill-color': '#e4dbd9',
               'fill-outline-color': '#111B1E',
 
             },
           });
           map.setFilter('traveled', ['in', 'ADM0_A3_IS'].concat(countryCode));
           // Let's build our HTML in a template tag
+
           const html = `
             <div>
               <h3 class="country-name">${country.name}</h3>
               <img class="flag-icon" src='${country.flag}'/>
             </div>
             <div>
-              <button>Traveled<button>
+              <button id=${country.name} class="traveled">Traveled<button>
               <button>Photos<button>
               </div>
-
+         
            
           `; // Now we have a good looking popup HTML segment.
           new mapboxgl.Popup() //Create a new popup
             .setLngLat(mapElement.lngLat) // Set where we want it to appear (where we clicked)
             .setHTML(html) // Add the HTML we just made to the popup
             .addTo(map); // Add the popup to the map
-          // Need to remove opacity
+
+          // Event listener for traveled counries
+          $(".traveled").click(function () {
+            console.log(typeof countryCode)
+            API.saveCountry({ country: countryCode }).then(res => { console.log("saved") }).catch(err => (console.log(err)))
+            map.addLayer({
+              'id': countryCode,
+              'source': {
+                'type': 'vector',
+                'url': 'mapbox://codingdavid.00075afe',
+              },
+              'source-layer': 'ne_10m_admin_0_countries-cdqk4p',
+              'type': 'fill',
+              'paint': {
+                'fill-color': '#63A583',
+                'fill-outline-color': '#111B1E'
+
+              },
+            });
+            map.setFilter(countryCode, ['in', 'ADM0_A3_IS'].concat(countryCode));
+          });
+
+          // document.getElementById(country.name).onclick = addTraveledCountry;
+
+
+          // var traveledID = document.querySelector(".travled")
+          // traveledID.addEventListener("click", addTraveledCountry())
+
 
         });
     });
