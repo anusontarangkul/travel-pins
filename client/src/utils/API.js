@@ -14,7 +14,12 @@ export default {
         console.log(country);
         return axios.post("api/user/traveled", country)
     },
-    logout: function(){
+    //Get user countries to render in beginning
+    getCountry: function () {
+        return axios.get("api/user/saved")
+
+    },
+    logout: function () {
         return axios.get("api/user/logout")
     }
 };
