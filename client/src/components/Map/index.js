@@ -9,7 +9,7 @@ import API from "../../utils/API";
 
 mapboxgl.accessToken = "pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5cGV1ZnE2c2VsYiJ9.mOoyaL49RBuUijTy3MmiRw";
 
-const Map = ({setCountry, setPopup}) => {
+const Map = ({setCountry, setPopup, set}) => {
   const mapContainerRef = useRef(null);
 
   // useState for countries users have been to
@@ -91,9 +91,10 @@ const Map = ({setCountry, setPopup}) => {
       }
       getCountryDb();
     });
+
     // Every Click on map popup is false
    map.on("click", function(){
-    setPopup(false);
+    set(false);
    });
 
     map.on("click", "countries", function (mapElement) {
@@ -135,7 +136,7 @@ const Map = ({setCountry, setPopup}) => {
           // Call Popup Component
 
           setCountry(country);
-          setPopup(true);
+          set(true);
         
           // const html = `
           //   <div class="popupBox">
@@ -172,7 +173,7 @@ const Map = ({setCountry, setPopup}) => {
                 "fill-outline-color": "#111B1E",
               },
             });
-            
+
             map.setFilter(
               countryCode,
               ["in", "ADM0_A3_IS"].concat(countryCode)

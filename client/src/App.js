@@ -12,10 +12,22 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Popup from './components/Popup';
 
+import {useSpring, animated, useTransition} from 'react-spring';
+
 
 function App() {
   const [country, setCountry] = useState();
   const [popupState, setPopup] = useState(false);
+
+  //react spring animations
+  const [show, set] = useState(false)
+  const transitions = useTransition(show, null, {
+    from: { opacity: 0, transform: `translate3d(0,100%,0)` },
+    enter: { opacity: 1, transform: `translate3d(0,0,0)` },
+    leave: { opacity: 0, transform: `translate3d(0,100%,0)` },
+    config: { duration: 400 }
+  })
+
   return (
     <div className="App">
 
@@ -34,8 +46,8 @@ function App() {
               <Signup/>
             </Route>
           <Route exact path = "/map">
-            <Map setCountry={setCountry} setPopup={setPopup}/>
-            {popupState && (<Popup country={country}/>)}
+            <Map setCountry={setCountry} setPopup={setPopup} set={set}/>
+            <Popup transitions={transitions} set={set} country={country}/>
             <Navbar/>
           </Route>
         </Wrapper>
