@@ -38,26 +38,14 @@ function App() {
         <Wrapper>
 
           <Route exact path="/">
-            <Landing />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-          <Route exact path="/map">
-            <Map setCountry={setCountry} setPopup={setPopup} setUploadState={setUploadState} setCountryState={setCountryState} />
-            {popupState && (<Popup country={country} setUploadState={setUploadState} />)}
-            {uploadState && (<Upload country={CountryState} />)}
-            <Navbar />
+            <Landing />ß
           </Route>
           <Route exact path="/login">
             <Login />
           </Route>
           <Route exact path="/stats">
             <Stats />
+            <Navbar />
           </Route>
           <Route exact path="/signup">
             <Signup />
