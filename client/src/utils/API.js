@@ -25,6 +25,11 @@ export default {
         return axios.get("api/user/saved")
 
     },
+    searchUsers: function (search) {
+        console.log(search);
+        return axios.post("api/user/searchUsername", search)
+
+    },
     logout: function () {
         return axios.get("api/user/logout")
     }

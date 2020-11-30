@@ -41,8 +41,8 @@ function App() {
             {uploadState && (<Upload country = {CountryState}/>)}
             <Navbar/>
           </Route>
-          <Route exact path = "/upload">
-            <Upload/>
+          <Route exact path = "/home">
+            <Home/>
           </Route>
         </Wrapper>
       </Router>
