@@ -44,4 +44,7 @@ router
   .route("/following")
   .get(userController.getFollowing)
 
+  router
+  .route("/feed")
+  .post(userController.feed)
 module.exports = router;

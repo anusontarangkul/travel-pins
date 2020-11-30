@@ -1,5 +1,5 @@
 const db = require("../models");
-
+const { Op } = require("sequelize");
 const cloudinary = require('cloudinary').v2;
 
 cloudinary.config({
@@ -75,10 +75,22 @@ module.exports = {
       .then((result) => res.json(result))
       .catch((err) => res.status(422).json(err));
   },
-  getFollowing:function(req, res) {
+  getFollowing: function(req, res) {
     db.Followers.findAll({
       where: {
         UserId: req.user.id
+      }
+    })
+      .then((result) => {
+        res.json(result)
+      })
+      .catch((err) => res.status(422).json(err));
+  },
+  feed: function(req, res) {
+    console.log(req.body.followingId)
+    db.Photos.findAll({
+      where: {
+        [Op.and]: req.body.followingId
       }
     })
       .then((result) => {
