@@ -149,6 +149,21 @@ const Map = ({setCountry, setPopup, set}) => {
             [res.features[4].bbox[0], res.features[4].bbox[1]],
             [res.features[4].bbox[2], res.features[4].bbox[3]]
           ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "SYR"){
+          map.fitBounds([
+            [res.features[1].bbox[0], res.features[1].bbox[1]],
+            [res.features[1].bbox[2], res.features[1].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "GUY"){
+          map.fitBounds([
+            [res.features[3].bbox[0], res.features[3].bbox[1]],
+            [res.features[3].bbox[2], res.features[3].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "SLE"){
+          map.fitBounds([
+            [res.features[1].bbox[0], res.features[1].bbox[1]],
+            [res.features[1].bbox[2], res.features[1].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
         } else {
         map.fitBounds([
           [res.features[0].bbox[0], res.features[0].bbox[1]],
