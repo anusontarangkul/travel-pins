@@ -10,7 +10,7 @@ import API from "../../utils/API";
 
 mapboxgl.accessToken = "pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5cGV1ZnE2c2VsYiJ9.mOoyaL49RBuUijTy3MmiRw";
 
-const Map = ({ setCountry, setPopup, setCountryState, setUploadState }) => {
+const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => {
   const mapContainerRef = useRef(null);
 
   // useState for countries users have been to
@@ -92,10 +92,11 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState }) => {
       }
       getCountryDb();
     });
+
     // Every Click on map popup is false
     let currentCountry = ""
     map.on("click", function () {
-      setPopup(false);
+      set(false);
       setUploadState(false);
       // hiding visibility of highlighted country when clicked off
       if (currentCountry != "") { map.setLayoutProperty(currentCountry, 'visibility', 'none') }
@@ -105,6 +106,10 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState }) => {
       const countryCode = mapElement.features[0].properties.ADM0_A3_IS;
 
       //Fly to country
+      console.log(countryCode)
+      
+      
+
       $.ajax({
         url:
           "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
@@ -112,12 +117,67 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState }) => {
           ".json?&access_token=" +
           mapboxgl.accessToken,
         success: function (res) {
-          map.easeTo({
-            center: res.features[0].center,
-            speed: 1, // make the flying slow 
-          });
-        },
+          console.log(res.features)
+          if (countryCode === "USA"){
+          map.fitBounds([
+            [res.features[0].bbox[0], res.features[0].bbox[1]],
+            [res.features[0].bbox[2], res.features[0].bbox[3]]
+          ],{padding:{top: 30, bottom: 380, right: 0, left: 0}});
+        } else if  (countryCode === "GRL"){
+          map.fitBounds([
+            [res.features[0].bbox[0], res.features[0].bbox[1]],
+            [res.features[0].bbox[2], res.features[0].bbox[3]]
+          ],{padding:{top: 160, bottom: 300, right: 0, left: 0}});
+        }
+        else if  (countryCode === "RUS" || countryCode === "CAN" ){
+          map.fitBounds([
+            [res.features[0].bbox[0], res.features[0].bbox[1]],
+            [res.features[0].bbox[2], res.features[0].bbox[3]]
+          ],{padding:{top: 100, bottom: 380, right: 0, left: 0}});
+        } else if  (countryCode === "AUS"){
+          map.fitBounds([
+            [res.features[1].bbox[0], res.features[1].bbox[1]],
+            [res.features[1].bbox[2], res.features[1].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "MAR"){
+          map.fitBounds([
+            [res.features[2].bbox[0], res.features[2].bbox[1]],
+            [res.features[2].bbox[2], res.features[2].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 100}});
+        } else if  (countryCode === "NOR"){
+          map.fitBounds([
+            [res.features[4].bbox[0], res.features[4].bbox[1]],
+            [res.features[4].bbox[2], res.features[4].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "LAO"){
+          map.fitBounds([
+            [res.features[4].bbox[0], res.features[4].bbox[1]],
+            [res.features[4].bbox[2], res.features[4].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "SYR"){
+          map.fitBounds([
+            [res.features[1].bbox[0], res.features[1].bbox[1]],
+            [res.features[1].bbox[2], res.features[1].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "GUY"){
+          map.fitBounds([
+            [res.features[3].bbox[0], res.features[3].bbox[1]],
+            [res.features[3].bbox[2], res.features[3].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "SLE"){
+          map.fitBounds([
+            [res.features[1].bbox[0], res.features[1].bbox[1]],
+            [res.features[1].bbox[2], res.features[1].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else {
+        map.fitBounds([
+          [res.features[0].bbox[0], res.features[0].bbox[1]],
+          [res.features[0].bbox[2], res.features[0].bbox[3]]
+        ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+      }
+      }
       });
+    
       // Grab the country code from the map properties.
       fetch(`https://restcountries.eu/rest/v2/alpha/${countryCode}`) // Using tempalate tags to create the API request
         .then((data) => data.json()) //fetch returns an object with a .json() method, which returns a promise
@@ -147,6 +207,8 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState }) => {
           }// Call Popup Component
           currentCountry = `traveled-${countryCode}`
           setCountry(country);
+          set(true);
+        
           setPopup(true);
           setCountryState(countryCode);
 
