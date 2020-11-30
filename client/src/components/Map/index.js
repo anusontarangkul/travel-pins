@@ -101,6 +101,10 @@ const Map = ({setCountry, setPopup, set}) => {
       const countryCode = mapElement.features[0].properties.ADM0_A3_IS;
 
       //Fly to country
+      console.log(countryCode)
+      
+      
+
       $.ajax({
         url:
           "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
@@ -108,27 +112,32 @@ const Map = ({setCountry, setPopup, set}) => {
           ".json?&access_token=" +
           mapboxgl.accessToken,
         success: function (res) {
-
-          const fly = res.features[0].center[0];
-          console.log(res.features[0].center[1]);
-          if (res.features[0].center[1] > 0){
-          const to = res.features[0].center[1] * .7;
-          
-          map.easeTo({
-            center: [fly, to],
-            speed: 1, // make the flying slow 
-          });
-          }
-          if (res.features[0].center[1] < 0){
-            const to = res.features[0].center[1] * 1.7;
-            
-            map.easeTo({
-              center: [fly, to],
-              speed: 1, // make the flying slow 
-            });
-            }
-        },
+          console.log(res.features[0].bbox)
+          if (countryCode === "USA"){
+          map.fitBounds([
+            [res.features[0].bbox[0], res.features[0].bbox[1]],
+            [res.features[0].bbox[2], res.features[0].bbox[3]]
+          ],{padding:{top: 0, bottom: 300, right: 0, left: 0}});
+        } else if  (countryCode === "GRL"){
+          map.fitBounds([
+            [res.features[0].bbox[0], res.features[0].bbox[1]],
+            [res.features[0].bbox[2], res.features[0].bbox[3]]
+          ],{padding:{top: 160, bottom: 300, right: 0, left: 0}});
+        }
+        else if  (countryCode === "RUS" || countryCode === "CAN" ){
+          map.fitBounds([
+            [res.features[0].bbox[0], res.features[0].bbox[1]],
+            [res.features[0].bbox[2], res.features[0].bbox[3]]
+          ],{padding:{top: 100, bottom: 380, right: 0, left: 0}});
+        } else {
+        map.fitBounds([
+          [res.features[0].bbox[0], res.features[0].bbox[1]],
+          [res.features[0].bbox[2], res.features[0].bbox[3]]
+        ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+      }
+      }
       });
+    
       // Grab the country code from the map properties.
       fetch(`https://restcountries.eu/rest/v2/alpha/${countryCode}`) // Using tempalate tags to create the API request
         .then((data) => data.json()) //fetch returns an object with a .json() method, which returns a promise
