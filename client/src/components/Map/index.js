@@ -138,7 +138,6 @@ const Map = ({setCountry, setPopup, setCountryState, setUploadState}) => {
 
           setCountry(country);
           setPopup(true);
-          setUploadState(true);
           setCountryState(countryCode);
         
           // const html = `

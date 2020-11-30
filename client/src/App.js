@@ -37,7 +37,7 @@ function App() {
             </Route>
           <Route exact path = "/map">
             <Map setCountry={setCountry} setPopup={setPopup} setUploadState = {setUploadState} setCountryState = {setCountryState}/>
-            {popupState && (<Popup country={country}/>)}
+            {popupState && (<Popup country={country} setUploadState = {setUploadState}/>)}
             {uploadState && (<Upload country = {CountryState}/>)}
             <Navbar/>
           </Route>

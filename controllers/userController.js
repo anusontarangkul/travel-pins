@@ -34,13 +34,17 @@ module.exports = {
   },
   uploadImage: function (req, res) {
     console.log("uploading image")
-    console.log(req.body.countryCode);
-    console.log(req.user)
+    // console.log(req.body.countryCode);
+    // console.log(req.user)
     cloudinary.uploader.upload(req.body.data , function(err, results){
       console.log("error: ", err);
-      //console.log(results);
-      console.log(results.secure_url);
+      // console.log(results.secure_url);
       //need to save the image url in db also the country code from map
+      db.Photos.create({
+        photoUrl: results.secure_url,
+        country: req.body.countryCode,
+        UserId: req.user.id
+      });
     });
   },
 
