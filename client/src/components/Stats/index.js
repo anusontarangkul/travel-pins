@@ -5,6 +5,7 @@ import './style.css';
 function Stats() {
     const [stats, setStats] = useState();
 
+
     useEffect(() => {
         getStats();
     }, []);
@@ -12,12 +13,26 @@ function Stats() {
     const getStats = () => {
         API.getCountry()
             .then(results => {
-                console.log(results.data.length)
+
                 setStats(results.data.length
                 );
             })
             .catch(err => console.log(err));
     };
+
+    const [user, setUser] = useState();
+
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    const getUser = () => {
+        API.getUserData()
+            .then(results => {
+                console.log(results)
+            })
+            .catch(err => console.log(err));
+    }
 
     return (
         <div>

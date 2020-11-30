@@ -20,7 +20,7 @@ export default {
         return axios.post("api/user/upload", imageData)
 
     },
-        //Get user countries to render in beginning
+    //Get user countries to render in beginning
     getCountry: function () {
         return axios.get("api/user/saved")
 
@@ -32,5 +32,9 @@ export default {
     },
     logout: function () {
         return axios.get("api/user/logout")
+    },
+
+    getUserData: function () {
+        return axios.get("api/user/user_data")
     }
 };

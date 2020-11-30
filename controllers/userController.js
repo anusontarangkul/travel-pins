@@ -16,11 +16,8 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   findAllUserInfo: function (req, res) {
-    db.User.findAll({
-      where: {
-        UserId: req.user.id,
-      }
-    })
+    console.log("controller hit")
+    db.User.findAll()
       .then((user) => res.json(user))
       .catch((err) => res.status(422).json(err));
   },
@@ -36,7 +33,7 @@ module.exports = {
     console.log("uploading image")
     // console.log(req.body.countryCode);
     // console.log(req.user)
-    cloudinary.uploader.upload(req.body.data , function(err, results){
+    cloudinary.uploader.upload(req.body.data, function (err, results) {
       console.log("error: ", err);
       // console.log(results.secure_url);
       //need to save the image url in db also the country code from map
