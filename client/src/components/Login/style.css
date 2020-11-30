@@ -22,7 +22,7 @@
     border-radius: 50px;
     background: linear-gradient(180deg, #00F260 0%, #38ef7d 100%);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     transition: 0.4s ease-out;
@@ -38,7 +38,7 @@
     border-radius: 50px;
     background: linear-gradient(to left, #EB3349 0%, #F45C43 100%);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     position: relative;
@@ -49,7 +49,7 @@
 
 .formTitle {
     color: #fefefe;
-    margin-top: -20px;
+    margin-top: -80px;
     font-size: 60px;
     padding-bottom: -40px;
     /* transform: rotate(-90deg); */
@@ -58,7 +58,6 @@
     font-size: 80px;
 }
 
-
 .signupC {
     position: fixed;
     margin-top: 50px;
@@ -66,14 +65,14 @@
 }
 
 .signupC:hover {
-    transform: translateY(-250px);
+    transform: translateY(-280px);
 }
 .signupC:hover .signupCard{
     width: 85%;
     box-shadow: 0 -5px 20px rgba(33, 33, 33, 0.573);
 }
 .loginC {
-    margin-top: 100px;
+    margin-top: 180px;
     transition: transform .5s ease-in-out;
 }
 

@@ -12,16 +12,27 @@ import Upload from "./components/Upload";
 import Popup from './components/Popup';
 import Stats from './components/Stats';
 
+import { useSpring, animated, useTransition } from 'react-spring';
+
 
 function App() {
   const [country, setCountry] = useState();
   const [popupState, setPopup] = useState(false);
   const [uploadState, setUploadState] = useState(false);
-  const [CountryState, setCountryState] = useState("");
+  const [countryState, setCountryState] = useState("");
+  console.log(countryState)
+  //react spring animations
+  const [show, set] = useState(false)
+  const transitions = useTransition(show, null, {
+    from: { opacity: 0, transform: `translate3d(0,100px,0)` },
+    enter: { opacity: 1, transform: `translate3d(0,0,0)` },
+    leave: { opacity: 0, transform: `translate3d(0,100px,0)` },
+    config: { duration: 280 }
+  })
+
 
   return (
     <div className="App">
-
 
       <Router>
         <Wrapper>
@@ -42,11 +53,25 @@ function App() {
             {uploadState && (<Upload country={CountryState} />)}
             <Navbar />
           </Route>
-          <Route exact path="/home">
-            <Home />
+          <Route exact path="/login">
+            <Login />
           </Route>
           <Route exact path="/stats">
             <Stats />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+          <Route exact path="/map">
+
+            <Map setCountry={setCountry} setPopup={setPopup} setUploadState={setUploadState} setCountryState={setCountryState} set={set} />
+            <Popup transitions={transitions} set={set} country={country} setUploadState={setUploadState} />
+            {uploadState && (<Upload country={countryState} />)}
+            <Navbar />
+          </Route>
+          <Route exact path="/home">
+            <Home />
+
           </Route>
         </Wrapper>
       </Router>
@@ -58,4 +83,4 @@ export default App;
 
 
 /*<Map setUploadState = {setUploadState} setCountryState = {setCountryState}/>
-{uploadState && (<Upload country = {CountryState}/>)}*/
+{uploadState && (<Upload country = {countryState}/>)}*/
