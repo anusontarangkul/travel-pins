@@ -11,6 +11,7 @@ function Home() {
     username: "",
     userId: ""
   });
+  const [FollowerState, setFollowerState] = useState([])
 
   const handleSubmit = (event) =>{
     event.preventDefault();
@@ -27,7 +28,6 @@ function Home() {
           userId: res.data[0].id
         })
       }
-
     })
     .catch(err =>{
       console.log(err)
@@ -36,7 +36,32 @@ function Home() {
       })
     })
   }
-  console.log(searchResultState);
+
+  const handleFollow = (event) =>{
+    event.preventDefault();
+    API.follow(searchResultState)
+    .then(res =>{
+      console.log("followed");
+    }).catch(err =>{
+      console.log(err);
+    });
+  }
+
+  const getFollowing= () =>{
+    API.getFollow()
+    .then(res =>{
+      console.log(res);
+      for(var i = 0; i<res.data.length; i++){
+        FollowerState.push({UserId: res.data[i].following})
+      }
+      console.log(FollowerState);
+    }).catch(err =>{
+      console.log(err);
+    });
+  }
+  getFollowing();
+
+    //console.log(searchResultState);
     return (
       <div>
         <p>Home</p>
@@ -51,7 +76,7 @@ function Home() {
         {searchResultState.state && (
           <div>
             <h5 id = {searchResultState.userId}>{searchResultState.username}</h5>
-            <button>+ Follow</button>
+            <button onClick = {handleFollow}>+ Follow</button>
           </div>
         )}
         {searchResultState.err && (

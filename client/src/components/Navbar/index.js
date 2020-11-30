@@ -23,9 +23,11 @@ function Navbar(){
                 </a>
             </div>
             <div className="nav-item">
+            <a href = "/map">
                 <i className="material-icons material-icons-outlined navicon" id="mapButton">
                 room
                 </i>
+            </a>
             </div>
             <div className="nav-item">
                 <i className="material-icons material-icons-outlined navicon" id="userButton">
