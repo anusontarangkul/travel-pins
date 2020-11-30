@@ -16,9 +16,11 @@ function handleLogout(event){
 function Navbar(){
     return <div className="navbar">
             <div className="nav-item">
-                <i className="material-icons material-icons-outlined navicon" id="homeButton">
-                home
-                </i>
+                <a href = "/home">
+                    <i className="material-icons material-icons-outlined navicon" id="homeButton">
+                    home
+                    </i>
+                </a>
             </div>
             <div className="nav-item">
                 <i className="material-icons material-icons-outlined navicon" id="mapButton">
