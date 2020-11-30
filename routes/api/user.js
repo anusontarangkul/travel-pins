@@ -36,5 +36,12 @@ router
   .route("/searchUsername")
   .post(userController.searchUsername)
 
+  router
+  .route("/follow")
+  .post(userController.addFollow)
+
+  router
+  .route("/following")
+  .get(userController.getFollowing)
 
 module.exports = router;

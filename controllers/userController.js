@@ -34,16 +34,14 @@ module.exports = {
   },
   uploadImage: function (req, res) {
     console.log("uploading image")
-    // console.log(req.body.countryCode);
-    // console.log(req.user)
     cloudinary.uploader.upload(req.body.data , function(err, results){
       console.log("error: ", err);
-      // console.log(results.secure_url);
       //need to save the image url in db also the country code from map
       db.Photos.create({
         photoUrl: results.secure_url,
         country: req.body.countryCode,
         UserId: req.user.id
+        //maybe send back a message to the user 
       });
     });
   },
@@ -68,6 +66,26 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   //findaAlluser countries for user id (req.user.id)
+  addFollow: function(req, res) {
+    console.log(req.body)
+    db.Followers.create({
+      following: req.body.userId,
+      UserId: req.user.id
+    })
+      .then((result) => res.json(result))
+      .catch((err) => res.status(422).json(err));
+  },
+  getFollowing:function(req, res) {
+    db.Followers.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    })
+      .then((result) => {
+        res.json(result)
+      })
+      .catch((err) => res.status(422).json(err));
+  },
   logout: function (req, res) {
     console.log("logged out");
     req.logout();
