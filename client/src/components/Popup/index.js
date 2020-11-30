@@ -1,24 +1,37 @@
 import react from 'react';
 import './style.css';
 import {useSpring, animated, useTransition} from 'react-spring';
-
+import { useSwipeable } from "react-swipeable";
 
 function Popup({country, transitions, set}){
 
-  // const props = useSpring({from: {opacity: 0}, to: {opacity: 1}});
-
-    return transitions.map(({ item, key, props }) =>
-    item && <animated.div key={key}style={props} className="popupContainer">
+  const handlers = useSwipeable({
+    onSwipedUp: (eventData) => console.log("User Swiped!")
+  });
+    
+    return (<div className="popup">
+    {transitions.map(({ item, key, props }) =>
+    item && <animated.div {...handlers} key={key}style={props}>
+      <div className="popupContainer">
+        <div className="popupHeader">
         <h1 className="countryTitle">{country.name}</h1>
-        <div className="contentWrap">
-          <button id="traveledbtn">
-            Traveled
-          </button>
-          <button id="traveledbtn">
-            Upload
-          </button>
-        </div>
-    </animated.div> 
+        <div className="btncontainer">
+            <i className="material-icons material-icons-outlined" id="upbtn">
+                  expand_less
+            </i>
+          </div>
+          
+            {/* <a id="traveledbtn"></a> */}
+          </div>
+          </div>
+          </animated.div> 
+           )}
+          <a className="popupbtn" id="postbtnContainer">
+            <i className="material-icons material-icons-outlined" id="postbtn">
+                  add
+            </i>
+          </a>
+    </div>
     )}
 
 export default Popup;

@@ -112,12 +112,12 @@ const Map = ({setCountry, setPopup, set}) => {
           ".json?&access_token=" +
           mapboxgl.accessToken,
         success: function (res) {
-          console.log(res.features[0].bbox)
+          console.log(res.features)
           if (countryCode === "USA"){
           map.fitBounds([
             [res.features[0].bbox[0], res.features[0].bbox[1]],
             [res.features[0].bbox[2], res.features[0].bbox[3]]
-          ],{padding:{top: 0, bottom: 300, right: 0, left: 0}});
+          ],{padding:{top: 30, bottom: 380, right: 0, left: 0}});
         } else if  (countryCode === "GRL"){
           map.fitBounds([
             [res.features[0].bbox[0], res.features[0].bbox[1]],
@@ -129,6 +129,26 @@ const Map = ({setCountry, setPopup, set}) => {
             [res.features[0].bbox[0], res.features[0].bbox[1]],
             [res.features[0].bbox[2], res.features[0].bbox[3]]
           ],{padding:{top: 100, bottom: 380, right: 0, left: 0}});
+        } else if  (countryCode === "AUS"){
+          map.fitBounds([
+            [res.features[1].bbox[0], res.features[1].bbox[1]],
+            [res.features[1].bbox[2], res.features[1].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "MAR"){
+          map.fitBounds([
+            [res.features[2].bbox[0], res.features[2].bbox[1]],
+            [res.features[2].bbox[2], res.features[2].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 100}});
+        } else if  (countryCode === "NOR"){
+          map.fitBounds([
+            [res.features[4].bbox[0], res.features[4].bbox[1]],
+            [res.features[4].bbox[2], res.features[4].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "LAO"){
+          map.fitBounds([
+            [res.features[4].bbox[0], res.features[4].bbox[1]],
+            [res.features[4].bbox[2], res.features[4].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
         } else {
         map.fitBounds([
           [res.features[0].bbox[0], res.features[0].bbox[1]],

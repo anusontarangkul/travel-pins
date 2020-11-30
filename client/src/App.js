@@ -22,10 +22,10 @@ function App() {
   //react spring animations
   const [show, set] = useState(false)
   const transitions = useTransition(show, null, {
-    from: { opacity: 0, transform: `translate3d(0,100%,0)` },
+    from: { opacity: 0, transform: `translate3d(0,100px,0)` },
     enter: { opacity: 1, transform: `translate3d(0,0,0)` },
-    leave: { opacity: 0, transform: `translate3d(0,100%,0)` },
-    config: { duration: 400 }
+    leave: { opacity: 0, transform: `translate3d(0,100px,0)` },
+    config: { duration: 250 }
   })
 
   return (
