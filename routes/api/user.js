@@ -22,13 +22,29 @@ router
 
 router
   .route("/traveled")
-
   .post(userController.addTraveled)
 
 router
   .route("/logout")
   .get(userController.logout)
 
+router
+  .route("/upload")
+  .post(userController.uploadImage)
 
+  router
+  .route("/searchUsername")
+  .post(userController.searchUsername)
 
+  router
+  .route("/follow")
+  .post(userController.addFollow)
+
+  router
+  .route("/following")
+  .get(userController.getFollowing)
+
+  router
+  .route("/feed")
+  .post(userController.feed)
 module.exports = router;

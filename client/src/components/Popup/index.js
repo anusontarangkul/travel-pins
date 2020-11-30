@@ -3,7 +3,12 @@ import './style.css';
 import {useSpring, animated, useTransition} from 'react-spring';
 import { useSwipeable } from "react-swipeable";
 
-function Popup({country, transitions, set}){
+function Popup({country, setUploadState, transitions}){
+
+  const handleUploadClick = (event) =>{
+    event.preventDefault();
+    setUploadState(true);
+  }
 
   const handlers = useSwipeable({
     onSwipedUp: (eventData) => console.log("User Swiped!")

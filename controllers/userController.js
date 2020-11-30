@@ -1,5 +1,12 @@
 const db = require("../models");
-//var passport = require("../config/passport");
+const { Op } = require("sequelize");
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+  cloud_name: "dkpzoxzhx",
+  api_key: "922435219965242",
+  api_secret: "er0dB-ELRBoxUhsoweJAhLvD75E",
+});
 
 module.exports = {
   create: function (req, res) {
@@ -25,6 +32,19 @@ module.exports = {
       UserId: req.user.id
     })
   },
+  uploadImage: function (req, res) {
+    console.log("uploading image")
+    cloudinary.uploader.upload(req.body.data , function(err, results){
+      console.log("error: ", err);
+      //need to save the image url in db also the country code from map
+      db.Photos.create({
+        photoUrl: results.secure_url,
+        country: req.body.countryCode,
+        UserId: req.user.id
+        //maybe send back a message to the user 
+      });
+    });
+  },
 
   findAllCountries: function (req, res) {
     db.UserCountries.findAll({
@@ -35,7 +55,49 @@ module.exports = {
       .then((user) => res.json(user))
       .catch((err) => res.status(422).json(err));
   },
+  searchUsername: function (req, res) {
+    console.log(req.body)
+    db.User.findAll({
+      where: {
+        username: req.body.search
+      }
+    })
+      .then((user) => res.json(user))
+      .catch((err) => res.status(422).json(err));
+  },
   //findaAlluser countries for user id (req.user.id)
+  addFollow: function(req, res) {
+    console.log(req.body)
+    db.Followers.create({
+      following: req.body.userId,
+      UserId: req.user.id
+    })
+      .then((result) => res.json(result))
+      .catch((err) => res.status(422).json(err));
+  },
+  getFollowing: function(req, res) {
+    db.Followers.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    })
+      .then((result) => {
+        res.json(result)
+      })
+      .catch((err) => res.status(422).json(err));
+  },
+  feed: function(req, res) {
+    console.log(req.body.followingId)
+    db.Photos.findAll({
+      where: {
+        [Op.and]: req.body.followingId
+      }
+    })
+      .then((result) => {
+        res.json(result)
+      })
+      .catch((err) => res.status(422).json(err));
+  },
   logout: function (req, res) {
     console.log("logged out");
     req.logout();

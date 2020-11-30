@@ -4,12 +4,13 @@ import './style.css';
 import $ from "jquery";
 import API from "../../utils/API";
 
+
 // username: dave
 // password: password
 
 mapboxgl.accessToken = "pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5cGV1ZnE2c2VsYiJ9.mOoyaL49RBuUijTy3MmiRw";
 
-const Map = ({setCountry, setPopup, set}) => {
+const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => {
   const mapContainerRef = useRef(null);
 
   // useState for countries users have been to
@@ -93,9 +94,13 @@ const Map = ({setCountry, setPopup, set}) => {
     });
 
     // Every Click on map popup is false
-   map.on("click", function(){
-    set(false);
-   });
+    let currentCountry = ""
+    map.on("click", function () {
+      set(false);
+      setUploadState(false);
+      // hiding visibility of highlighted country when clicked off
+      if (currentCountry != "") { map.setLayoutProperty(currentCountry, 'visibility', 'none') }
+    });
 
     map.on("click", "countries", function (mapElement) {
       const countryCode = mapElement.features[0].properties.ADM0_A3_IS;
@@ -178,31 +183,41 @@ const Map = ({setCountry, setPopup, set}) => {
         .then((data) => data.json()) //fetch returns an object with a .json() method, which returns a promise
         .then((country) => {
           //country contains the data from the API request
-          map.addLayer({
-            id: "traveled",
-            source: {
-              type: "vector",
-              url: "mapbox://codingdavid.00075afe",
-            },
-            "source-layer": "ne_10m_admin_0_countries-cdqk4p",
-            type: "fill",
-            paint: {
-              "fill-color": "#EB3349",
-              "fill-outline-color": "#f4f4f4",
-            },
-          });
-          map.setFilter("traveled", ["in", "ADM0_A3_IS"].concat(countryCode));
-          // Call Popup Component
 
+          // if layer for specific country already exists, layer becomes visible
+          if (map.getLayer(`traveled-${countryCode}`)) {
+            map.setLayoutProperty(`traveled-${countryCode}`, 'visibility', 'visible');
+
+            //else new country layer is added
+          } else {
+            map.addLayer({
+              id: `traveled-${countryCode}`,
+              source: {
+                type: "vector",
+                url: "mapbox://codingdavid.00075afe",
+              },
+              "source-layer": "ne_10m_admin_0_countries-cdqk4p",
+              type: "fill",
+              paint: {
+                "fill-color": "#EB3349",
+                "fill-outline-color": "#f4f4f4",
+              },
+            });
+            map.setFilter(`traveled-${countryCode}`, ["in", "ADM0_A3_IS"].concat(countryCode));
+          }// Call Popup Component
+          currentCountry = `traveled-${countryCode}`
           setCountry(country);
           set(true);
         
+          setPopup(true);
+          setCountryState(countryCode);
+
           // const html = `
           //   <div class="popupBox">
-              
+
           //   </div>
-         
-           
+
+
           // `;
           // Now we have a good looking popup HTML segment.
 
@@ -239,6 +254,11 @@ const Map = ({setCountry, setPopup, set}) => {
             );
           });
 
+          // $(".photos").on("click" , (event) =>{
+          //   event.preventDefault();
+
+          // })
+
           // document.getElementById(country.name).onclick = addTraveledCountry;
 
           // var traveledID = document.querySelector(".travled")
@@ -249,11 +269,14 @@ const Map = ({setCountry, setPopup, set}) => {
     //Add Geocoder (Search)
 
     // clean up on unmount
-    
+
     return () => map.remove();
   }, []);
 
-  return <div className="map-container" ref={mapContainerRef} />;
+  return (
+    <div className="map-container" ref={mapContainerRef}  ></div>
+  )
 };
 
 export default Map;
+
