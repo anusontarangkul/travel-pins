@@ -38,7 +38,7 @@ function App() {
         <Wrapper>
 
           <Route exact path="/">
-            <Landing />ß
+            <Landing />
           </Route>
           <Route exact path="/login">
             <Login />

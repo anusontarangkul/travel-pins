@@ -8,9 +8,8 @@ function Stats() {
     const [countriesState, setCountryState] = useState({
         countries:""
     });
-    const [followingState, setFollowingState] = useState({
-        following:""
-    });
+    const [followingState, setFollowingState] = useState([]);
+    const [followerState, setFollowerState] = useState([]);
     const [user, setUser] = useState({
         firstname: "",
         lastname: "",
@@ -22,8 +21,9 @@ function Stats() {
 
     useEffect(() => {
         getStats();
-        getUser().then(getImages()).then(getFollwers())
-        
+        getUser();
+        getFollwers();
+        getImages();
     }, []);
 
     const getStats = () => {
@@ -36,36 +36,50 @@ function Stats() {
 
     const getUser = async () => {
         API.getUserData()
-        .then(results => 
-            setUser(results.data[0]))
+        .then(results => {
+            console.log(results.data[0])
+            setUser({
+            firstname: results.data[0].firstName,
+            lastname: results.data[0].lastName,
+            username: results.data[0].username,
+            userId: results.data[0].id,
+            email: results.data[0].email}
+            );
+        })
         .catch(err => console.log(err));
-        return true;
+        //console.log(user);
     }
     const getFollwers = () => {
         API.getFollow()
         .then(res =>{
-            console.log(res.data.length);
-            setFollowingState({following: res.data.length});
+            ////console.log(res.data.length);
+            setFollowingState(res.data);
         })
         .catch(err =>{
             console.log(err);
         });
-        return true;
+        API.getFollowers()
+        .then(res =>{
+            //console.log(res.data.length);
+            setFollowerState(res.data);
+        })
+        .catch(err =>{
+            console.log(err);
+        });
     }
     const getImages = () =>{
-        console.log("function hit")
-        API.getFeed({followingId: [{UserId: user.id}]})
+        //console.log("function hit")
+        API.getUserPhotos()
         .then(res =>{
-          console.log(res);
+          //console.log(res);
             setPhotoState(res.data)
         }).catch(err =>{
           console.log(err);
         });
         return true;
       }
-
-
-    console.log(photoState);
+    //console.log(photoState);
+    console.log(user)
 
     return (
         <div>
@@ -77,7 +91,11 @@ function Stats() {
                 </div>
                 <div className = "following">
                     <h5>following</h5>
-                    <p>{followingState.following}</p>
+                    <p>{followingState.length}</p>
+                </div>
+                <div className = "followers">
+                    <h5>followers</h5>
+                    <p>{followerState.length}</p>
                 </div>
                 <div className = "posts">
                     <h5>posts</h5>

@@ -92,11 +92,33 @@ module.exports = {
       })
       .catch((err) => res.status(422).json(err));
   },
+  getFollowers: function(req, res) {
+    db.Followers.findAll({
+      where: {
+        following: req.user.id
+      }
+    })
+      .then((result) => {
+        res.json(result)
+      })
+      .catch((err) => res.status(422).json(err));
+  },
   feed: function(req, res) {
     console.log(req.body.followingId)
     db.Photos.findAll({
       where: {
         [Op.and]: req.body.followingId
+      }
+    })
+      .then((result) => {
+        res.json(result)
+      })
+      .catch((err) => res.status(422).json(err));
+  },
+  userPhotos: function(req, res) {
+    db.Photos.findAll({
+      where: {
+        UserId: req.user.id
       }
     })
       .then((result) => {

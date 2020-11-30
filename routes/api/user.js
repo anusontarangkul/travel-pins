@@ -45,6 +45,15 @@ router
   .get(userController.getFollowing)
 
   router
+  .route("/followers")
+  .get(userController.getFollowers)
+
+  router
   .route("/feed")
   .post(userController.feed)
+
+  router
+  .route("/user_photos")
+  .get(userController.userPhotos)
+
 module.exports = router;

@@ -1,4 +1,7 @@
-
+.stats{
+    flex-direction: row;
+    justify-content:  center;
+}
 .profilePic{
     height: 50px;
     width: 50px;

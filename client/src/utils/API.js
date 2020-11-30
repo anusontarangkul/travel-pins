@@ -33,6 +33,9 @@ export default {
     getFollow: function(){
         return axios.get("api/user/following")
     },
+    getFollowers: function(){
+        return axios.get("api/user/followers")
+    },
     getFeed: function(followingId){
         return axios.post("api/user/feed",followingId)
     },
@@ -42,5 +45,8 @@ export default {
 
     getUserData: function () {
         return axios.get("api/user/user_data")
+    },
+    getUserPhotos: function () {
+        return axios.get("api/user/user_photos")
     }
 };
