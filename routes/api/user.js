@@ -30,5 +30,9 @@ router
   .get(userController.logout)
 
 
+router
+  .route("/upload")
+  .post(userController.uploadImage)
+
 
 module.exports = router;

@@ -4,12 +4,13 @@ import './style.css';
 import $ from "jquery";
 import API from "../../utils/API";
 
+
 // username: dave
 // password: password
 
 mapboxgl.accessToken = "pk.eyJ1IjoiY29kaW5nZGF2aWQiLCJhIjoiY2tobnMzNTl6MWM5aTJ5cGV1ZnE2c2VsYiJ9.mOoyaL49RBuUijTy3MmiRw";
 
-const Map = ({setCountry, setPopup}) => {
+const Map = ({setCountry, setPopup, setCountryState, setUploadState}) => {
   const mapContainerRef = useRef(null);
 
   // useState for countries users have been to
@@ -94,6 +95,7 @@ const Map = ({setCountry, setPopup}) => {
     // Every Click on map popup is false
    map.on("click", function(){
     setPopup(false);
+    setUploadState(false);
    });
 
     map.on("click", "countries", function (mapElement) {
@@ -136,6 +138,7 @@ const Map = ({setCountry, setPopup}) => {
 
           setCountry(country);
           setPopup(true);
+          setCountryState(countryCode);
         
           // const html = `
           //   <div class="popupBox">
@@ -179,6 +182,11 @@ const Map = ({setCountry, setPopup}) => {
             );
           });
 
+          // $(".photos").on("click" , (event) =>{
+          //   event.preventDefault();
+            
+          // })
+
           // document.getElementById(country.name).onclick = addTraveledCountry;
 
           // var traveledID = document.querySelector(".travled")
@@ -193,7 +201,9 @@ const Map = ({setCountry, setPopup}) => {
     return () => map.remove();
   }, []);
 
-  return <div className="map-container" ref={mapContainerRef} />;
-};
+  return(
+    <div className="map-container" ref={mapContainerRef}  ></div>
+  )};
 
 export default Map;
+
