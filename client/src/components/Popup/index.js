@@ -31,7 +31,7 @@ function Popup({country, setUploadState, transitions}){
           </div>
           </animated.div> 
            )}
-          <a className="popupbtn" id="postbtnContainer">
+          <a className="popupbtn" id="postbtnContainer" onClick ={handleUploadClick}>
             <div id="postbtn">
             <h2 id="postbtnText">Post</h2>
               <i className="material-icons material-icons-outlined" id="post">

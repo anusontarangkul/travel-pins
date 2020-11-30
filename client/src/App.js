@@ -17,7 +17,9 @@ import {useSpring, animated, useTransition} from 'react-spring';
 function App() {
   const [country, setCountry] = useState();
   const [popupState, setPopup] = useState(false);
-
+  const [uploadState, setUploadState] = useState(false);
+  const [countryState, setCountryState] = useState("");
+  console.log(countryState)
   //react spring animations
   const [show, set] = useState(false)
   const transitions = useTransition(show, null, {
@@ -27,12 +29,9 @@ function App() {
     config: { duration: 280 }
   })
 
-  const [uploadState, setUploadState] = useState(false);
-  const [CountryState, setCountryState] = useState("");
   
   return (
     <div className="App">
-
 
       <Router>
         <Wrapper>
@@ -51,7 +50,7 @@ function App() {
             
             <Map setCountry={setCountry} setPopup={setPopup} setUploadState = {setUploadState} setCountryState = {setCountryState} set={set}/>
             <Popup transitions={transitions} set={set} country={country} setUploadState = {setUploadState}/>
-            {uploadState && (<Upload country = {CountryState}/>)}
+            {uploadState && (<Upload country = {countryState}/>)}
             <Navbar/>
           </Route>
           <Route exact path = "/home">
@@ -68,4 +67,4 @@ export default App;
 
 
 /*<Map setUploadState = {setUploadState} setCountryState = {setCountryState}/>
-{uploadState && (<Upload country = {CountryState}/>)}*/
+{uploadState && (<Upload country = {countryState}/>)}*/
