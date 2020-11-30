@@ -27,9 +27,12 @@ function Popup({country, transitions, set}){
           </animated.div> 
            )}
           <a className="popupbtn" id="postbtnContainer">
-            <i className="material-icons material-icons-outlined" id="postbtn">
-                  add
-            </i>
+            <div id="postbtn">
+            <h2 id="postbtnText">Post</h2>
+              <i className="material-icons material-icons-outlined" id="post">
+                    add
+              </i>
+            </div>
           </a>
     </div>
     )}
