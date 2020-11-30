@@ -108,10 +108,25 @@ const Map = ({setCountry, setPopup, set}) => {
           ".json?&access_token=" +
           mapboxgl.accessToken,
         success: function (res) {
+
+          const fly = res.features[0].center[0];
+          console.log(res.features[0].center[1]);
+          if (res.features[0].center[1] > 0){
+          const to = res.features[0].center[1] * .7;
+          
           map.easeTo({
-            center: res.features[0].center,
+            center: [fly, to],
             speed: 1, // make the flying slow 
           });
+          }
+          if (res.features[0].center[1] < 0){
+            const to = res.features[0].center[1] * 1.7;
+            
+            map.easeTo({
+              center: [fly, to],
+              speed: 1, // make the flying slow 
+            });
+            }
         },
       });
       // Grab the country code from the map properties.
