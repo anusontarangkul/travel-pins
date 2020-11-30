@@ -97,6 +97,7 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState }) => {
     map.on("click", function () {
       setPopup(false);
       setUploadState(false);
+      // hiding visibility of highlighted country when clicked off
       if (currentCountry != "") { map.setLayoutProperty(currentCountry, 'visibility', 'none') }
     });
 
@@ -122,8 +123,12 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState }) => {
         .then((data) => data.json()) //fetch returns an object with a .json() method, which returns a promise
         .then((country) => {
           //country contains the data from the API request
+
+          // if layer for specific country already exists, layer becomes visible
           if (map.getLayer(`traveled-${countryCode}`)) {
             map.setLayoutProperty(`traveled-${countryCode}`, 'visibility', 'visible');
+
+            //else new country layer is added
           } else {
             map.addLayer({
               id: `traveled-${countryCode}`,
