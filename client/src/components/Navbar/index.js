@@ -30,9 +30,11 @@ function Navbar(){
             </a>
             </div>
             <div className="nav-item">
-                <i className="material-icons material-icons-outlined navicon" id="userButton">
-                person_outline
-                </i>
+                <a href = "/stats">
+                    <i className="material-icons material-icons-outlined navicon" id="userButton">
+                    person_outline
+                    </i>
+                </a>
             </div>
             <div className="nav-item" >
                 <a onClick={handleLogout}>
