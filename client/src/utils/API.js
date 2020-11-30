@@ -33,6 +33,9 @@ export default {
     getFollow: function(){
         return axios.get("api/user/following")
     },
+    getFeed: function(followingId){
+        return axios.post("api/user/feed",followingId)
+    },
     logout: function () {
         return axios.get("api/user/logout")
     }
