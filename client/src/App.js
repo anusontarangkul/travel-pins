@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Wrapper from './components/Wrapper';
@@ -10,6 +10,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Upload from "./components/Upload";
 import Popup from './components/Popup';
+import Stats from './components/Stats';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   const [popupState, setPopup] = useState(false);
   const [uploadState, setUploadState] = useState(false);
   const [CountryState, setCountryState] = useState("");
-  
+
   return (
     <div className="App">
 
@@ -25,24 +26,27 @@ function App() {
       <Router>
         <Wrapper>
 
-          <Route exact path = "/">
-            <Landing/>
+          <Route exact path="/">
+            <Landing />
           </Route>
-            <Route exact path = "/login">
-              <Login/>
-            </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
 
-            <Route exact path = "/signup">
-              <Signup/>
-            </Route>
-          <Route exact path = "/map">
-            <Map setCountry={setCountry} setPopup={setPopup} setUploadState = {setUploadState} setCountryState = {setCountryState}/>
-            {popupState && (<Popup country={country} setUploadState = {setUploadState}/>)}
-            {uploadState && (<Upload country = {CountryState}/>)}
-            <Navbar/>
+          <Route exact path="/signup">
+            <Signup />
           </Route>
-          <Route exact path = "/home">
-            <Home/>
+          <Route exact path="/map">
+            <Map setCountry={setCountry} setPopup={setPopup} setUploadState={setUploadState} setCountryState={setCountryState} />
+            {popupState && (<Popup country={country} setUploadState={setUploadState} />)}
+            {uploadState && (<Upload country={CountryState} />)}
+            <Navbar />
+          </Route>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/stats">
+            <Stats />
           </Route>
         </Wrapper>
       </Router>
