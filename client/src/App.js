@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Wrapper from './components/Wrapper';
@@ -10,8 +10,9 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Upload from "./components/Upload";
 import Popup from './components/Popup';
+import Stats from './components/Stats';
 
-import {useSpring, animated, useTransition} from 'react-spring';
+import { useSpring, animated, useTransition } from 'react-spring';
 
 
 function App() {
@@ -29,32 +30,47 @@ function App() {
     config: { duration: 280 }
   })
 
-  
+
   return (
     <div className="App">
 
       <Router>
         <Wrapper>
 
-          <Route exact path = "/">
-            <Landing/>
+          <Route exact path="/">
+            <Landing />
           </Route>
-            <Route exact path = "/login">
-              <Login/>
-            </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
 
-            <Route exact path = "/signup">
-              <Signup/>
-            </Route>
-          <Route exact path = "/map">
-            
-            <Map setCountry={setCountry} setPopup={setPopup} setUploadState = {setUploadState} setCountryState = {setCountryState} set={set}/>
-            <Popup transitions={transitions} set={set} country={country} setUploadState = {setUploadState}/>
-            {uploadState && (<Upload country = {countryState}/>)}
-            <Navbar/>
+          <Route exact path="/signup">
+            <Signup />
           </Route>
-          <Route exact path = "/home">
-            <Home/>
+          <Route exact path="/map">
+            <Map setCountry={setCountry} setPopup={setPopup} setUploadState={setUploadState} setCountryState={setCountryState} />
+            {popupState && (<Popup country={country} setUploadState={setUploadState} />)}
+            {uploadState && (<Upload country={CountryState} />)}
+            <Navbar />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/stats">
+            <Stats />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+          <Route exact path="/map">
+
+            <Map setCountry={setCountry} setPopup={setPopup} setUploadState={setUploadState} setCountryState={setCountryState} set={set} />
+            <Popup transitions={transitions} set={set} country={country} setUploadState={setUploadState} />
+            {uploadState && (<Upload country={countryState} />)}
+            <Navbar />
+          </Route>
+          <Route exact path="/home">
+            <Home />
 
           </Route>
         </Wrapper>
