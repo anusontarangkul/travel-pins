@@ -3,8 +3,7 @@ module.exports = function (sequelize, DataTypes) {
 
         CountryName: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
         }
     });
     UserCountries.associate = function (models) {

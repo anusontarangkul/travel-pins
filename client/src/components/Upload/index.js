@@ -36,7 +36,7 @@ function Upload({ country }) {
     reader.readAsDataURL(selectedFile);
     reader.onloadend = () => {
       //uploadImage(reader.result);
-      API.Upload({ data: reader.result, countryCode: country })
+      API.Upload({ data: reader.result, countryCode: country})
         .then((res) => {
           console.log("upload success");
         })
