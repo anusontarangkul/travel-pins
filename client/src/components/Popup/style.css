@@ -1,11 +1,10 @@
-
 .popupContainer{
   position: fixed;
   bottom: -400px;
   width: 100vw;
   height: 600px;
   /* background: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%); */
-  background: linear-gradient(#ffffffa7, #ffffffd6);
+  background: linear-gradient(180deg,#ffffffa7, #ffffffd6);
   border-radius: 50px;
   transition: bottom .4s ease-in-out;
 }
@@ -67,27 +66,26 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(285deg, #fbfafa 0%, #fffafa 74%);
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.532);
+  border-radius: 10px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.532);
   overflow: hidden;
 }
 .visitedTop {
   background: linear-gradient(to left, #EB3349 0%, #F45C43 100%);
   width: 100%;
-  height: 90px;
-  margin-top: -20px;
+  height: 70px;
+  margin-top: -30px;
   pointer-events: none;
 }
 .visitedHeader {
   /* text-align: left; */
-  font-size: 20px;
-  line-height: 4.8em;
+  font-size: 26px;
+  line-height: 3em;
   color: white;
   /* background: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
   background-clip: text;
   -webkit-text-fill-color: transparent; */
 }
-
 
 .bottomBox {
   grid-area: bottomBox;
@@ -95,8 +93,8 @@
   height: 92%;
   background: linear-gradient(285deg, #fbfafa 0%, #fffafa 74%);
   color: white;
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.532);
+  border-radius: 10px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.532);
   overflow: hidden;
 }
 .bottomBox img {
@@ -107,13 +105,52 @@
   margin-left: auto;
   /* margin-top: -45px; */
 }
+/* SWIPE */
 
 
+.swipe {
+  width: 100%;
+  height: 100%;
+}
+.swipeBanner {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+.swipeItem {
+  text-align: center;
+  /* padding-left: 20px;
+  padding-right: 20px; */
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 12px;
+  margin-bottom: 10px;
+
+}
+.swipeTitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  background: linear-gradient(100deg, #00c6ff, #0072ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.swipeReturn {
+  font-size: 22px;
+  text-transform: uppercase;
+  background: linear-gradient(100deg, #00c6ff, #0072ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+/* ANIMATIONS */
+.popupContainer:hover{
+  bottom: 80px;
+}
 .popupContainer:hover .popupHeader{
   border-radius: 25px;
-}
-.popupContainer:hover{
-  bottom: 0px;
 }
 .popupContainer:hover #upbtn {
   transform: rotate(180deg);
@@ -124,7 +161,6 @@
   height: 100px;
   color: white;
   font-size: 32px;
-  
   margin: 25px;
   margin-right: 0px;
   overflow: hidden;
@@ -157,33 +193,7 @@
   transition: padding .2s, padding-left .2s, box-shadow .5s, border-radius .2s, opacity .3s, ease-in-out;
 }
 
-#postbtn:hover {
-  /* width: 300px; */
-  border-radius: 50px;
-  padding-left: 60px;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.532);
- 
-}
 
-#post {
-  font-size: 40px;
-  padding: 20px;
-  transition: padding .2s, transform .4s, font-size .2s ease-in-out;
-  pointer-events: none;
-
-}
-#postbtn:hover #post {
-  /* font-size: 45px; */
-  transform: rotate(225deg) !important;
-  /* padding: 30px; */
-}
-#postbtnText {
-  opacity: 0;
-  font-size: 0px;
-  color: #f4f4f4;
-  transform: translateY(15px);
-  transition: opacity 0.8s, font-size .3s, transform .4s, padding-left .3s ease-in-out;
-}
 #postbtn:hover #postbtnText {
   opacity: 1;
   font-size: 28px;
@@ -197,9 +207,23 @@
 }
 
 
-
-
-/* #traveledbtn {
-  width: 100px;
-  height: 50px;
-} */
+/* Media Queries */
+@media only screen and (max-width: 900px) { 
+  .swipeBanner {
+   /* justify-content: center; */
+   width: 100%;
+   overflow: hidden;
+  }
+  .swipeTitle {
+    font-size: 10px;
+  }
+  .swipeReturn {
+    font-size: 18px;
+  }
+  .swipeItem {
+    /* margin-left: 12px;
+    margin-right: 12px; */
+    margin-top: 12px;
+    margin-bottom: 10px;
+  }
+}

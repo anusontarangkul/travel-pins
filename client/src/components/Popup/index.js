@@ -2,6 +2,9 @@ import react ,{useState, useEffect} from "react";
 import "./style.css";
 import { useSpring, animated, useTransition } from "react-spring";
 import { useSwipeable } from "react-swipeable";
+import IndicatorDots from "./indicatordots";
+import Carousel from "re-carousel";
+import Upload from "../Upload";
 import API from "../../utils/API";
 
 function Popup({ country, setUploadState, transitions, countryState}) {
@@ -96,8 +99,31 @@ console.log(userDataState);
                       expand_less
                     </i>
                   </div>
-
                 </div>
+                <Carousel widgets={[IndicatorDots]}>
+                  <div className="swipe">
+                    <div className="swipeBanner">
+                      <div className="swipeItem">
+                        <h2 className="swipeTitle">Capital</h2>
+                        <h1 className="swipeReturn">{country.capital}</h1>
+                      </div>
+                      <div className="swipeItem">
+                        <h2 className="swipeTitle">Currency</h2>
+                        <h1 className="swipeReturn">
+                          {country.currencies[0].name}
+                        </h1>
+                      </div>
+                      <div className="swipeItem">
+                        <h2 className="swipeTitle">Language</h2>
+                        <h1 className="swipeReturn">
+                          {country.languages[0].name}
+                        </h1>
+                      </div>
+                    </div>
+                    {/* <hr/> */}
+                    <Upload country={countryState}/>
+                  </div>
+
                 <div className="popupContent" onMouseMove = {handleTravled}>
                     {travled
                     ?<div></div>
@@ -124,14 +150,15 @@ console.log(userDataState);
                       </div>
                   </div>
                   <div className="bottomBox">
-                    <img src={country.flag}/>
+                      <img src={country.flag} />
                   </div>
-                </div>
+                  </div>
+                </Carousel>
               </div>
             </animated.div>
           )
       )}
-      <a className="popupbtn" id="postbtnContainer" onClick ={handleUploadClick}>
+      <a className="popupbtn" id="postbtnContainer" onClick={handleUploadClick}>
         <div id="postbtn">
           <h2 id="postbtnText">Post</h2>
           <i className="material-icons material-icons-outlined" id="post">
