@@ -106,7 +106,13 @@
   /* margin-top: -45px; */
 }
 /* SWIPE */
-
+.visitedList{
+  position: absolute;
+  z-index: 1500;
+  color: red;
+  top: 0;
+  right: 0;
+}
 
 .swipe {
   width: 100%;
