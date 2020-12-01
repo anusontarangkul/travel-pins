@@ -39,7 +39,7 @@ function Navbar(){
             <div className="nav-item" >
                 <a onClick={handleLogout}>
                     <i className="material-icons material-icons-outlined navicon" id="menuButton">
-                    menu
+                    flight_takeoff
                     </i>
                 </a>
             </div>
