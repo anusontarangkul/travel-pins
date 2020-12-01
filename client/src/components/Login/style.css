@@ -21,7 +21,8 @@
   height: 500px;
   padding: 0 20px;
   border-radius: 50px;
-  background: linear-gradient(180deg, #00f260 0%, #38ef7d 100%);
+  /* background: linear-gradient(180deg, #00f260 0%, #38ef7d 100%); */
+  background: linear-gradient(180deg, #e1e5e9 0%, #7b7d7e);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -153,4 +154,9 @@ form{
   border-radius: 25px;
   height: 30px;
   width: 100px;
+  outline: 0;
+}
+
+.submit-btn:hover {
+  cursor: pointer;
 }

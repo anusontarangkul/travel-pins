@@ -29,10 +29,12 @@ function Login() {
     const handleSignup = (event) => {
         event.preventDefault();
         //console.log(signupState);
-        API.userSignup(JSON.stringify({ signupState }))
+        // API.userSignup(JSON.stringify({ signupState }))
+        API.userSignup(signupState)
             .then(res => {
                 console.log("sign up success");
                 window.location.href = "/login";
+                alert("Account successfully created! Please login.")
             })
             .catch(err => { console.log(err) });
 
@@ -65,23 +67,23 @@ function Login() {
                         <br></br>
                         <br></br>
                         <br></br>
-                        <input placeholder="&nbsp;First Name" id="firstName" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleSignupChange(e)} />
+                        <input placeholder="&nbsp;First Name" id="firstName" name="firstName" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         {/* <h5>Last Name</h5> */}
                         <br></br>
                         <br></br>
-                        <input placeholder="&nbsp;Last Name" id="lastName" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleSignupChange(e)} />
+                        <input placeholder="&nbsp;Last Name" id="lastName" name="lastName" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         <br></br>
                         <br></br>
                         {/* <h5>username</h5> */}
-                        <input placeholder="&nbsp;Username" id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleSignupChange(e)} />
+                        <input placeholder="&nbsp;Username" id="username" name="username" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         <br></br>
                         <br></br>
                         {/* <h5>email</h5> */}
-                        <input placeholder="&nbsp;Email" id="email" name="email" autocomplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
+                        <input placeholder="&nbsp;Email" id="email" name="email" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
                         {/* <h5>password</h5> */}
                         <br></br>
                         <br></br>
-                        <input placeholder="&nbsp;Password" id="password" name="password" autocomplete="off" class="input" type="password" onChange={(e) => handleSignupChange(e)} />
+                        <input placeholder="&nbsp;Password" id="password" name="password" autoComplete="off" className="input" type="password" onChange={(e) => handleSignupChange(e)} />
                         <br></br>
                         <br></br>
                         <button class="submit-btn" type="button" onClick={handleSignup}>Sign Up</button>
@@ -95,11 +97,11 @@ function Login() {
                     <h1 className="formTitle active" >Sign In</h1>
                     <form>
                         {/* <h5>Username</h5> */}
-                        <input placeholder="&nbsp;Username" id="username" name="username" autocomplete="off" class="input" type="text" onChange={(e) => handleLoginChange(e)}></input>
+                        <input placeholder="&nbsp;Username" id="username-login" name="username" autoComplete="off" className="input" type="text" onChange={(e) => handleLoginChange(e)}></input>
                         {/* <h5>Password</h5> */}
                         <br></br>
                         <br></br>
-                        <input placeholder="&nbsp;Password" id="password" name="password" autocomplete="off" class="input" type="password" onChange={(e) => handleLoginChange(e)} />
+                        <input placeholder="&nbsp;Password" id="password-login" name="password" autoComplete="off" className="input" type="password" onChange={(e) => handleLoginChange(e)} />
                         <br></br>
                         <br></br>
                         <button type="button" class="submit-btn" onClick={handleLogin}>Sign In</button>
