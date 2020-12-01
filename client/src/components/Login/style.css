@@ -1,87 +1,93 @@
 .login {
-    background: linear-gradient(180deg, #00c6ff, #0072ff);
-    height: 100vh;
-    overflow: hidden;
+  background: linear-gradient(180deg, #00c6ff, #0072ff);
+  height: 100vh;
+  overflow: hidden;
 }
 .logoHeader {
-    width: 100%;
-    background:#fefefe;
-    margin-top: 50px;
-    /* border-radius: 0  0 50px 50px ;
+  width: 100%;
+  background: #fefefe;
+  margin-top: 50px;
+  /* border-radius: 0  0 50px 50px ;
     background: #fefefe; */
-    font-size: 0px;
-    text-align: left;
-    /* box-shadow: 0 10px 50px rgba(33, 33, 33, 0.573); */
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  font-size: 0px;
+  text-align: left;
+  /* box-shadow: 0 10px 50px rgba(33, 33, 33, 0.573); */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .loginCard {
-    width: 100%;
-    height: 600px;
-    padding: 0 20px;
-    border-radius: 50px;
-    background: linear-gradient(180deg, #00F260 0%, #38ef7d 100%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    transition: 0.4s ease-out;
-    position: relative;
-    box-shadow: 0 0 50px rgba(33, 33, 33, 0.573);
-    z-index: 5;
+  width: 100%;
+  /* height: 600px; */
+  height: 500px;
+  padding: 0 20px;
+  border-radius: 50px;
+  background: linear-gradient(180deg, #00f260 0%, #38ef7d 100%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  transition: 0.4s ease-out;
+  position: relative;
+  box-shadow: 0 0 50px rgba(33, 33, 33, 0.573);
+  z-index: 5;
 }
 
 .signupCard {
-    width: 80%;
-    height: 500px;
-    padding: 0 20px;
-    border-radius: 50px;
-    background: linear-gradient(to left, #EB3349 0%, #F45C43 100%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    box-shadow: 0 0 30px rgba(33, 33, 33, 0.573);
-    z-index: 0;
-    transition: width .5s, box-shadow .5s ease-in-out;
+  width: 80%;
+  /* height: 500px; */
+  height: 500px;
+  padding: 0 20px;
+  border-radius: 50px;
+  background: linear-gradient(to left, #eb3349 0%, #f45c43 100%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  box-shadow: 0 0 30px rgba(33, 33, 33, 0.573);
+  z-index: 0;
+  transition: width 0.5s, box-shadow 0.5s ease-in-out;
 }
 
 .formTitle {
-    color: #fefefe;
-    margin-top: -80px;
-    font-size: 60px;
-    padding-bottom: -40px;
-    /* transform: rotate(-90deg); */
+  color: #fefefe;
+  /* margin-top: -80px; */
+  /* font-size: 60px; */
+  padding-bottom: -40px;
+  /* transform: rotate(-90deg); */
+  margin-top: -300px;
+  font-size: 60px;
 }
-.formTitle.active{
-    font-size: 80px;
+.formTitle.active {
+  /* font-size: 80px; */
+  font-size: 70px;
+  padding-top: -50px;
 }
 
 .signupC {
-    position: fixed;
-    margin-top: 50px;
-    transition: transform .5s ease-in-out;
+  position: fixed;
+  /* margin-top: 50px; */
+  margin-top: 270px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .signupC:hover {
-    transform: translateY(-280px);
+  transform: translateY(-280px);
 }
-.signupC:hover .signupCard{
-    width: 85%;
-    box-shadow: 0 -5px 20px rgba(33, 33, 33, 0.573);
+.signupC:hover .signupCard {
+  width: 85%;
+  box-shadow: 0 -5px 20px rgba(33, 33, 33, 0.573);
 }
 .loginC {
-    margin-top: 180px;
-    transition: transform .5s ease-in-out;
+  /* margin-top: 180px; */
+  margin-top: 425px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .loginC:hover {
-    transform: translateY(-100px);
+  /* transform: translateY(-100px); */
+  transform: translateY(-300px);
 }
-
-
-
 
 /* Mobile */
 /* @media only screen and (max-width: 400px) {
@@ -90,50 +96,61 @@ form{
 }
 } */
 
-
 @keyframes fadeInUp {
-    from {
-        transform: translate3d(0,500px,0)
-    }
+  from {
+    transform: translate3d(0, 500px, 0);
+  }
 
-    to {
-        transform: translate3d(0,0,0);
-        opacity: 1
-    }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
 }
 
-
 @-webkit-keyframes fadeInUp {
-    from {
-        transform: translate3d(0,40px,0)
-    }
+  from {
+    transform: translate3d(0, 40px, 0);
+  }
 
-    to {
-        transform: translate3d(0,0,0);
-        opacity: 1
-    }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
 }
 
 .animated {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-fill-mode: both
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
 }
 
 .animatedS {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    -webkit-animation-duration: 1.5s;
-    -webkit-animation-fill-mode: both
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
 }
 
 .animatedFadeInUp {
-    opacity: 0
+  opacity: 0;
 }
 
 .fadeInUp {
-    opacity: 0;
-    animation-name: fadeInUp;
-    -webkit-animation-name: fadeInUp;
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+}
+
+.input {
+  min-width: 200px;
+  border-radius: 25px;
+  min-height: 20px;
+  outline: 0;
+}
+
+.submit-btn {
+  border-radius: 25px;
+  height: 30px;
+  width: 100px;
 }
