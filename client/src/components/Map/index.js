@@ -122,7 +122,7 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
           map.fitBounds([
             [res.features[0].bbox[0], res.features[0].bbox[1]],
             [res.features[0].bbox[2], res.features[0].bbox[3]]
-          ],{padding:{top: 30, bottom: 380, right: 0, left: 0}});
+          ],{padding:{top: 30, bottom: 200, right: 0, left: 0}});
         } else if  (countryCode === "GRL"){
           map.fitBounds([
             [res.features[0].bbox[0], res.features[0].bbox[1]],
@@ -133,17 +133,22 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
           map.fitBounds([
             [res.features[0].bbox[0], res.features[0].bbox[1]],
             [res.features[0].bbox[2], res.features[0].bbox[3]]
-          ],{padding:{top: 100, bottom: 380, right: 0, left: 0}});
+          ],{padding:{top: 100, bottom: 300, right: 0, left: 0}});
         } else if  (countryCode === "AUS"){
           map.fitBounds([
             [res.features[1].bbox[0], res.features[1].bbox[1]],
             [res.features[1].bbox[2], res.features[1].bbox[3]]
-          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
         } else if  (countryCode === "MAR"){
           map.fitBounds([
             [res.features[2].bbox[0], res.features[2].bbox[1]],
             [res.features[2].bbox[2], res.features[2].bbox[3]]
-          ],{padding:{top: 100, bottom: 480, right: 50, left: 100}});
+          ],{padding:{top: 100, bottom: 350, right: 50, left: 225}});
+        } else if  (countryCode === "SOM"){
+          map.fitBounds([
+            [res.features[2].bbox[0], res.features[2].bbox[1]],
+            [res.features[2].bbox[2], res.features[2].bbox[3]]
+          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
         } else if  (countryCode === "NOR"){
           map.fitBounds([
             [res.features[4].bbox[0], res.features[4].bbox[1]],
@@ -158,22 +163,32 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
           map.fitBounds([
             [res.features[1].bbox[0], res.features[1].bbox[1]],
             [res.features[1].bbox[2], res.features[1].bbox[3]]
-          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
         } else if  (countryCode === "TUN"){
           map.fitBounds([
             [res.features[1].bbox[0], res.features[1].bbox[1]],
             [res.features[1].bbox[2], res.features[1].bbox[3]]
           ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "KEN"){
+          map.fitBounds([
+            [res.features[1].bbox[0], res.features[1].bbox[1]],
+            [res.features[1].bbox[2], res.features[1].bbox[3]]
+          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
         } else if  (countryCode === "GUY"){
           map.fitBounds([
             [res.features[3].bbox[0], res.features[3].bbox[1]],
             [res.features[3].bbox[2], res.features[3].bbox[3]]
-          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
+        } else if  (countryCode === "SUR"){
+          map.fitBounds([
+            [res.features[3].bbox[0], res.features[3].bbox[1]],
+            [res.features[3].bbox[2], res.features[3].bbox[3]]
+          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
         } else if  (countryCode === "PRK"){
           map.fitBounds([
             [res.features[3].bbox[0], res.features[3].bbox[1]],
             [res.features[3].bbox[2], res.features[3].bbox[3]]
-          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
         } else if  (countryCode === "SLE"){
           map.fitBounds([
             [res.features[1].bbox[0], res.features[1].bbox[1]],
@@ -183,7 +198,7 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
         map.fitBounds([
           [res.features[0].bbox[0], res.features[0].bbox[1]],
           [res.features[0].bbox[2], res.features[0].bbox[3]]
-        ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
       }
       }
       });
