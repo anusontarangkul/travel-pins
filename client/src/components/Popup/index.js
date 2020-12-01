@@ -8,13 +8,15 @@ function Popup({ country, setUploadState, transitions, countryState}) {
   console.log(transitions);
   const [followingVisited, setFollowingVisited] = useState([]);
   const [followingDataState, setFollowingDataState ] = useState([]);
+  const [userDataState, setUserDataState ] = useState([]);
+  const [travled, setTravled] = useState(false);
 
   useEffect(()=>{
     getUser();
   },[]);
 
 // console.log(followingVisited)
-console.log(followingDataState)
+console.log(userDataState);
 
   const handleUploadClick = (event) => {
     event.preventDefault();
@@ -22,12 +24,17 @@ console.log(followingDataState)
   };
   const handleVisited = (event) => {
     event.preventDefault();
-    console.log("clicked visited");
+    //console.log("clicked visited");
     checkVisited();
+  };
+  const handleTravled = (event) => {
+    event.preventDefault();
+    checkIfAlreadyTravled();
   };
   const getUser = () => {
     API.getUserData()
     .then(results => {
+      setUserDataState(results.data[0]);
         var following = [];
         for(let i =0; i<results.data[0].Followers.length; i++){
           following.push({id: results.data[0].Followers[i].following});
@@ -47,14 +54,21 @@ console.log(followingDataState)
       console.log(err);
     }); 
   }
-
+  const checkIfAlreadyTravled = () =>{
+      if (userDataState.UserCountries.some(e => e.CountryName === countryState)) {
+        setTravled(true);
+      }
+      else{
+        setTravled(false);
+      }
+  }
   const checkVisited = () =>{
-    console.log(followingDataState);
+    //console.log(followingDataState);
     for(let y = 0; y<followingDataState.length; y++){
       setFollowingVisited([]);
       if (followingDataState[y].UserCountries.some(e => e.CountryName === countryState)) {
         setFollowingVisited(followingVisited => [...followingVisited, {visited: followingDataState[y].username}])
-        console.log("visited hit") 
+        //console.log("visited hit") 
       }
     }
   }
@@ -83,14 +97,17 @@ console.log(followingDataState)
                   </div>
 
                 </div>
-                <div className="popupContent">
-                  <a id="traveledbtn">
-                    <div className="popupbox">
-                      <div className="traveledbtn">
-                       Traveled
+                <div className="popupContent" onMouseMove = {handleTravled}>
+                    {travled
+                    ?<div></div>
+                    :<a id="traveledbtn">
+                      <div className="popupbox">
+                        <div className="traveledbtn">
+                          Add Traveled
+                        </div>
                       </div>
-                    </div>
-                  </a>
+                    </a>
+                    }
                   <div className="visited" onMouseMove={handleVisited}>
                     <div className="visitedTop">
                       <h2 className="visitedHeader">Friends that visited:</h2>
