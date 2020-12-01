@@ -159,7 +159,17 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
             [res.features[1].bbox[0], res.features[1].bbox[1]],
             [res.features[1].bbox[2], res.features[1].bbox[3]]
           ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "TUN"){
+          map.fitBounds([
+            [res.features[1].bbox[0], res.features[1].bbox[1]],
+            [res.features[1].bbox[2], res.features[1].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
         } else if  (countryCode === "GUY"){
+          map.fitBounds([
+            [res.features[3].bbox[0], res.features[3].bbox[1]],
+            [res.features[3].bbox[2], res.features[3].bbox[3]]
+          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
+        } else if  (countryCode === "PRK"){
           map.fitBounds([
             [res.features[3].bbox[0], res.features[3].bbox[1]],
             [res.features[3].bbox[2], res.features[3].bbox[3]]
@@ -242,10 +252,12 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
               "source-layer": "ne_10m_admin_0_countries-cdqk4p",
               type: "fill",
               paint: {
-                "fill-color": "#63A583",
-                "fill-outline-color": "#111B1E",
+                "fill-color": "#0080ff",
+                "fill-outline-color": "#454545",
               },
             });
+            // Green Swatch
+            /* #16ed68 */
 
             map.setFilter(
               countryCode,
