@@ -51,5 +51,8 @@ export default {
     },
     getUserPhotos: function () {
         return axios.get("api/user/user_photos")
+    },
+    getFollowingInfo: function (followingId) {
+        return axios.post("api/user/findFollowingInfo", followingId)
     }
 };
