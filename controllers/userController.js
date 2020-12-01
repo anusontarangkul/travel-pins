@@ -107,7 +107,7 @@ module.exports = {
     console.log(req.body.followingId)
     db.Photos.findAll({
       where: {
-        [Op.and]: req.body.followingId
+        [Op.or]: req.body.followingId
       }
     })
       .then((result) => {

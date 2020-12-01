@@ -20,6 +20,7 @@ function App() {
   const [popupState, setPopup] = useState(false);
   const [uploadState, setUploadState] = useState(false);
   const [countryState, setCountryState] = useState("");
+  const [FollowerState, setFollowerState] = useState([])
   console.log(countryState)
   //react spring animations
   const [show, set] = useState(false)

@@ -15,12 +15,6 @@ function Home() {
   const [FollowerState, setFollowerState] = useState([])
   const [feedState, setFeedState] = useState([])
 
-  useEffect(()=>{
-    getFollowing();
-    getImages();
-  },[]);
-
-
   const handleSubmit = (event) =>{
     event.preventDefault();
     //console.log(inputRef.current.value)
@@ -57,33 +51,40 @@ function Home() {
 
   const getFollowing= () =>{
     API.getFollow()
-    .then(res =>{
+    .then(res => {
       //console.log(res);
+      var followers = [];
       for(var i = 0; i<res.data.length; i++){
         //maybe a catch with .includes
         setFollowerState(FollowerState => [...FollowerState, {UserId: res.data[i].following}])
+        followers.push({UserId: res.data[i].following});
       }
+      return followers;
       //console.log(FollowerState);
-    }).catch(err =>{
+    }).then(followers =>{
+      getImages(followers)
+    })
+    .catch(err =>{
       console.log(err);
     });
   }
 
-  const getImages = () =>{
+  const getImages = (followers) =>{
     console.log("function hit")
-    API.getFeed({followingId: FollowerState})
+    console.log(followers)
+    API.getFeed({followingId: followers})
     .then(res =>{
-      //console.log(res);
-      for(var i = 0; i<res.data.length; i++){
-        //feedState.push({photoUrl: res.data[i].photoUrl , createdAt: res.data[i].createdAt})
-        setFeedState(feedState => [...feedState, {photoUrl: res.data[i].photoUrl , createdAt: res.data[i].createdAt}])
-      }
+      console.log(res.data); 
+        setFeedState(res.data)
     }).catch(err =>{
       console.log(err);
     });
   }
   //need this to be in a single use effect at the beginning
-
+  useEffect(()=>{
+    getFollowing();
+    //getImages();
+  },[]);
   //console.log(feedState)
 
     //console.log(searchResultState);
