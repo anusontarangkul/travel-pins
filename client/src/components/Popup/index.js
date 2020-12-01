@@ -25,6 +25,7 @@ console.log(userDataState);
   const handleVisited = (event) => {
     event.preventDefault();
     //console.log("clicked visited");
+    //find a better soultion then on mouse move to check and render results;
     checkVisited();
   };
   const handleTravled = (event) => {
