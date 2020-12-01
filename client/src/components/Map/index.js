@@ -218,8 +218,7 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
           currentCountry = `traveled-${countryCode}`
           setCountry(country);
           set(true);
-        
-          setPopup(true);
+          //setPopup(true);
           setCountryState(countryCode);
 
           // const html = `
