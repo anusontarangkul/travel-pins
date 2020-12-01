@@ -106,6 +106,7 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
       const countryCode = mapElement.features[0].properties.ADM0_A3_IS;
 
       //Fly to country
+      console.log(mapElement.features)
       console.log(countryCode)
       
       
@@ -231,6 +232,7 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
             map.setFilter(`traveled-${countryCode}`, ["in", "ADM0_A3_IS"].concat(countryCode));
           }// Call Popup Component
           currentCountry = `traveled-${countryCode}`
+          console.log(country)
           setCountry(country);
           set(true);
         

@@ -2,6 +2,9 @@ import react from "react";
 import "./style.css";
 import { useSpring, animated, useTransition } from "react-spring";
 import { useSwipeable } from "react-swipeable";
+import IndicatorDots from './indicatordots'
+import Carousel from 're-carousel'
+
 
 function Popup({ country, setUploadState, transitions }) {
   const handleUploadClick = (event) => {
@@ -32,6 +35,7 @@ function Popup({ country, setUploadState, transitions }) {
                   </div>
 
                 </div>
+                <Carousel loop widgets={[IndicatorDots]}>
                 <div className="popupContent">
                   <a id="traveledbtn">
                     <div className="popupbox">
@@ -42,7 +46,7 @@ function Popup({ country, setUploadState, transitions }) {
                   </a>
                   <div className="visited">
                     <div className="visitedTop">
-                      <h2 className="visitedHeader">Friends that visited:</h2>
+                      <h2 className="visitedHeader">Visitors</h2>
                     </div>
                     <div className="visitedList">
                       <ul className="list">
@@ -54,6 +58,8 @@ function Popup({ country, setUploadState, transitions }) {
                     <img src={country.flag}/>
                   </div>
                 </div>
+                <div className="test"></div>
+                </Carousel>
               </div>
             </animated.div>
           )
