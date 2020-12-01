@@ -235,8 +235,7 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
           console.log(country)
           setCountry(country);
           set(true);
-        
-          setPopup(true);
+          //setPopup(true);
           setCountryState(countryCode);
 
           // const html = `
