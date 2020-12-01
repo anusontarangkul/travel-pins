@@ -149,6 +149,33 @@ module.exports = {
       })
       .catch((err) => res.status(422).json(err));
   },
+  findFirendsInfo: function (req, res) {
+    console.log("controller friends info hit")
+    console.log(req.body.followingId);
+    db.User.findAll({  
+      where:{[Op.or]: req.body.followingId},
+      include: [
+        {
+          model: db.UserCountries,
+          as: "UserCountries",
+        },
+        {
+          model: db.Photos,
+          as: "Photos",
+        },
+        {
+          model: db.Followers,
+          as: "Followers",
+        },
+
+      ]
+    })
+    .then((user) => {
+      console.log(user); 
+      res.json(user);
+    })
+    .catch((err) => res.status(422).json(err));
+  },
   logout: function (req, res) {
     console.log("logged out");
     req.logout();

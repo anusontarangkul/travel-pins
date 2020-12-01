@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Wrapper from './components/Wrapper';
@@ -11,7 +11,7 @@ import Login from "./components/Login";
 import Upload from "./components/Upload";
 import Popup from './components/Popup';
 import Stats from './components/Stats';
-
+import API from "./utils/API"
 import { useSpring, animated, useTransition } from 'react-spring';
 
 
@@ -21,6 +21,8 @@ function App() {
   const [uploadState, setUploadState] = useState(false);
   const [countryState, setCountryState] = useState("");
   const [FollowerState, setFollowerState] = useState([])
+  const [user, setUser] = useState();
+  const [followingVisited, setFollowingVisited] = useState([]);
   console.log(countryState)
   //react spring animations
   const [show, set] = useState(false)
@@ -54,7 +56,7 @@ function App() {
           <Route exact path="/map">
 
             <Map setCountry={setCountry} setPopup={setPopup} setUploadState={setUploadState} setCountryState={setCountryState} set={set} />
-            <Popup transitions={transitions} set={set} country={country} setUploadState={setUploadState} />
+          <Popup transitions={transitions} set={set} country={country} setUploadState={setUploadState} countryState={countryState}/>
             {uploadState && (<Upload country={countryState} />)}
             <Navbar />
           </Route>

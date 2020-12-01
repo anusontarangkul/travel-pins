@@ -60,4 +60,8 @@ router
   .route("/user_photos")
   .get(userController.userPhotos)
 
+  router
+  .route("/findFollowingInfo")
+  .post(userController.findFirendsInfo)
+
 module.exports = router;
