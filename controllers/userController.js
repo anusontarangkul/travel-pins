@@ -81,6 +81,16 @@ module.exports = {
       .then((result) => res.json(result))
       .catch((err) => res.status(422).json(err));
   },
+  deleteFollow: function(req, res) {
+    console.log(req.body)
+    db.Followers.destroy({
+      where: {
+        following: req.body.userId
+      }
+  })
+      .then((result) => res.json(result))
+      .catch((err) => res.status(422).json(err));
+  },
   getFollowing: function(req, res) {
     db.Followers.findAll({
       where: {

@@ -41,6 +41,10 @@ router
   .post(userController.addFollow)
 
   router
+  .route("/unfollow")
+  .post(userController.deleteFollow)
+
+  router
   .route("/following")
   .get(userController.getFollowing)
 

@@ -53,9 +53,20 @@ function Home() {
 
   const handleFollow = (event) =>{
     event.preventDefault();
+    setIsFollowingState(true);
     API.follow(searchResultState)
     .then(res =>{
       console.log("followed");
+    }).catch(err =>{
+      console.log(err);
+    });
+  }
+  const handleUnfollow = (event) =>{
+    event.preventDefault();
+    setIsFollowingState(false);
+    API.unFollow(searchResultState)
+    .then(res =>{
+      console.log("unfollowed");
     }).catch(err =>{
       console.log(err);
     });
@@ -116,7 +127,7 @@ function Home() {
           <div>
             <h5 id = {searchResultState.userId}>{searchResultState.username}</h5>
             {isFollowingState
-              ? <button style = {{opacity: "0.5"}} >following</button>
+              ? <button onClick = {handleUnfollow} style = {{opacity: "0.5"}} >Unfollow</button>
               : <button onClick = {handleFollow}>+ Follow</button>
             }
           </div>

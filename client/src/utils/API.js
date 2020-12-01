@@ -30,6 +30,9 @@ export default {
     follow: function(followId){
         return axios.post("api/user/follow", followId)
     },
+    unFollow: function(UnfollowId){
+        return axios.post("api/user/unfollow", UnfollowId)
+    },
     getFollow: function(){
         return axios.get("api/user/following")
     },
