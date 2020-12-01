@@ -18,10 +18,23 @@ module.exports = {
   findAllUserInfo: function (req, res) {
     console.log("controller hit")
     db.User.findAll({  
-      where: {
-      id: req.user.id,
-    }
-  })
+      where:{id: req.user.id},
+      include: [
+        {
+          model: db.UserCountries,
+          as: "UserCountries",
+        },
+        {
+          model: db.Photos,
+          as: "Photos",
+        },
+        {
+          model: db.Followers,
+          as: "Followers",
+        },
+
+      ]
+    })
     .then((user) => {
       console.log(user); 
       res.json(user);

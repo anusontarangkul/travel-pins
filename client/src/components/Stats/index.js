@@ -37,7 +37,7 @@ function Stats() {
     const getUser = async () => {
         API.getUserData()
         .then(results => {
-            console.log(results.data[0])
+            console.log(results.data)
             setUser({
             firstname: results.data[0].firstName,
             lastname: results.data[0].lastName,
