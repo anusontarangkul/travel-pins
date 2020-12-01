@@ -14,6 +14,8 @@ function Home() {
   });
   const [FollowerState, setFollowerState] = useState([])
   const [feedState, setFeedState] = useState([])
+  const [isFollowingState, setIsFollowingState] = useState(false);
+  //const globalfollowersId = [];
 
   const handleSubmit = (event) =>{
     event.preventDefault();
@@ -21,6 +23,7 @@ function Home() {
     API.searchUsers({search: inputRef.current.value})
     .then(res =>{
       //console.log(res);
+      
       if(res !== null){
         setSearchResultState({
           state: true, 
@@ -30,6 +33,15 @@ function Home() {
           userId: res.data[0].id
         })
       }
+      console.log(FollowerState);
+      console.log(res.data[0].id);
+      setIsFollowingState(false);
+      for(var i = 0; i<FollowerState.length; i++){
+        if(FollowerState[i].UserId == res.data[0].id){
+          setIsFollowingState(true);
+        }
+      }
+
     })
     .catch(err =>{
       console.log(err)
@@ -52,12 +64,13 @@ function Home() {
   const getFollowing= () =>{
     API.getFollow()
     .then(res => {
-      //console.log(res);
+      console.log(res.data[0]);
       var followers = [];
       for(var i = 0; i<res.data.length; i++){
         //maybe a catch with .includes
         setFollowerState(FollowerState => [...FollowerState, {UserId: res.data[i].following}])
         followers.push({UserId: res.data[i].following});
+        //globalfollowersId.push(res.data[i].following);
       }
       return followers;
       //console.log(FollowerState);
@@ -102,7 +115,10 @@ function Home() {
         {searchResultState.state && (
           <div>
             <h5 id = {searchResultState.userId}>{searchResultState.username}</h5>
-            <button onClick = {handleFollow}>+ Follow</button>
+            {isFollowingState
+              ? <button style = {{opacity: "0.5"}} >following</button>
+              : <button onClick = {handleFollow}>+ Follow</button>
+            }
           </div>
         )}
         {searchResultState.err && (
