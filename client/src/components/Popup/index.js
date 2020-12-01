@@ -25,15 +25,11 @@ console.log(followingVisited);
     event.preventDefault();
     setUploadState(true);
   };
-  const handleVisited = (event) => {
+  const handleRender = (event) => {
     event.preventDefault();
-    console.log("clicked visited");
-    //find a better soultion then on mouse move to check and render results;
-    checkVisited();
-  };
-  const handleTravled = (event) => {
-    event.preventDefault();
+    console.log("clicked handle render");
     checkIfAlreadyTravled();
+    checkVisited();
   };
   const getUser = () => {
     API.getUserData()
@@ -88,7 +84,7 @@ console.log(followingVisited);
         ({ item, key, props }) =>
           item && (
             <animated.div {...handlers} key={key} style={props}>
-              <div className="popupContainer" >
+              <div className="popupContainer" onClick = {handleRender}>
                 <div className="popupHeader">
                   <h1 className="countryTitle">{country.name}</h1>
                   <div className="btncontainer">
@@ -135,7 +131,7 @@ console.log(followingVisited);
                       </div>
                     </a>
                     }
-                  <div className="visited" onMouseMove={handleVisited}>
+                  <div className="visited" >
                     <div className="visitedTop">
                       <h2 className="visitedHeader">Friends that visited:</h2>
                     </div>
