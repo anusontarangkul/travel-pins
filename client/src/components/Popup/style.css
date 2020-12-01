@@ -4,7 +4,7 @@
   bottom: -400px;
   width: 100vw;
   height: 600px;
-  background:#f8f8f8;
+  background: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
   border-radius: 50px;
   transition: bottom .4s ease-in-out;
 }
@@ -24,33 +24,78 @@
   /* margin:20px; */
   padding: 40px;
   display: grid;
-  grid-template-columns: 40% 60%;
-  grid-template-rows: 30% 70%;
-  gap: 30px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 75% 25%;
+  gap: 25px;
   grid-template-areas:
-    "popupbox popuplist"
-    "bottomBox popuplist";
+    "visited bottomBox"
+    "visited popupbox";
     justify-content: center;
 }
 .popupbox {
   grid-area: popupbox;
   width: 100%;
   height: 100%;
-  background: #ffffff;
-  overflow: hidden;
-  object-fit: cover;
+  display: flex;
+  justify-content: space-around;
 }
-.popuplist {
-  grid-area: popuplist;
+.traveledbtn{
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(to left, #03dd56 0%,  #07ea62 100%);
+  color: #fff5f5;
+  font-size: 24px;
+  text-align: center;
+  /* text-transform: uppercase; */
+  font-weight: 800;
+  letter-spacing: .04em;
+  line-height: 3em;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.532);
+  transition: width .4s, box-shadow .4s, transform .3s ease-in-out;
+  z-index: 1;
+}
+.popupbox:hover .traveledbtn{
+  width: 100%;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.532);
+}
+
+.visited {
+  grid-area: visited;
   width: 100%;
   height: 100%;
-  background: #8d8d8d;
+  background: linear-gradient(285deg, #fbfafa 0%, #fffafa 74%);
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.532);
+  overflow: hidden;
 }
+.visitedTop {
+  background: linear-gradient(to left, #EB3349 0%, #F45C43 100%);
+  width: 100%;
+  height: 90px;
+  margin-top: -20px;
+  pointer-events: none;
+}
+.visitedHeader {
+  /* text-align: left; */
+  font-size: 20px;
+  line-height: 4.8em;
+  color: white;
+  /* background: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+
 .bottomBox {
   grid-area: bottomBox;
   width: 100%;
   height: 100%;
-  background: #d14c4c;
+  background: linear-gradient(285deg, #fbfafa 0%, #fffafa 74%);
+  color: white;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.532);
 }
 
 
@@ -62,10 +107,6 @@
 }
 .popupContainer:hover #upbtn {
   transform: rotate(180deg);
-}
-.popupContainer:hover >  {
-  opacity: 0;
-  visibility: hidden;
 }
 
 .countryTitle {

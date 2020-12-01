@@ -31,14 +31,24 @@ function Popup({ country, setUploadState, transitions }) {
                     </i>
                   </div>
 
-                  {/* <a id="traveledbtn"></a> */}
                 </div>
                 <div className="popupContent">
-                  <div className="popupbox">
-                    {/* <img src={country.flag}/> */} Box
-                  </div>
-                  <div className="popuplist">
-                    <h2 className="followingVisited">Aaron</h2>
+                  <a id="traveledbtn">
+                    <div className="popupbox">
+                      <div className="traveledbtn">
+                      {/* <img src={country.flag}/> */} Traveled
+                      </div>
+                    </div>
+                  </a>
+                  <div className="visited">
+                    <div className="visitedTop">
+                      <h2 className="visitedHeader">Friends that visited:</h2>
+                    </div>
+                    <div className="visitedList">
+                      <ul className="list">
+                        {/* MAP GOES HERE */}
+                      </ul>
+                    </div>
                   </div>
                   <div className="bottomBox">
                     <h2 className="followingVisited">Hello</h2>

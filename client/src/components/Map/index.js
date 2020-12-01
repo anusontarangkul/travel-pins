@@ -243,10 +243,12 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
               "source-layer": "ne_10m_admin_0_countries-cdqk4p",
               type: "fill",
               paint: {
-                "fill-color": "#63A583",
-                "fill-outline-color": "#111B1E",
+                "fill-color": "#0080ff",
+                "fill-outline-color": "#454545",
               },
             });
+            // Green Swatch
+            /* #16ed68 */
 
             map.setFilter(
               countryCode,

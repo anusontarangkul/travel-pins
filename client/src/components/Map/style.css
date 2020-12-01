@@ -21,9 +21,10 @@
 
 .mapboxgl-popup-content {
  border-radius: 25px;
- 
- 
+
 }
+
+
 
 .mapboxgl-popup{
   position: fixed !important;
