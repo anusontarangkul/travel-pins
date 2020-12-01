@@ -8,20 +8,19 @@ function Dot (props) {
       height: '8px',
       width: '8px',
       borderRadius: '4px',
-      backgroundColor: 'white',
+      background: 'linear-gradient(200deg, #00c6ff 100%, #0072ff 50%)',
       margin: '7px 5px',
-      opacity: props.selected ? '1' : '0.3',
+      opacity: props.selected ? '1' : '0.5',
       transitionDuration: '300ms'
     }} />
   )
 }
-
 export default function IndicatorDots (props) {
   const wrapperStyle = {
     position: 'absolute',
     width: '100%',
     zIndex: '100',
-    bottom: '200px',
+    bottom: '130px',
     textAlign: 'center'
   }
 

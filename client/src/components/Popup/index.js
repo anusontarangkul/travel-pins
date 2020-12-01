@@ -2,11 +2,11 @@ import react from "react";
 import "./style.css";
 import { useSpring, animated, useTransition } from "react-spring";
 import { useSwipeable } from "react-swipeable";
-import IndicatorDots from './indicatordots'
-import Carousel from 're-carousel'
+import IndicatorDots from "./indicatordots";
+import Carousel from "re-carousel";
+import Upload from "../Upload";
 
-
-function Popup({ country, setUploadState, transitions }) {
+function Popup({ country, setUploadState, transitions, countryState }) {
   const handleUploadClick = (event) => {
     event.preventDefault();
     setUploadState(true);
@@ -33,38 +33,55 @@ function Popup({ country, setUploadState, transitions }) {
                       expand_less
                     </i>
                   </div>
-
                 </div>
-                <Carousel loop widgets={[IndicatorDots]}>
-                <div className="popupContent">
-                  <a id="traveledbtn">
-                    <div className="popupbox">
-                      <div className="traveledbtn">
-                       Traveled
+                <Carousel widgets={[IndicatorDots]}>
+                  <div className="swipe">
+                    <div className="swipeBanner">
+                      <div className="swipeItem">
+                        <h2 className="swipeTitle">Capital</h2>
+                        <h1 className="swipeReturn">{country.capital}</h1>
+                      </div>
+                      <div className="swipeItem">
+                        <h2 className="swipeTitle">Currency</h2>
+                        <h1 className="swipeReturn">
+                          {country.currencies[0].name}
+                        </h1>
+                      </div>
+                      <div className="swipeItem">
+                        <h2 className="swipeTitle">Language</h2>
+                        <h1 className="swipeReturn">
+                          {country.languages[0].name}
+                        </h1>
                       </div>
                     </div>
-                  </a>
-                  <div className="visited">
-                    <div className="visitedTop">
-                      <h2 className="visitedHeader">Visitors</h2>
+                    {/* <hr/> */}
+                    <Upload />
+                  </div>
+
+                  <div className="popupContent">
+                    <a id="traveledbtn">
+                      <div className="popupbox">
+                        <div className="traveledbtn">Traveled</div>
+                      </div>
+                    </a>
+                    <div className="visited">
+                      <div className="visitedTop">
+                        <h2 className="visitedHeader">Visitors</h2>
+                      </div>
+                      <div className="visitedList">
+                        <ul className="list">{/* MAP GOES HERE */}</ul>
+                      </div>
                     </div>
-                    <div className="visitedList">
-                      <ul className="list">
-                        {/* MAP GOES HERE */}
-                      </ul>
+                    <div className="bottomBox">
+                      <img src={country.flag} />
                     </div>
                   </div>
-                  <div className="bottomBox">
-                    <img src={country.flag}/>
-                  </div>
-                </div>
-                <div className="test"></div>
                 </Carousel>
               </div>
             </animated.div>
           )
       )}
-      <a className="popupbtn" id="postbtnContainer" onClick ={handleUploadClick}>
+      <a className="popupbtn" id="postbtnContainer" onClick={handleUploadClick}>
         <div id="postbtn">
           <h2 id="postbtnText">Post</h2>
           <i className="material-icons material-icons-outlined" id="post">

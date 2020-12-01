@@ -50,8 +50,8 @@ function App() {
           <Route exact path = "/map">
             
             <Map setCountry={setCountry} setPopup={setPopup} setUploadState = {setUploadState} setCountryState = {setCountryState} set={set}/>
-            <Popup transitions={transitions} set={set} country={country} setUploadState = {setUploadState}/>
-            {uploadState && (<Upload country = {CountryState}/>)}
+            <Popup transitions={transitions} set={set} country={country} setUploadState = {setUploadState} countryState={CountryState}/>
+            {/* {uploadState && (<Upload countryState = {CountryState}/>)} */}
             <Navbar/>
           </Route>
           <Route exact path = "/home">
