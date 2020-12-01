@@ -4,7 +4,8 @@
   bottom: -400px;
   width: 100vw;
   height: 600px;
-  background: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
+  /* background: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%); */
+  background: linear-gradient(#ffffffa7, #ffffffd6);
   border-radius: 50px;
   transition: bottom .4s ease-in-out;
 }
@@ -40,16 +41,16 @@
   justify-content: space-around;
 }
 .traveledbtn{
-  width: 65%;
+  width: 80%;
   height: 100%;
   background: linear-gradient(to left, #03dd56 0%,  #07ea62 100%);
-  color: #fff5f5;
-  font-size: 24px;
+  color: white;
+  font-size: 22px;
   text-align: center;
   /* text-transform: uppercase; */
   font-weight: 800;
   letter-spacing: .04em;
-  line-height: 3em;
+  line-height: 3.35em;
   border-radius: 50px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.532);
   transition: width .4s, box-shadow .4s, transform .3s ease-in-out;
@@ -57,7 +58,7 @@
 }
 .popupbox:hover .traveledbtn{
   width: 100%;
-  transform: translateY(-5px);
+  transform: translateY(-15px);
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.532);
 }
 
@@ -91,11 +92,20 @@
 .bottomBox {
   grid-area: bottomBox;
   width: 100%;
-  height: 100%;
+  height: 92%;
   background: linear-gradient(285deg, #fbfafa 0%, #fffafa 74%);
   color: white;
   border-radius: 25px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.532);
+  overflow: hidden;
+}
+.bottomBox img {
+  min-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  margin-right: auto;
+  margin-left: auto;
+  /* margin-top: -45px; */
 }
 
 

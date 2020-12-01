@@ -36,7 +36,7 @@ function Popup({ country, setUploadState, transitions }) {
                   <a id="traveledbtn">
                     <div className="popupbox">
                       <div className="traveledbtn">
-                      {/* <img src={country.flag}/> */} Traveled
+                       Traveled
                       </div>
                     </div>
                   </a>
@@ -51,14 +51,14 @@ function Popup({ country, setUploadState, transitions }) {
                     </div>
                   </div>
                   <div className="bottomBox">
-                    <h2 className="followingVisited">Hello</h2>
+                    <img src={country.flag}/>
                   </div>
                 </div>
               </div>
             </animated.div>
           )
       )}
-      <a className="popupbtn" id="postbtnContainer">
+      <a className="popupbtn" id="postbtnContainer" onClick ={handleUploadClick}>
         <div id="postbtn">
           <h2 id="postbtnText">Post</h2>
           <i className="material-icons material-icons-outlined" id="post">
