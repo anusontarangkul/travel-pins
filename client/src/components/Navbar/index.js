@@ -30,7 +30,7 @@ function Navbar(){
             </a>
             </div>
             <div className="nav-item">
-                <a href = "/stats">
+                <a href = "/profile">
                     <i className="material-icons material-icons-outlined navicon" id="userButton">
                     person_outline
                     </i>
