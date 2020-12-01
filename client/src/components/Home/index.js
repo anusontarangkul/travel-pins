@@ -14,12 +14,8 @@ function Home() {
   });
   const [FollowerState, setFollowerState] = useState([])
   const [feedState, setFeedState] = useState([])
-
-  useEffect(()=>{
-    getFollowing();
-    getImages();
-  },[]);
-
+  const [isFollowingState, setIsFollowingState] = useState(false);
+  //const globalfollowersId = [];
 
   const handleSubmit = (event) =>{
     event.preventDefault();
@@ -27,6 +23,7 @@ function Home() {
     API.searchUsers({search: inputRef.current.value})
     .then(res =>{
       //console.log(res);
+      
       if(res !== null){
         setSearchResultState({
           state: true, 
@@ -36,6 +33,15 @@ function Home() {
           userId: res.data[0].id
         })
       }
+      console.log(FollowerState);
+      console.log(res.data[0].id);
+      setIsFollowingState(false);
+      for(var i = 0; i<FollowerState.length; i++){
+        if(FollowerState[i].UserId == res.data[0].id){
+          setIsFollowingState(true);
+        }
+      }
+
     })
     .catch(err =>{
       console.log(err)
@@ -47,6 +53,7 @@ function Home() {
 
   const handleFollow = (event) =>{
     event.preventDefault();
+    setIsFollowingState(true);
     API.follow(searchResultState)
     .then(res =>{
       console.log("followed");
@@ -54,36 +61,54 @@ function Home() {
       console.log(err);
     });
   }
-
-  const getFollowing= () =>{
-    API.getFollow()
+  const handleUnfollow = (event) =>{
+    event.preventDefault();
+    setIsFollowingState(false);
+    API.unFollow(searchResultState)
     .then(res =>{
-      //console.log(res);
-      for(var i = 0; i<res.data.length; i++){
-        //maybe a catch with .includes
-        setFollowerState(FollowerState => [...FollowerState, {UserId: res.data[i].following}])
-      }
-      //console.log(FollowerState);
+      console.log("unfollowed");
     }).catch(err =>{
       console.log(err);
     });
   }
 
-  const getImages = () =>{
-    console.log("function hit")
-    API.getFeed({followingId: FollowerState})
-    .then(res =>{
-      //console.log(res);
+  const getFollowing= () =>{
+    API.getFollow()
+    .then(res => {
+      console.log(res.data[0]);
+      var followers = [];
       for(var i = 0; i<res.data.length; i++){
-        //feedState.push({photoUrl: res.data[i].photoUrl , createdAt: res.data[i].createdAt})
-        setFeedState(feedState => [...feedState, {photoUrl: res.data[i].photoUrl , createdAt: res.data[i].createdAt}])
+        //maybe a catch with .includes
+        setFollowerState(FollowerState => [...FollowerState, {UserId: res.data[i].following}])
+        followers.push({UserId: res.data[i].following});
+        //globalfollowersId.push(res.data[i].following);
       }
+      return followers;
+      //console.log(FollowerState);
+    }).then(followers =>{
+      getImages(followers)
+    })
+    .catch(err =>{
+      console.log(err);
+    });
+  }
+
+  const getImages = (followers) =>{
+    console.log("function hit")
+    console.log(followers)
+    API.getFeed({followingId: followers})
+    .then(res =>{
+      console.log(res.data); 
+        setFeedState(res.data)
     }).catch(err =>{
       console.log(err);
     });
   }
   //need this to be in a single use effect at the beginning
-
+  useEffect(()=>{
+    getFollowing();
+    //getImages();
+  },[]);
   //console.log(feedState)
 
     //console.log(searchResultState);
@@ -101,7 +126,10 @@ function Home() {
         {searchResultState.state && (
           <div>
             <h5 id = {searchResultState.userId}>{searchResultState.username}</h5>
-            <button onClick = {handleFollow}>+ Follow</button>
+            {isFollowingState
+              ? <button onClick = {handleUnfollow} style = {{opacity: "0.5"}} >Unfollow</button>
+              : <button onClick = {handleFollow}>+ Follow</button>
+            }
           </div>
         )}
         {searchResultState.err && (

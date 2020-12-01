@@ -17,9 +17,16 @@ module.exports = {
   },
   findAllUserInfo: function (req, res) {
     console.log("controller hit")
-    db.User.findAll()
-      .then((user) => res.json(user))
-      .catch((err) => res.status(422).json(err));
+    db.User.findAll({  
+      where: {
+      id: req.user.id,
+    }
+  })
+    .then((user) => {
+      console.log(user); 
+      res.json(user);
+    })
+    .catch((err) => res.status(422).json(err));
   },
   addTraveled: function (req, res) {
     console.log(req.body)
@@ -31,13 +38,9 @@ module.exports = {
   },
   uploadImage: function (req, res) {
     console.log("uploading image")
-<<<<<<< HEAD
     // console.log(req.body.countryCode);
     // console.log(req.user)
     cloudinary.uploader.upload(req.body.data, function (err, results) {
-=======
-    cloudinary.uploader.upload(req.body.data , function(err, results){
->>>>>>> main
       console.log("error: ", err);
       //need to save the image url in db also the country code from map
       db.Photos.create({
@@ -78,6 +81,16 @@ module.exports = {
       .then((result) => res.json(result))
       .catch((err) => res.status(422).json(err));
   },
+  deleteFollow: function(req, res) {
+    console.log(req.body)
+    db.Followers.destroy({
+      where: {
+        following: req.body.userId
+      }
+  })
+      .then((result) => res.json(result))
+      .catch((err) => res.status(422).json(err));
+  },
   getFollowing: function(req, res) {
     db.Followers.findAll({
       where: {
@@ -89,11 +102,33 @@ module.exports = {
       })
       .catch((err) => res.status(422).json(err));
   },
+  getFollowers: function(req, res) {
+    db.Followers.findAll({
+      where: {
+        following: req.user.id
+      }
+    })
+      .then((result) => {
+        res.json(result)
+      })
+      .catch((err) => res.status(422).json(err));
+  },
   feed: function(req, res) {
     console.log(req.body.followingId)
     db.Photos.findAll({
       where: {
-        [Op.and]: req.body.followingId
+        [Op.or]: req.body.followingId
+      }
+    })
+      .then((result) => {
+        res.json(result)
+      })
+      .catch((err) => res.status(422).json(err));
+  },
+  userPhotos: function(req, res) {
+    db.Photos.findAll({
+      where: {
+        UserId: req.user.id
       }
     })
       .then((result) => {

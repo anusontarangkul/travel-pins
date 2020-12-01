@@ -20,6 +20,7 @@ function App() {
   const [popupState, setPopup] = useState(false);
   const [uploadState, setUploadState] = useState(false);
   const [countryState, setCountryState] = useState("");
+  const [FollowerState, setFollowerState] = useState([])
   console.log(countryState)
   //react spring animations
   const [show, set] = useState(false)
@@ -43,21 +44,9 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
-
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-          <Route exact path="/map">
-            <Map setCountry={setCountry} setPopup={setPopup} setUploadState={setUploadState} setCountryState={setCountryState} />
-            {popupState && (<Popup country={country} setUploadState={setUploadState} />)}
-            {uploadState && (<Upload country={CountryState} />)}
-            <Navbar />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/stats">
+          <Route exact path="/profile">
             <Stats />
+            <Navbar />
           </Route>
           <Route exact path="/signup">
             <Signup />
