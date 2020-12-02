@@ -1,3 +1,7 @@
+.profileContainer{
+    margin-top: 200px;
+}
+
 .stats{
     flex-direction: row;
     justify-content:  center;

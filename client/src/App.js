@@ -13,6 +13,7 @@ import Popup from './components/Popup';
 import Stats from './components/Stats';
 import API from "./utils/API"
 import { useSpring, animated, useTransition } from 'react-spring';
+import Search from "./components/Search";
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           </Route>
           <Route exact path="/profile">
             <Stats />
+            <Search/>
             <Navbar />
           </Route>
           <Route exact path="/signup">
@@ -58,6 +60,7 @@ function App() {
             <Map setCountry={setCountry} setPopup={setPopup} setUploadState={setUploadState} setCountryState={setCountryState} set={set} />
           <Popup transitions={transitions} set={set} country={country} setUploadState={setUploadState} countryState={countryState}/>
             {uploadState && (<Upload country={countryState} />)}
+            <Search/>
             <Navbar />
           </Route>
           <Route exact path="/home">

@@ -82,7 +82,7 @@ function Stats() {
     console.log(user)
 
     return (
-        <div>
+        <div className = 'profileContainer'>
             <h2>Welcome {user.username}</h2>
             <h2> {countriesState.countries} / 195 Countries</h2>
             <div className = "stats">
