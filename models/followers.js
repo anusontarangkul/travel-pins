@@ -1,11 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     var Followers = sequelize.define("Followers", {
-
-        followerId: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        followeeId: {
+        following: {
             type: DataTypes.STRING,
             allowNull: false
         }

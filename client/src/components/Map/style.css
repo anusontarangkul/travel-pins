@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  transition: height .5s ease-in-out;
 }
 
 .mapboxgl-ctrl-bottom-left {
@@ -16,4 +17,27 @@
 .flag-icon {
   height: 2rem;
   width: auto;
+}
+
+.mapboxgl-popup-content {
+ border-radius: 25px;
+
+}
+
+
+
+.mapboxgl-popup{
+  position: fixed !important;
+  bottom: 0 !important;
+  transform: none !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+.mapboxgl-popup-tip {
+  display: none;
+}
+.mapboxgl-popup-close-button {
+  outline: none;
+  padding: 10px;
 }
