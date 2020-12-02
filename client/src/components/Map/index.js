@@ -255,11 +255,6 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
           // Event listener for traveled counries (On Click)
           $("#traveledbtn").click(function () {
             console.log(typeof countryCode);
-            API.saveCountry({ country: countryCode })
-              .then((res) => {
-                console.log("saved");
-              })
-              .catch((err) => console.log(err));
             map.addLayer({
               id: countryCode,
               source: {
@@ -273,9 +268,6 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
                 "fill-outline-color": "#454545",
               },
             });
-            // Green Swatch
-            /* #16ed68 */
-
             map.setFilter(
               countryCode,
               ["in", "ADM0_A3_IS"].concat(countryCode)
