@@ -19,12 +19,12 @@ function Popup({ country, setUploadState, transitions, countryState}) {
   },[]);
 
 // console.log(followingVisited)
-console.log(followingVisited);
+console.log(userDataState);
 
-  const handleUploadClick = (event) => {
-    event.preventDefault();
-    setUploadState(true);
-  };
+  // const handleUploadClick = (event) => {
+  //   event.preventDefault();
+  //   setUploadState(true);
+  // };
   const handleVisited = (event) => {
     event.preventDefault();
     console.log("clicked visited");
@@ -39,7 +39,7 @@ console.log(followingVisited);
   const getUser = () => {
     API.getUserData()
     .then(results => {
-      setUserDataState(results.data[0]);
+      setUserDataState(results.data[0].UserCountries);
         var following = [];
         for(let i =0; i<results.data[0].Followers.length; i++){
           following.push({id: results.data[0].Followers[i].following});
@@ -60,7 +60,7 @@ console.log(followingVisited);
     }); 
   }
   const checkIfAlreadyTravled = () =>{
-      if (userDataState.UserCountries.some(e => e.CountryName === countryState)) {
+      if (userDataState.some(e => e.CountryName === countryState)) {
         setTravled(true);
       }
       else{
@@ -78,7 +78,23 @@ console.log(followingVisited);
     }
   }
 
-  //handle click moved down from parent
+
+  const addCountry = (event) =>{
+    event.preventDefault();
+    console.log("hit add countries");
+    //waits for calculation before sending
+      if(!userDataState.some(e => e.CountryName === countryState)){
+        setTravled(true);
+        setUserDataState(userDataState=>[...userDataState, {CountryName:countryState} ])
+        API.saveCountry({ country: countryState })
+        .catch((err) => console.log(err));
+      }
+      else{
+        return;
+      }
+
+  }
+
 
   return (
     <div className="popup">
@@ -86,7 +102,7 @@ console.log(followingVisited);
         ({ item, key, props }) =>
           item && (
             <animated.div key={key} style={props}>
-              <div className="popupContainer" >
+              <div className="popupContainer" onMouseDown={handleVisited}>
                 <div className="popupHeader">
                   <h1 className="countryTitle">{country.name}</h1>
                   <div className="btncontainer">
@@ -122,18 +138,18 @@ console.log(followingVisited);
                     <Upload country={countryState}/>
                   </div>
 
-                <div className="popupContent" onClick ={handleVisited}>
+                <div className="popupContent" >
                     {travled
                     ?<div></div>
                     :<a id="traveledbtn">
                       <div className="popupbox">
-                        <div className="traveledbtn">
+                        <div className="traveledbtn" onClick ={addCountry}>
                           Add Traveled
                         </div>
                       </div>
                     </a>
                     }
-                  <div className="visited" onMouseMove={handleVisited}>
+                  <div className="visited">
                     <div className="visitedTop">
                       <h2 className="visitedHeader">Friends that visited:</h2>
                     </div>
