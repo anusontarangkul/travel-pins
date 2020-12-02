@@ -32,26 +32,6 @@
   font-family: "GothamPro";
   font-style: Bold;
 }
-.sphereContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-}
-
-.sphere {
-  position: relative;
-  width: 800px;
-  height: 800px;
-  /* bottom: -250px;
-  right: -250px; */
-  padding: 20px;
-  border-radius: 100%;
-  background: radial-gradient(circle at 400px -100px, #4adede 20%, #0080ff 70%);
-  z-index: 0;
-  overflow: hidden;
-  box-shadow: 0 30px 50px rgba(33, 33, 33, 0.662);
-}
-
 .iconContainer {
   position: relative;
   width: 50px;

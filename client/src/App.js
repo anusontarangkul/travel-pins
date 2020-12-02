@@ -62,7 +62,7 @@ function App() {
           </Route>
           <Route exact path="/home">
             <Home />
-
+            <Navbar />
           </Route>
         </Wrapper>
       </Router>

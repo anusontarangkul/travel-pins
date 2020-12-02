@@ -30,11 +30,12 @@ console.log(followingVisited);
     console.log("clicked visited");
     //find a better soultion then on mouse move to check and render results;
     checkVisited();
-  };
-  const handleTravled = (event) => {
-    event.preventDefault();
     checkIfAlreadyTravled();
   };
+  // const handleTravled = (event) => {
+  //   event.preventDefault();
+  //   checkIfAlreadyTravled();
+  // };
   const getUser = () => {
     API.getUserData()
     .then(results => {
@@ -77,18 +78,14 @@ console.log(followingVisited);
     }
   }
 
-  const handlers = useSwipeable({
-    onSwipedLeft: (eventData) => console.log("User Swiped!"),
-  });
-
   //console.log(followingVisited);
   return (
     <div className="popup">
       {transitions.map(
         ({ item, key, props }) =>
           item && (
-            <animated.div {...handlers} key={key} style={props}>
-              <div className="popupContainer" >
+            <animated.div key={key} style={props}>
+              <div className="popupContainer" onClick ={handleVisited}>
                 <div className="popupHeader">
                   <h1 className="countryTitle">{country.name}</h1>
                   <div className="btncontainer">
@@ -163,14 +160,14 @@ console.log(followingVisited);
             </animated.div>
           )
       )}
-      <a className="popupbtn" id="postbtnContainer" onClick={handleUploadClick}>
+      {/* <a className="popupbtn" id="postbtnContainer" onClick={handleUploadClick}>
         <div id="postbtn">
           <h2 id="postbtnText">Post</h2>
           <i className="material-icons material-icons-outlined" id="post">
             add
           </i>
         </div>
-      </a>
+      </a> */}
     </div>
   );
 }
