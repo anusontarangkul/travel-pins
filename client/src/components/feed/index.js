@@ -10,9 +10,12 @@ function Feed ({feedImages}){
                 <div className="post" key = {image.photoId}>
                     <div className="imgWrap">
                         <img className="postImg"src={image.photoUrl} alt={image.createdAt}/>
+                        
                     </div>
                     <div className="postInfo">
-                        <h5>{image.username} Country: {image.country}</h5>
+                        
+                        <h5 className="postUser">{image.username}</h5>
+                        <h5 className="postCountry">{image.country}</h5>
                     </div>
                 </div>
             )}

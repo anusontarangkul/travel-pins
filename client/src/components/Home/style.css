@@ -4,7 +4,7 @@
     justify-content: center;
 }
 .homeHeader {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: auto;
     min-height: 80px;
@@ -13,6 +13,7 @@
     justify-content: space-around;
     border-bottom: 2px solid rgba(226, 226, 226, 0.731);
     z-index: 10 !important;
+    /* box-shadow: 0 0px 50px rgba(0, 0, 0, 0.532); */
 }
 #logo {
     font-family: "GothamPro";
@@ -32,7 +33,7 @@
     line-height: 80px;
 }
 .formContainer {
-    position: absolute;
+    position: fixed;
     left: 0;
     width: 100%;
     background: linear-gradient(100deg, #00c6ff, #0072ff);
