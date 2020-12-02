@@ -7,7 +7,8 @@
 .homeHeader {
     position: absolute;
     width: 100%;
-    height: 80px;
+    height: auto;
+    min-height: 80px;
     background: rgb(255, 255, 255);
     display: inline-flex;
     justify-content: space-around;
@@ -48,5 +49,7 @@
     padding: 10px;
     text-align: center;
 }
-.search:placeholder-shown {
+
+.errmsg {
+    color: white;
 }
