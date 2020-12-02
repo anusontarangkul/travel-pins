@@ -85,7 +85,7 @@ console.log(followingVisited);
         ({ item, key, props }) =>
           item && (
             <animated.div key={key} style={props}>
-              <div className="popupContainer" onClick ={handleVisited}>
+              <div className="popupContainer" >
                 <div className="popupHeader">
                   <h1 className="countryTitle">{country.name}</h1>
                   <div className="btncontainer">
@@ -121,7 +121,7 @@ console.log(followingVisited);
                     <Upload country={countryState}/>
                   </div>
 
-                <div className="popupContent" >
+                <div className="popupContent" onClick ={handleVisited}>
                     {travled
                     ?<div></div>
                     :<a id="traveledbtn">
