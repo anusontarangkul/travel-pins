@@ -128,10 +128,15 @@ module.exports = {
   },
   feed: function(req, res) {
     console.log(req.body.followingId)
-    db.Photos.findAll({
+    db.User.findAll({
       where: {
-        [Op.or]: req.body.followingId
-      }
+        [Op.or]: req.body.followingId,
+      },
+      include: [
+        {
+          model: db.Photos,
+        }
+      ]
     })
       .then((result) => {
         res.json(result)

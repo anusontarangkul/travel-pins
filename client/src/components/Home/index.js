@@ -14,7 +14,7 @@ function Home() {
   });
   const [FollowerState, setFollowerState] = useState([])
   const [feedState, setFeedState] = useState([])
-  const [isFollowingState, setIsFollowingState] = useState(false);
+  const [isFollowingState, setIsFollowingState] = useState(true);
   //const globalfollowersId = [];
 
   const handleSubmit = (event) =>{
@@ -33,14 +33,23 @@ function Home() {
           userId: res.data[0].id
         })
       }
-      console.log(FollowerState);
-      console.log(res.data[0].id);
+      console.log(typeof FollowerState);
+      console.log(typeof res.data[0].id);
       setIsFollowingState(false);
       for(var i = 0; i<FollowerState.length; i++){
-        if(FollowerState[i].UserId == res.data[0].id){
+        if(FollowerState[i].id == res.data[0].id){
+          //console.log("hit check");
           setIsFollowingState(true);
+          //console.log("hit check");
+          //if user types in same user again will not mark as true beacuse search user
+          //only gets fired on mount
         }
       }
+
+      // if (FollowerState.some(e => e.id === res.data[0].id)) {
+      //   setIsFollowingState(true);
+      //   console.log("hit check");
+      // }
 
     })
     .catch(err =>{
@@ -76,40 +85,59 @@ function Home() {
     API.getFollow()
     .then(res => {
       console.log(res.data[0]);
-      var followers = [];
-      for(var i = 0; i<res.data.length; i++){
+      var followering = [];
+      for(let i = 0; i<res.data.length; i++){
         //maybe a catch with .includes
-        setFollowerState(FollowerState => [...FollowerState, {UserId: res.data[i].following}])
-        followers.push({UserId: res.data[i].following});
+        setFollowerState(FollowerState => [...FollowerState, {id: res.data[i].following}])
+        followering.push({id: res.data[i].following});
         //globalfollowersId.push(res.data[i].following);
       }
-      return followers;
+      return followering;
       //console.log(FollowerState);
-    }).then(followers =>{
-      getImages(followers)
+    }).then(followering =>{
+      getImages(followering)
     })
     .catch(err =>{
       console.log(err);
     });
   }
 
-  const getImages = (followers) =>{
+  const getImages = (followering) =>{
     console.log("function hit")
-    console.log(followers)
-    API.getFeed({followingId: followers})
+    console.log(followering)
+    API.getFeed({followingId: followering})
     .then(res =>{
-      console.log(res.data); 
-        setFeedState(res.data)
+      //setFeedState(res.data); //username: country: image: date:
+      ///need to find a more efficient way so that it is not 0^n especially when more photos added
+
+      const followerInfoToSort = [];
+      for(let x = 0; x<res.data.length; x++){
+        for(let y = 0; y<res.data[x].Photos.length; y++){
+          followerInfoToSort.push({
+            username: res.data[x].username,
+            UserId: res.data[x].id,
+            id: res.data[x].Photos[y].id,
+            country: res.data[x].Photos[y].country,
+            photoUrl: res.data[x].Photos[y].photoUrl,
+            createdAt: res.data[x].Photos[y].createdAt
+            //maybe fix created at so that it is easier to sort by newest
+          });
+        }
+      }
+      setFeedState(followerInfoToSort)
+
+
+
     }).catch(err =>{
       console.log(err);
-    });
+    }); 
   }
   //need this to be in a single use effect at the beginning
   useEffect(()=>{
     getFollowing();
     //getImages();
   },[]);
-  //console.log(feedState)
+  console.log(feedState)
 
     //console.log(searchResultState);
     return (

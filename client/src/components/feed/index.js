@@ -4,8 +4,9 @@ function Feed ({feedImages}){
     console.log(feedImages);
     return (
         <div>
-            {feedImages.slice(0).reverse().map((image, index) =>
-                <div key = {index}>
+            {feedImages.sort((a, b) => (a.id < b.id) ? 1 : -1).map((image, index) =>
+                <div key = {image.photoId}>
+                    <h5>{image.username} Country: {image.country}</h5>
                     <img style ={{height : "100px"}} src={image.photoUrl} alt={image.createdAt}/>
                 </div >
             )}
