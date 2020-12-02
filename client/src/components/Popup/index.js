@@ -19,7 +19,7 @@ function Popup({ country, setUploadState, transitions, countryState}) {
   },[]);
 
 // console.log(followingVisited)
-console.log(userDataState);
+console.log(followingVisited);
 
   const handleUploadClick = (event) => {
     event.preventDefault();
@@ -27,14 +27,15 @@ console.log(userDataState);
   };
   const handleVisited = (event) => {
     event.preventDefault();
-    //console.log("clicked visited");
+    console.log("clicked visited");
     //find a better soultion then on mouse move to check and render results;
     checkVisited();
-  };
-  const handleTravled = (event) => {
-    event.preventDefault();
     checkIfAlreadyTravled();
   };
+  // const handleTravled = (event) => {
+  //   event.preventDefault();
+  //   checkIfAlreadyTravled();
+  // };
   const getUser = () => {
     API.getUserData()
     .then(results => {
@@ -67,12 +68,12 @@ console.log(userDataState);
       }
   }
   const checkVisited = () =>{
-    //console.log(followingDataState);
+    console.log(followingDataState);
     for(let y = 0; y<followingDataState.length; y++){
       setFollowingVisited([]);
       if (followingDataState[y].UserCountries.some(e => e.CountryName === countryState)) {
-        setFollowingVisited(followingVisited => [...followingVisited, {visited: followingDataState[y].username}])
-        //console.log("visited hit") 
+        setFollowingVisited(followingVisited => [...followingVisited, followingDataState[y].username])
+        console.log(followingVisited) 
       }
     }
   }
@@ -84,7 +85,7 @@ console.log(userDataState);
         ({ item, key, props }) =>
           item && (
             <animated.div key={key} style={props}>
-              <div className="popupContainer" >
+              <div className="popupContainer" onClick ={handleVisited}>
                 <div className="popupHeader">
                   <h1 className="countryTitle">{country.name}</h1>
                   <div className="btncontainer">
@@ -120,7 +121,7 @@ console.log(userDataState);
                     <Upload country={countryState}/>
                   </div>
 
-                <div className="popupContent" onMouseMove = {handleTravled}>
+                <div className="popupContent" >
                     {travled
                     ?<div></div>
                     :<a id="traveledbtn">
@@ -137,11 +138,16 @@ console.log(userDataState);
                     </div>
                         <div className="visitedList">
                           <ul className="list">
+                          {followingVisited !== [] &&
+                          <div>
                           {followingVisited.map((friend, index) =>
-                          <p key = {index}>
-                              {friend.visited}
-                          </p >
-                          )}
+                            <p className = "visitedList" key = {index}>
+                                {friend}
+                            </p >
+                            )}
+                          </div>
+                          }
+
                           </ul>
                       </div>
                   </div>
