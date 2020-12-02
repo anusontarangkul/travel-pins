@@ -78,6 +78,7 @@ console.log(userDataState);
     }
   }
 
+
   const addCountry = (event) =>{
     event.preventDefault();
     console.log("hit add countries");
@@ -94,7 +95,7 @@ console.log(userDataState);
 
   }
 
-  //console.log(followingVisited);
+
   return (
     <div className="popup">
       {transitions.map(

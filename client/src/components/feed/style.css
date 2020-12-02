@@ -1,0 +1,10 @@
+#feed {
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    margin-top: 80px;
+    /* background: ; */
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+}
