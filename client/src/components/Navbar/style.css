@@ -1,6 +1,6 @@
 .navbar {
     width: 100%;
-    height: 110px;
+    height: 100px;
     display: grid;
     background: #ffffff;
     position: fixed;
@@ -14,7 +14,7 @@
 }
 
 .navicon {
-    line-height: 110px !important;
+    line-height: 100px !important;
     font-size: 50px !important;
     color: #f4f4f4;
     background: linear-gradient(100deg, #00c6ff, #0073ffc3);

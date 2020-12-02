@@ -77,17 +77,13 @@ console.log(userDataState);
     }
   }
 
-  const handlers = useSwipeable({
-    onSwipedUp: (eventData) => console.log("User Swiped!"),
-  });
-
   //console.log(followingVisited);
   return (
     <div className="popup">
       {transitions.map(
         ({ item, key, props }) =>
           item && (
-            <animated.div {...handlers} key={key} style={props}>
+            <animated.div key={key} style={props}>
               <div className="popupContainer" >
                 <div className="popupHeader">
                   <h1 className="countryTitle">{country.name}</h1>
@@ -158,14 +154,14 @@ console.log(userDataState);
             </animated.div>
           )
       )}
-      <a className="popupbtn" id="postbtnContainer" onClick={handleUploadClick}>
+      {/* <a className="popupbtn" id="postbtnContainer" onClick={handleUploadClick}>
         <div id="postbtn">
           <h2 id="postbtnText">Post</h2>
           <i className="material-icons material-icons-outlined" id="post">
             add
           </i>
         </div>
-      </a>
+      </a> */}
     </div>
   );
 }
