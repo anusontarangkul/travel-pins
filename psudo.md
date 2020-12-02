@@ -48,3 +48,13 @@ code for landing page not home page
       </div>
     )
   }
+
+  visual support -> gif per feture user story 
+  use gif of other site before and compare it to ours 
+
+  let users know when you used it 
+
+  how branches relate to user story -> talk about one place to talk to them 
+  -> show gifs for routes 
+  -> why we used sql vs mongo -> how modle it explain why we choose to do it 
+  explains how routes 

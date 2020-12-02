@@ -11,6 +11,7 @@
     /* border-radius: 25px 25px 0 0; */
     border-bottom: none;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.532);
+    /* border-top: 2px solid rgba(226, 226, 226, 0.731); */
 }
 
 .navicon {
