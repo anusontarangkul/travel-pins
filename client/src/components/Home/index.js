@@ -24,8 +24,6 @@ function Home() {
     //console.log(inputRef.current.value)
     API.searchUsers({search: inputRef.current.value})
     .then(res =>{
-      //console.log(res);
-      
       if(res !== null){
         setSearchResultState({
           state: true, 
@@ -35,23 +33,16 @@ function Home() {
           userId: res.data[0].id
         })
       }
-      console.log(typeof FollowerState);
-      console.log(typeof res.data[0].id);
+      //console.log(typeof FollowerState);
+      //console.log(typeof res.data[0].id);
       setIsFollowingState(false);
       for(var i = 0; i<FollowerState.length; i++){
         if(FollowerState[i].id == res.data[0].id){
-          //console.log("hit check");
           setIsFollowingState(true);
-          //console.log("hit check");
-          //if user types in same user again will not mark as true beacuse search user
-          //only gets fired on mount
+
         }
       }
 
-      // if (FollowerState.some(e => e.id === res.data[0].id)) {
-      //   setIsFollowingState(true);
-      //   console.log("hit check");
-      // }
 
     })
     .catch(err =>{
@@ -63,26 +54,33 @@ function Home() {
 
   const handleFollow = (event) => {
     event.preventDefault();
-    setIsFollowingState(true);
-    API.follow(searchResultState)
-      .then((res) => {
-        console.log("followed");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    //catches if already following 
+    
+    if(!FollowerState.some(e => e.id === searchResultState.userId)){
+      setIsFollowingState(true);
+      setFollowerState(FollowerState=>[...FollowerState, {id:searchResultState.userId} ])
+      API.follow(searchResultState)
+        .then((res) => {
+          console.log("followed");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
+
   const handleUnfollow = (event) => {
     event.preventDefault();
-    setIsFollowingState(false);
-    API.unFollow(searchResultState)
-      .then((res) => {
-        console.log("unfollowed");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      setIsFollowingState(false);
+      API.unFollow(searchResultState)
+        .then((res) => {
+          console.log("unfollowed");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   };
+
 
   const getFollowing = () => {
     API.getFollow()
@@ -140,10 +138,10 @@ function Home() {
     getFollowing();
     //getImages();
   }, []);
-  //console.log(feedState)
-
-  //console.log(searchResultState);
-
+  console.log("searchResultState", searchResultState)
+  console.log("FollowerState", FollowerState)
+  console.log("serach result state: ", searchResultState);
+  console.log("isFollowingState ", isFollowingState)
   //REACT SPRING ANIMATION
   const [fade, setFade] = useState(false);
   const props = useSpring({
