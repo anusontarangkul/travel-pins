@@ -5,12 +5,21 @@ function Feed ({feedImages}){
     console.log(feedImages);
     return (
         <div id="feed">
+            <div className="scroll">
             {feedImages.sort((a, b) => (a.id < b.id) ? 1 : -1).map((image, index) =>
-                <div key = {image.photoId}>
-                    <h5>{image.username} Country: {image.country}</h5>
-                    <img style ={{height : "100px"}} src={image.photoUrl} alt={image.createdAt}/>
-                </div >
+                <div className="post" key = {image.photoId}>
+                    <div className="imgWrap">
+                        <img className="postImg"src={image.photoUrl} alt={image.createdAt}/>
+                        
+                    </div>
+                    <div className="postInfo">
+                        
+                        <h5 className="postUser">{image.username}</h5>
+                        <h5 className="postCountry">{image.country}</h5>
+                    </div>
+                </div>
             )}
+            </div>
         </div>
     )
 }

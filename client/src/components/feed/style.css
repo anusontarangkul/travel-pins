@@ -1,10 +1,90 @@
 #feed {
-    min-height: 100vh;
-    height: auto;
-    width: 100%;
-    margin-top: 80px;
-    /* background: ; */
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column-reverse;
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  margin-top: 120px;
+  /* background: ; */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
 }
+.scroll {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.post {
+  max-width: 400px;
+  max-height: 650px;
+  /* width: 100vw;
+  max-height: 800px; */
+  margin: 50px;
+  margin-top: 5px;
+  background: white;
+  display: block;
+  grid-template-rows: 70% 30%;
+  gap: 25px;
+  grid-template-areas:
+    "imgWrap"
+    "postInfo";
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.532);
+}
+.imgWrap {
+  grid-area: imgWrap;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  object-fit: scale-down;
+  display: flex;
+  justify-content: center;
+}
+.postImg {
+  max-width: 100%;
+  height: auto;
+}
+.postInfo {
+  width: 100%;
+   display: inline-flex;
+   justify-content: space-around;
+}
+
+.postUser {
+  font-family: "GothamPro";
+    background: linear-gradient(100deg, #00c6ff, #0072ff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 22px;
+    margin: 25px;
+}
+.postCountry {
+  background: linear-gradient(100deg, #00c6ff, #0072ff);
+    color: white;
+    border-radius: 25px;
+    font-size: 12px;
+    text-align: center;
+    height: 30px;
+    width: 50px;
+    margin-right: -20px;
+    margin-right: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 900px) { 
+    .post {
+        max-height: 800px;
+        
+        /* margin: 0; */
+        margin-top: 5px;
+        
+      }
+    .imgWrap {
+        grid-area: imgWrap;
+        width: 100%;
+        height: auto;
+      }
+  }
+

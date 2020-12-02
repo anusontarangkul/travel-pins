@@ -1,10 +1,10 @@
 #home {
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     justify-content: center;
 }
 .homeHeader {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: auto;
     min-height: 80px;
@@ -13,6 +13,7 @@
     justify-content: space-around;
     border-bottom: 2px solid rgba(226, 226, 226, 0.731);
     z-index: 10 !important;
+    /* box-shadow: 0 0px 50px rgba(0, 0, 0, 0.532); */
 }
 #logo {
     font-family: "GothamPro";
@@ -42,6 +43,7 @@
     /* display: flex;
     justify-content: space-around; */
     z-index: 1;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.532);
 }
 .search {
     outline: none;
