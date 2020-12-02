@@ -78,7 +78,8 @@ console.log(followingVisited);
     }
   }
 
-  //console.log(followingVisited);
+  //handle click moved down from parent
+
   return (
     <div className="popup">
       {transitions.map(
