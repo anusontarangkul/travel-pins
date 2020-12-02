@@ -1,16 +1,18 @@
 #home {
     min-height: 100vh;
     background: white;
-
+    display: flex;
+    justify-content: center;
 }
 .homeHeader {
+    position: absolute;
     width: 100%;
     height: 80px;
     background: rgb(255, 255, 255);
     display: inline-flex;
     justify-content: space-around;
     border-bottom: 2px solid rgba(226, 226, 226, 0.731);
-    z-index: 10;
+    z-index: 10 !important;
 }
 #logo {
     font-family: "GothamPro";
@@ -30,7 +32,7 @@
     line-height: 80px;
 }
 .formContainer {
-    width: 100%;
+    width: 100vw;
     background: linear-gradient(100deg, #00c6ff, #0072ff);
     border-radius: 0 0 10px 10px;
     padding-bottom: 20px;
@@ -40,6 +42,11 @@
     z-index: 1;
 }
 .search {
+    outline: none;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
+    padding: 10px;
+    text-align: center;
+}
+.search:placeholder-shown {
 }

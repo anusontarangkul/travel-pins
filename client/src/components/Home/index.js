@@ -20,9 +20,6 @@ function Home() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("submit");
-    //REACT SPRING
-    setFade(false);
     //console.log(inputRef.current.value)
     API.searchUsers({ search: inputRef.current.value })
       .then((res) => {
@@ -125,7 +122,7 @@ function Home() {
 
   //REACT SPRING ANIMATION
   const [fade, setFade] = useState(false);
-  const props = useSpring({ opacity: fade ? 1 : 0, from: { opacity: 0 }, config: { duration: 200 }} );
+  const props = useSpring({ from: { opacity: 0, marginTop: 0 }, to: {opacity: fade ? 1 : 0, marginTop: fade ? 82 : 0,}, config: { duration: 250 }} );
   const showInput = () => {
     setFade(!fade);
   }
@@ -136,10 +133,18 @@ function Home() {
         <div className="logo">
           <h1 id="logo">travel pins</h1>
         </div>
+        
         <div className="searchbtn" onClick={showInput}>
+        {!fade ? (
+        <i className="material-icons material-icons-outlined" id="searchbtn">
+        person_search
+      </i>
+      ) : (
+          
           <i className="material-icons" id="searchbtn">
             person_search
           </i>
+      )}
         </div>
       </div>
       {!fade ? (
@@ -150,13 +155,12 @@ function Home() {
                 <input
                 className="search"
                 type="text"
-                placeholder="Search"
+                placeholder="Search Users"
                 ref={inputRef}
                 ></input>
             </form>  
         </div>
-    </animated.div> )}
-      {searchResultState.state && (
+        {searchResultState.state && (
         <div>
           <h5 id={searchResultState.userId}>{searchResultState.username}</h5>
           {isFollowingState ? (
@@ -173,6 +177,7 @@ function Home() {
           <h5>Could not find a user with that username</h5>
         </div>
       )}
+    </animated.div> )}
       <Feed feedImages={feedState}></Feed>
     </div>
   );
