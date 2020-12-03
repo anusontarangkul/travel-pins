@@ -60,7 +60,7 @@ function Home() {
       .catch((err) => {
         console.log(err);
       });
-      window.location.href = "/home";
+      
   };
   const handleUnfollow = (event) => {
     event.preventDefault();
@@ -72,7 +72,7 @@ function Home() {
       .catch((err) => {
         console.log(err);
       });
-      window.location.href = "/home";
+      
   };
 
 
