@@ -17,8 +17,8 @@ module.exports = {
   },
   findAllUserInfo: function (req, res) {
     console.log("controller hit")
-    db.User.findAll({  
-      where:{id: req.user.id},
+    db.User.findAll({
+      where: { id: req.user.id },
       include: [
         {
           model: db.UserCountries,
@@ -35,11 +35,11 @@ module.exports = {
 
       ]
     })
-    .then((user) => {
-      console.log(user); 
-      res.json(user);
-    })
-    .catch((err) => res.status(422).json(err));
+      .then((user) => {
+        console.log(user);
+        res.json(user);
+      })
+      .catch((err) => res.status(422).json(err));
   },
   addTraveled: function (req, res) {
     console.log(req.body)
@@ -85,7 +85,7 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   //findaAlluser countries for user id (req.user.id)
-  addFollow: function(req, res) {
+  addFollow: function (req, res) {
     console.log(req.body)
     db.Followers.create({
       following: req.body.userId,
@@ -94,17 +94,17 @@ module.exports = {
       .then((result) => res.json(result))
       .catch((err) => res.status(422).json(err));
   },
-  deleteFollow: function(req, res) {
+  deleteFollow: function (req, res) {
     console.log(req.body)
     db.Followers.destroy({
       where: {
         following: req.body.userId
       }
-  })
+    })
       .then((result) => res.json(result))
       .catch((err) => res.status(422).json(err));
   },
-  getFollowing: function(req, res) {
+  getFollowing: function (req, res) {
     db.Followers.findAll({
       where: {
         UserId: req.user.id
@@ -115,7 +115,7 @@ module.exports = {
       })
       .catch((err) => res.status(422).json(err));
   },
-  getFollowers: function(req, res) {
+  getFollowers: function (req, res) {
     db.Followers.findAll({
       where: {
         following: req.user.id
@@ -126,8 +126,7 @@ module.exports = {
       })
       .catch((err) => res.status(422).json(err));
   },
-  feed: function(req, res) {
-    console.log(req.body.followingId)
+  feed: function (req, res) {
     db.User.findAll({
       where: {
         [Op.or]: req.body.followingId,
@@ -143,7 +142,7 @@ module.exports = {
       })
       .catch((err) => res.status(422).json(err));
   },
-  userPhotos: function(req, res) {
+  userPhotos: function (req, res) {
     db.Photos.findAll({
       where: {
         UserId: req.user.id
@@ -155,10 +154,8 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   findFirendsInfo: function (req, res) {
-    console.log("controller friends info hit")
-    console.log(req.body.followingId);
-    db.User.findAll({  
-      where:{[Op.or]: req.body.followingId},
+    db.User.findAll({
+      where: { [Op.or]: req.body.followingId },
       include: [
         {
           model: db.UserCountries,
@@ -175,11 +172,11 @@ module.exports = {
 
       ]
     })
-    .then((user) => {
-      console.log(user); 
-      res.json(user);
-    })
-    .catch((err) => res.status(422).json(err));
+      .then((user) => {
+        console.log(user);
+        res.json(user);
+      })
+      .catch((err) => res.status(422).json(err));
   },
   logout: function (req, res) {
     console.log("logged out");
