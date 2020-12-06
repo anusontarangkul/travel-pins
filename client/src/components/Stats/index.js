@@ -107,7 +107,13 @@ function Stats() {
                     <h2>{photoState.length}</h2>
                 </div>
             </div>
-            {getImages && <Feed feedImages = {photoState}></Feed>}
+            <div id="profileFeed">
+            {getImages && photoState.map((image, index) => 
+                <div className="profilePost" key={index}>
+                    <img className="profPostImg" src={image.photoUrl}></img>
+                </div>
+            )}
+            </div>
         </div>
     )
 
