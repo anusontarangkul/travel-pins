@@ -17,29 +17,29 @@ function Navbar(){
     return <div className="navbar">
             <div className="nav-item">
                 <a href = "/home">
-                    <i className="material-icons material-icons-outlined navicon" id="homeButton">
+                    <i className="material-icons navicon" id="homeButton">
                     home
                     </i>
                 </a>
             </div>
             <div className="nav-item">
             <a href = "/map">
-                <i className="material-icons material-icons-outlined navicon" id="mapButton">
+                <i className="material-icons navicon" id="mapButton">
                 room
                 </i>
             </a>
             </div>
             <div className="nav-item">
                 <a href = "/profile">
-                    <i className="material-icons material-icons-outlined navicon" id="userButton">
-                    person_outline
+                    <i className="material-icons navicon" id="userButton">
+                    person
                     </i>
                 </a>
             </div>
             <div className="nav-item" >
                 <a onClick={handleLogout}>
-                    <i className="material-icons material-icons-outlined navicon" id="menuButton">
-                    exit_to_app
+                    <i className="material-icons navicon" id="menuButton">
+                    clear
                     </i>
                 </a>
             </div>

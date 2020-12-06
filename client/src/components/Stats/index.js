@@ -82,24 +82,29 @@ function Stats() {
     console.log(user)
 
     return (
-        <div>
-            <h2>Welcome {user.username}</h2>
-            <h2> {countriesState.countries} / 195 Countries</h2>
+        <div id="profile">
+            <div className="container">
+            <div className = "picContainer">
+                        <img className = "profilePic" src = {blankPhoto} alt ="profile pic" ></img>
+            </div>
+            </div>
+            <h2 className="username">{user.username}</h2>
+            <h2 className="countries"> {countriesState.countries} / 195 Countries</h2>
+            
+                
+            
             <div className = "stats">
-                <div className = "profile">
-                    <img className = "profilePic" src = {blankPhoto} alt ="profile pic" ></img>
-                </div>
-                <div className = "following">
+                <div className = "col following">
                     <h5>following</h5>
-                    <p>{followingState.length}</p>
+                    <h2>{followingState.length}</h2>
                 </div>
-                <div className = "followers">
+                <div className = "col followers">
                     <h5>followers</h5>
-                    <p>{followerState.length}</p>
+                    <h2>{followerState.length}</h2>
                 </div>
-                <div className = "posts">
+                <div className = "col posts">
                     <h5>posts</h5>
-                    <p>{photoState.length}</p>
+                    <h2>{photoState.length}</h2>
                 </div>
             </div>
             {getImages && <Feed feedImages = {photoState}></Feed>}
