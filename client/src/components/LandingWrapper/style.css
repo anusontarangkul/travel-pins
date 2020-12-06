@@ -1,0 +1,6 @@
+#wrapper {
+    background: linear-gradient(180deg, #00c6ff, #0072ff);
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
