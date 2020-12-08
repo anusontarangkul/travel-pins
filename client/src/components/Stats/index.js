@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import './style.css';
 import blankPhoto from "./blank-profile-picture-png.png"
 import Feed from "../feed";
+import Upload from "../Upload";
 
 function Stats() {
     const [countriesState, setCountryState] = useState({
@@ -15,9 +16,11 @@ function Stats() {
         lastname: "",
         username: "",
         userId: "",
+        proflePic: "",
         email: ""
     });
     const [photoState, setPhotoState] = useState([]);
+    const [profileState, setProfileState] = useState(false);
 
     useEffect(() => {
         getStats();
@@ -43,8 +46,9 @@ function Stats() {
             lastname: results.data[0].lastName,
             username: results.data[0].username,
             userId: results.data[0].id,
-            email: results.data[0].email}
-            );
+            email: results.data[0].email,
+            profilePic: results.data[0].profilePic
+            });
         })
         .catch(err => console.log(err));
         //console.log(user);
@@ -81,13 +85,24 @@ function Stats() {
     //console.log(photoState);
     console.log(user)
 
+    const handleProfilePic = (event) =>{
+        event.preventDefault();
+        console.log("hit click for profile")
+        setProfileState(true);
+    }
+
     return (
         <div>
             <h2>Welcome {user.username}</h2>
             <h2> {countriesState.countries} / 195 Countries</h2>
             <div className = "stats">
-                <div className = "profile">
-                    <img className = "profilePic" src = {blankPhoto} alt ="profile pic" ></img>
+                <div className = "profile" >
+                    {profileState && <Upload profile = {profileState} setProfileState ={setProfileState} />}
+                    {user.profilePic
+                    ? <img className = "profilePic" src = {user.profilePic} alt ="profile pic" onClick = {handleProfilePic}/>
+                    : <img className = "profilePic" src = {blankPhoto} alt ="profile pic" onClick = {handleProfilePic}></img>
+                    }
+                    
                 </div>
                 <div className = "following">
                     <h5>following</h5>

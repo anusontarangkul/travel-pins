@@ -2,7 +2,7 @@ import react, { useState } from "react";
 import API from "../../utils/API";
 import "./style.css";
 
-function Upload({ country }) {
+function Upload({ country, profile, setProfileState}) {
   console.log(country);
   console.log("hit upload");
   const [selectedFile, setSelectedFile] = useState();
@@ -36,13 +36,27 @@ function Upload({ country }) {
     reader.readAsDataURL(selectedFile);
     reader.onloadend = () => {
       //uploadImage(reader.result);
-      API.Upload({ data: reader.result, countryCode: country})
+      if(profile){
+        API.profilePicUpload({ data: reader.result})
+        .then((res) => {
+          console.log("upload success");
+          setTimeout(function(){ window.location.href = "/profile"; }, 2000);
+          
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+        setProfileState(false);
+      }
+      else{
+        API.Upload({ data: reader.result, countryCode: country})
         .then((res) => {
           console.log("upload success");
         })
         .catch((err) => {
           console.log(err);
         });
+      }
       //setFileInputState('');
       setPreviewSource("");
     };
