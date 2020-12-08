@@ -32,6 +32,10 @@ router
   .route("/upload")
   .post(userController.uploadImage)
 
+router
+  .route("/profilePic")
+  .put(userController.uploadProfileImage)
+
   router
   .route("/searchUsername")
   .post(userController.searchUsername)

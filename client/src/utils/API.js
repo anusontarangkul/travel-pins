@@ -19,6 +19,9 @@ export default {
         console.log("hit image data");
         return axios.post("api/user/upload", imageData)
     },
+    profilePicUpload: function (profilePic) {
+        return axios.put("api/user/profilePic", profilePic)
+    },
     //Get user countries to render in beginning
     getCountry: function () {
         return axios.get("api/user/saved")
