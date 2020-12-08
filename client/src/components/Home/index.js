@@ -67,6 +67,7 @@ function Home() {
           console.log(err);
         });
     }
+    window.location.href = "/home";
   };
 
   const handleUnfollow = (event) => {
@@ -79,6 +80,7 @@ function Home() {
         .catch((err) => {
           console.log(err);
         });
+        window.location.href = "/home";
   };
 
 
