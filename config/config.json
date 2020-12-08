@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "password7",
+    "password": "password",
     "database": "travel_pin_db",
     "host": "127.0.0.1",
     "port": 3306,
@@ -16,9 +16,9 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "lq362wnoiw2zo8ah",
-    "password": "t1oh0xhy5kpb5yts",
-    "database": "wf1m0ga4qha3c872",
+    "username": "haza3e1m4l4v1bjg",
+    "password": "u1ibvslkfakbsdom",
+    "database": "iqqnkhmlrglrlsul",
     "host": "de1tmi3t63foh7fa.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
