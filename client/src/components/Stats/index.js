@@ -92,32 +92,40 @@ function Stats() {
     }
 
     return (
-        <div>
-            <h2>Welcome {user.username}</h2>
-            <h2> {countriesState.countries} / 195 Countries</h2>
-            <div className = "stats">
-                <div className = "profile" >
-                    {profileState && <Upload profile = {profileState} setProfileState ={setProfileState} />}
-                    {user.profilePic
+        <div id="profile">
+                <div className="container">
+                <div className = "picContainer">
+                    {profileState && 
+                    <Upload profile = {profileState} setProfileState ={setProfileState} />}
+                    {!profileState && (user.profilePic
                     ? <img className = "profilePic" src = {user.profilePic} alt ="profile pic" onClick = {handleProfilePic}/>
                     : <img className = "profilePic" src = {blankPhoto} alt ="profile pic" onClick = {handleProfilePic}></img>
-                    }
-                    
+                    )}
                 </div>
-                <div className = "following">
+                </div>
+                <h2 className="username">{user.username}</h2>
+                <h2 className="countries"> {countriesState.countries} / 195 Countries</h2>
+                <div className = "stats">
+                <div className = "col following">
                     <h5>following</h5>
-                    <p>{followingState.length}</p>
+                    <h2>{followingState.length}</h2>
                 </div>
-                <div className = "followers">
+                <div className = "col followers">
                     <h5>followers</h5>
-                    <p>{followerState.length}</p>
+                    <h2>{followerState.length}</h2>
                 </div>
-                <div className = "posts">
+                <div className = "col posts">
                     <h5>posts</h5>
-                    <p>{photoState.length}</p>
+                    <h2>{photoState.length}</h2>
                 </div>
+                </div>
+            <div id="profileFeed">
+            {getImages && photoState.map((image, index) => 
+                <div className="profilePost" key={index}>
+                    <img className="profPostImg" src={image.photoUrl}></img>
+                </div>
+            )}
             </div>
-            {getImages && <Feed feedImages = {photoState}></Feed>}
         </div>
     )
 

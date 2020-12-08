@@ -41,8 +41,8 @@
   justify-content: center;
 }
 .postImg {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
 }
 .postInfo {
   width: 100%;

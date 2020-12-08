@@ -66,15 +66,33 @@ function Upload({ country, profile, setProfileState}) {
     setUpload(true);
   };
 
+  const handleOffClick = (event) =>{
+    event.preventDefault();
+    console.log("off click")
+    setProfileState(false);
+}
+  
+
   return (
     <div className="upload">
       {upload ? (
         <div className="container">
           <label for="fileInput" className="uploadbtn">
+            {profile
+            ? <>
+              <h2 id="postbtnText">Update</h2>
+            <button className = "offClick" onClick ={handleOffClick}><i className="material-icons material-icons-outlined" id="post">
+                add
+            </i></button>
+            </>
+            :<>
             <h2 id="postbtnText">Upload</h2>
             <i className="material-icons material-icons-outlined" id="post">
-                add
-            </i>
+              add
+              </i>
+              </>
+            }
+
           </label>
           <input
             id="fileInput"
