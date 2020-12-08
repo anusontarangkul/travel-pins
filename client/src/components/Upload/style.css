@@ -46,9 +46,10 @@ input[type="file"] {
     flex-direction: row;
 }
 .offClick{
-    background-color: Transparent;
+    background-color:transparent;
     background-repeat:no-repeat;
     border: none;
+    border-radius: 0 50px 50px 0; 
     cursor:pointer;
     overflow: hidden;
     outline:none;

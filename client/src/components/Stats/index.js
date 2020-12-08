@@ -98,8 +98,8 @@ function Stats() {
                     {profileState && 
                     <Upload profile = {profileState} setProfileState ={setProfileState} />}
                     {!profileState && (user.profilePic
-                    ? <img className = "profilePic" src = {user.profilePic} alt ="profile pic" onClick = {handleProfilePic}/>
-                    : <img className = "profilePic" src = {blankPhoto} alt ="profile pic" onClick = {handleProfilePic}></img>
+                    ? <img className = "profilePicStats" src = {user.profilePic} alt ="profile pic" onClick = {handleProfilePic}/>
+                    : <img className = "profilePicStats" src = {blankPhoto} alt ="profile pic" onClick = {handleProfilePic}></img>
                     )}
                 </div>
                 </div>

@@ -80,7 +80,7 @@ function Upload({ country, profile, setProfileState}) {
           <label for="fileInput" className="uploadbtn">
             {profile
             ? <>
-              <h2 id="postbtnText">Update</h2>
+            <h2 id="postbtnText">Profile</h2>
             <button className = "offClick" onClick ={handleOffClick}><i className="material-icons material-icons-outlined" id="post">
                 add
             </i></button>

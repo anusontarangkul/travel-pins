@@ -118,6 +118,7 @@ function Home() {
         for(let y = 0; y<res.data[x].Photos.length; y++){
           followerInfoToSort.push({
             username: res.data[x].username,
+            profilePic: res.data[x].profilePic,
             UserId: res.data[x].id,
             id: res.data[x].Photos[y].id,
             country: res.data[x].Photos[y].country,
