@@ -198,7 +198,7 @@ function Home() {
             : <div>
                 {searchResultState.state && (
                 <div>
-                  <h5 id={searchResultState.userId}>
+                  <h5 id={searchResultState.userId} className="searchRtn">
                     {searchResultState.username}
                   </h5>
                   {isFollowingState ? (
