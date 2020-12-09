@@ -1,4 +1,4 @@
-import react ,{useState, useEffect} from "react";
+import react, { useState, useEffect } from "react";
 import "./style.css";
 import { useSpring, animated, useTransition } from "react-spring";
 import { useSwipeable } from "react-swipeable";
@@ -7,19 +7,19 @@ import Carousel from "re-carousel";
 import Upload from "../Upload";
 import API from "../../utils/API";
 
-function Popup({ country, setUploadState, transitions, countryState}) {
+function Popup({ country, setUploadState, transitions, countryState }) {
   console.log(transitions);
   const [followingVisited, setFollowingVisited] = useState([]);
-  const [followingDataState, setFollowingDataState ] = useState([]);
-  const [userDataState, setUserDataState ] = useState([]);
+  const [followingDataState, setFollowingDataState] = useState([]);
+  const [userDataState, setUserDataState] = useState([]);
   const [travled, setTravled] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     getUser();
-  },[]);
+  }, []);
 
-// console.log(followingVisited)
-console.log(userDataState);
+  // console.log(followingVisited)
+  console.log(userDataState);
 
   // const handleUploadClick = (event) => {
   //   event.preventDefault();
@@ -38,60 +38,62 @@ console.log(userDataState);
   // };
   const getUser = () => {
     API.getUserData()
-    .then(results => {
-      setUserDataState(results.data[0].UserCountries);
+      .then(results => {
+        setUserDataState(results.data[0].UserCountries);
         var following = [];
-        for(let i =0; i<results.data[0].Followers.length; i++){
-          following.push({id: results.data[0].Followers[i].following});
+        for (let i = 0; i < results.data[0].Followers.length; i++) {
+          following.push({ id: results.data[0].Followers[i].following });
         }
         return following;
-    }).then(following => {
-      getFollowingCountry(following)
-    })
-    .catch(err => console.log(err));
+      }).then(following => {
+        getFollowingCountry(following)
+      })
+      .catch(err => console.log(err));
   }
 
-  const getFollowingCountry = (following) =>{
-    API.getFollowingInfo({followingId: following})
-    .then(res =>{
-      setFollowingDataState(res.data);
-    }).catch(err =>{
-      console.log(err);
-    }); 
+  const getFollowingCountry = (following) => {
+    API.getFollowingInfo({ followingId: following })
+      .then(res => {
+        setFollowingDataState(res.data);
+      }).catch(err => {
+        console.log(err);
+      });
   }
-  const checkIfAlreadyTravled = () =>{
-      if (userDataState.some(e => e.CountryName === countryState)) {
-        setTravled(true);
-      }
-      else{
-        setTravled(false);
-      }
+  const checkIfAlreadyTravled = () => {
+    if (userDataState.some(e => e.CountryName === countryState)) {
+      setTravled(true);
+    }
+    else {
+      setTravled(false);
+    }
   }
-  const checkVisited = () =>{
+  const checkVisited = () => {
     console.log(followingDataState);
-    for(let y = 0; y<followingDataState.length; y++){
+    for (let y = 0; y < followingDataState.length; y++) {
       setFollowingVisited([]);
       if (followingDataState[y].UserCountries.some(e => e.CountryName === countryState)) {
         setFollowingVisited(followingVisited => [...followingVisited, followingDataState[y].username])
-        console.log(followingVisited) 
+        console.log(followingVisited)
       }
     }
   }
 
 
-  const addCountry = (event) =>{
+  const addCountry = (event) => {
     event.preventDefault();
     console.log("hit add countries");
     //waits for calculation before sending
-      if(!userDataState.some(e => e.CountryName === countryState)){
-        setTravled(true);
-        setUserDataState(userDataState=>[...userDataState, {CountryName:countryState} ])
-        API.saveCountry({ country: countryState })
+    setTravled(true);
+    if (!userDataState.some(e => e.CountryName === countryState)) {
+
+      setUserDataState(userDataState => [...userDataState, { CountryName: countryState }])
+      API.saveCountry({ country: countryState })
+        .then()
         .catch((err) => console.log(err));
-      }
-      else{
-        return;
-      }
+    }
+    else {
+      return;
+    }
 
   }
 
@@ -135,42 +137,44 @@ console.log(userDataState);
                       </div>
                     </div>
                     {/* <hr/> */}
-                    <Upload country={countryState}/>
+                    <Upload country={countryState} />
                   </div>
 
-                <div className="popupContent" >
+                  <div className="popupContent" >
+
                     {travled
-                    ?<div></div>
-                    :<a id="traveledbtn">
-                      <div className="popupbox">
-                        <div className="traveledbtn" onClick ={addCountry}>
-                          Add Traveled
+                      ? <div></div>
+                      : <a id="traveledbtn">
+                        <div className="popupbox">
+                          <div className="traveledbtn" onMouseDown={addCountry}>
+                            Add Traveled
                         </div>
-                      </div>
-                    </a>
+                        </div>
+                      </a>
                     }
-                  <div className="visited">
-                    <div className="visitedTop">
-                      <h2 className="visitedHeader">Friends that visited:</h2>
-                    </div>
-                        <div className="visitedList">
-                          <ul className="list">
+
+                    <div className="visited">
+                      <div className="visitedTop">
+                        <h2 className="visitedHeader">Friends that visited:</h2>
+                      </div>
+                      <div className="visitedList">
+                        <ul className="list">
                           {followingVisited !== [] &&
-                          <div>
-                          {followingVisited.map((friend, index) =>
-                            <p className = "visitedList" key = {index}>
-                                {friend}
-                            </p >
-                            )}
-                          </div>
+                            <div>
+                              {followingVisited.map((friend, index) =>
+                                <p className="visitedList" key={index}>
+                                  {friend}
+                                </p >
+                              )}
+                            </div>
                           }
 
-                          </ul>
+                        </ul>
                       </div>
-                  </div>
-                  <div className="bottomBox">
+                    </div>
+                    <div className="bottomBox">
                       <img src={country.flag} />
-                  </div>
+                    </div>
                   </div>
                 </Carousel>
               </div>
