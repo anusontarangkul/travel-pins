@@ -201,15 +201,15 @@ function Home() {
             : <div>
                 {searchResultState.state && (
                 <div>
-                  <h5 id={searchResultState.userId}>
+                  <h5 id={searchResultState.userId} className="searchRtn">
                     {searchResultState.username}
                   </h5>
                   {isFollowingState ? (
-                    <button onClick={handleUnfollow} style={{ opacity: "0.5" }}>
+                    <button className="follow" onClick={handleUnfollow} style={{ opacity: "0.5" }}>
                       Unfollow
                     </button>
                   ) : (
-                    <button onClick={handleFollow}>+ Follow</button>
+                    <button className="follow" onClick={handleFollow}>+ Follow</button>
                   )}
                 </div>
               )}

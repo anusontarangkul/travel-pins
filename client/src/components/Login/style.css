@@ -1,8 +1,50 @@
-.login {
-  background: linear-gradient(180deg, #00c6ff, #0072ff);
+#login {
+  background: linear-gradient(100deg, #00c6ff, #0073ffc3);
   height: 100vh;
   overflow: hidden;
 }
+
+.background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#hoveredBtn {
+  width: 80%;
+  border-radius: 50px;
+  box-shadow: 0 20px 50px rgba(33, 33, 33, 0.662);
+  transform: translateY(-10px);
+  background: linear-gradient(to left, #EB3349 0%, #F45C43 100%);
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  outline: none;
+}
+
+#hoveredBtn #globe {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+#hoveredBtn .button-text {
+  opacity: 1;
+}
+
+.swipetoSign {
+  width: 65%;
+  margin-top: -3vh;
+  margin-bottom: 3.5vh;
+  font-size: 2vh;
+  color: white;
+}
+
+
+
+
+
 .logoHeader {
   width: 100%;
   background: #fefefe;
@@ -15,87 +57,149 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.loginCard {
+.loginC {
   width: 100%;
-  /* height: 600px; */
-  height: 500px;
-  padding: 0 20px;
-  border-radius: 50px;
-  /* background: linear-gradient(180deg, #00f260 0%, #38ef7d 100%); */
-  background: linear-gradient(180deg, #e1e5e9 0%, #7b7d7e);
+  height: 100vh;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.121);
+  backdrop-filter: blur(10px);
+  display: grid;
+  grid-row: auto;
+  z-index: 100;
+  margin-top:46vh;
+}
+
+.loginCard {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  transition: 0.4s ease-out;
-  position: relative;
-  box-shadow: 0 0 50px rgba(33, 33, 33, 0.573);
+  border-radius: 25px;
+  box-shadow: 0 10px 50px rgba(33, 33, 33, 0.573);
   z-index: 5;
 }
 
+
+.signupC { 
+  width: 100%;
+  height: 100vh;
+  border-radius: 25px 25px 0 0;
+  background: rgba(255, 255, 255, 0.121);
+  backdrop-filter: blur(2px);
+  display: grid;
+  grid-row: auto;
+  z-index: 100;
+  margin-top: 46vh;
+  transition: margin-top .5s, backdrop-filter .5s ease-in-out;
+}
 .signupCard {
-  width: 80%;
-  /* height: 500px; */
-  height: 500px;
-  padding: 0 20px;
-  border-radius: 50px;
-  background: linear-gradient(to left, #eb3349 0%, #f45c43 100%);
+  width: 100%;
+  border-radius: 25px 25px 0 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  position: relative;
-  box-shadow: 0 0 30px rgba(33, 33, 33, 0.573);
-  z-index: 0;
-  transition: width 0.5s, box-shadow 0.5s ease-in-out;
+  box-shadow: 0 10px 50px rgba(33, 33, 33, 0.573);
+  z-index: 5;
 }
 
+.signupC:hover { 
+  backdrop-filter: blur(30px);
+  margin-top: 20vh;
+}
+.form {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input {
+  margin-bottom: 5vh;
+  outline: none;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.806);
+  backdrop-filter: blur(10px);
+  border: none;
+  transition: border .2s ease-in-out;
+}
+
+.input::placeholder{
+  background: #00a2ffc5;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 16px;
+  padding-left: 3px;
+}
+.input:focus {
+  border: 3px solid #ff4428c1;
+}
 .formTitle {
+  width: 100vw;
   color: #fefefe;
-  /* margin-top: -80px; */
-  /* font-size: 60px; */
-  padding-bottom: -40px;
-  /* transform: rotate(-90deg); */
-  margin-top: -300px;
-  font-size: 60px;
-}
-.formTitle.active {
-  /* font-size: 80px; */
   font-size: 70px;
-  padding-top: -50px;
 }
 
-.signupC {
-  position: fixed;
-  /* margin-top: 50px; */
-  margin-top: 270px;
-  transition: transform 0.5s ease-in-out;
+.submit-btn {
+  width: 100px;
+  height: 40px;
+border-radius: 50px;
+box-shadow: 0 20px 50px rgba(33, 33, 33, 0.662);
+transform: translateY(-10px);
+background: linear-gradient(to left, #EB3349 0%, #F45C43 100%);
+border: none;
+outline: none;
+color: white;
+text-transform: uppercase;
+font-weight: 400;
+}
+.signSubmit-btn {
+  width: 100px;
+  height: 40px;
+border-radius: 50px;
+box-shadow: 0 20px 50px rgba(33, 33, 33, 0.662);
+transform: translateY(-10px);
+background: linear-gradient(100deg, #00c6ff, #0073ffc3);
+border: none;
+outline: none;
+color: white;
+text-transform: uppercase;
+font-weight: 400;
+margin-top: 20px;
 }
 
-.signupC:hover {
-  transform: translateY(-280px);
-}
-.signupC:hover .signupCard {
-  width: 85%;
-  box-shadow: 0 -5px 20px rgba(33, 33, 33, 0.573);
-}
-.loginC {
-  /* margin-top: 180px; */
-  margin-top: 425px;
-  transition: transform 0.5s ease-in-out;
+
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
-.loginC:hover {
-  /* transform: translateY(-100px); */
-  transform: translateY(-300px);
+.fadeOut {
+  animation-name: fadeOut;
+  animation-duration: .6s;
+  animation-fill-mode: forwards;
 }
 
-/* Mobile */
-/* @media only screen and (max-width: 400px) {
-form{
-    margin-top: -200px;
+
+@keyframes slide {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    right: -50px;
+    transform: rotate(270deg);
+  }
 }
-} */
+
+.slide {
+  animation-name: slide;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-delay: .6s;
+}
 
 @keyframes fadeInUp {
   from {
@@ -119,18 +223,15 @@ form{
   }
 }
 
-.animated {
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-}
 
-.animatedS {
+
+
+.animated {
   animation-duration: 1s;
   animation-fill-mode: both;
   -webkit-animation-duration: 1.5s;
   -webkit-animation-fill-mode: both;
+  animation-delay: .8s;
 }
 
 .animatedFadeInUp {
@@ -150,13 +251,25 @@ form{
   outline: 0;
 }
 
-.submit-btn {
-  border-radius: 25px;
-  height: 30px;
-  width: 100px;
-  outline: 0;
+
+
+@media only screen and (min-width: 900px) {
+  #hoveredBtn {
+      width: 600px;
+    }
 }
 
-.submit-btn:hover {
-  cursor: pointer;
+@media only screen and (max-height: 800px) {
+  .loginC { 
+    margin-top: 26vh;
+    backdrop-filter: blur(30px);
+  }
+  .signupC { 
+    backdrop-filter: blur(30px);
+    margin-top: 8vh;
+  }
+  .signupC:hover { 
+    backdrop-filter: blur(30px);
+    margin-top: 8vh;
+  }
 }
