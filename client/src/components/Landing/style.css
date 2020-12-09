@@ -32,7 +32,7 @@
   font-family: "GothamPro";
   font-style: Bold;
 }
-.iconContainer {
+/* .iconContainer {
   position: relative;
   width: 50px;
   height: auto;
@@ -40,7 +40,7 @@
   border-radius: 360px;
   background: linear-gradient(180deg, #0080ff, #0072ff);
   z-index: 5;
-}
+} */
 #pinButton {
   position: absolute;
   right: -300px;

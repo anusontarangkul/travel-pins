@@ -27,7 +27,7 @@ function Navbar() {
           activeClassName="material-icons navicon material-icons-outlined"
           id="homeButton"
         >
-          home
+          home 
         </NavLink>
       </div>
       <div className="nav-item">

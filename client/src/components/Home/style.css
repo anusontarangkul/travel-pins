@@ -56,3 +56,11 @@
 .errmsg {
     color: white;
 }
+.follow{
+    width: 100px;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    text-align: center;
+}
