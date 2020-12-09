@@ -142,16 +142,15 @@ function Popup({ country, setUploadState, transitions, countryState }) {
 
                   <div className="popupContent" >
 
-                    {travled
-                      ? <div></div>
-                      : <a id="traveledbtn">
-                        <div className="popupbox">
-                          <div className="traveledbtn" onMouseDown={addCountry}>
-                            Add Traveled
+
+                    <a id="traveledbtn">
+                      <div className="popupbox">
+                        <div className="traveledbtn" onMouseDown={addCountry}>
+                          Add Traveled
                         </div>
-                        </div>
-                      </a>
-                    }
+                      </div>
+                    </a>
+
 
                     <div className="visited">
                       <div className="visitedTop">
