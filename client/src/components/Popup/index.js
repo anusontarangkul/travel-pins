@@ -12,6 +12,7 @@ function Popup({ country, setUploadState, transitions, countryState }) {
   const [followingVisited, setFollowingVisited] = useState([]);
   const [followingDataState, setFollowingDataState] = useState([]);
   const [userDataState, setUserDataState] = useState([]);
+  // Not checking state anymore because map layers will not render
   const [travled, setTravled] = useState(false);
 
   useEffect(() => {
