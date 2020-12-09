@@ -45,6 +45,16 @@ input[type="file"] {
     justify-content: center;
     flex-direction: row;
 }
+.offClick{
+    background-color:transparent;
+    background-repeat:no-repeat;
+    border: none;
+    border-radius: 0 50px 50px 0; 
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: white;
+}
 .uploadbtn:hover {
     width: 300px;
     border-radius: 50px;

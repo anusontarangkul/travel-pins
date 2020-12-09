@@ -13,7 +13,9 @@ function Feed ({feedImages}){
                         
                     </div>
                     <div className="postInfo">
-                        
+                        <div className = "profileWrap">
+                        <img className="profilePic" src = {image.profilePic} alt = "profile picture"/>
+                        </div>
                         <h5 className="postUser">{image.username}</h5>
                         <h5 className="postCountry">{image.country}</h5>
                     </div>
