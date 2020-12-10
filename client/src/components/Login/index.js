@@ -59,60 +59,60 @@ function Login() {
                     <h2 className="subhead">Sharing the world.</h2>
                 </div>
             </div> */}
-                <div className="background">
-      <div className="mainHeader">
-        <h1 className="title">travel pins</h1>
-        <h2 className="space"></h2>
-        
-      </div>
-      <div className="mainSub">
-        <h2 className="subhead">Sharing the world.</h2>
-        <h2 className="space fadeOut"></h2>
-      </div>
-      <i className="material-icons material-icons-outlined slide" id="pinButton">
-          room
-        </i>
-        <div className="buttonContainer fadeOut">
-      <button id="hoveredBtn">
+            <div className="background">
+                <div className="mainHeader">
+                    <h1 className="title">travel pins</h1>
+                    <h2 className="space"></h2>
 
-        <i class="material-icons" id="globe">
-        done
+                </div>
+                <div className="mainSub">
+                    <h2 className="subhead">Sharing the world.</h2>
+                    <h2 className="space fadeOut"></h2>
+                </div>
+                <i className="material-icons material-icons-outlined slide" id="pinButton">
+                    room
         </i>
-        <h2 class="button-text">GET STARTED</h2>
-      </button>
-    </div>
-        </div>
+                <div className="buttonContainer fadeOut">
+                    <button id="hoveredBtn">
+
+                        <i class="material-icons" id="globe">
+                            done
+        </i>
+                        <h2 class="button-text">GET STARTED</h2>
+                    </button>
+                </div>
+            </div>
 
             <Carousel>
-            <div className="loginC container animated animatedFadeInUp fadeInUp">
-                <div className="loginCard">
-                <h1 className="formTitle" >Sign In</h1>
-                <p className="swipetoSign">If you do not already have an account, Swipe Left to sign up.</p>
-                    <form className="form">
-                        <input placeholder="Username" id="username-login" name="username" autoComplete="off" className="input" type="text" onChange={(e) => handleLoginChange(e)} />
-                        <input placeholder="Password" id="password-login" name="password" autoComplete="off" className="input" type="text" onChange={(e) => handleLoginChange(e)} />
-                        <div className="container">
-                            <button type="button" class="submit-btn" onClick={handleLogin}>Sign In</button>
-                        </div>
-                    </form>
+                <div className="loginC container animated animatedFadeInUp fadeInUp">
+                    <div className="loginCard">
+                        <h1 className="formTitle" >Sign In</h1>
+                        <p className="swipetoSign">If you do not already have an account, Swipe Left to sign up.</p>
+                        <form className="form">
+                            <input placeholder="Username" id="username-login" name="username" autoComplete="off" className="input" type="text" onChange={(e) => handleLoginChange(e)} />
+                            <input placeholder="Password" id="password-login" name="password" autoComplete="off" className="input" type="password" onChange={(e) => handleLoginChange(e)} />
+                            <div className="container">
+                                <button type="button" class="submit-btn" onClick={handleLogin}>Sign In</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            <div className="signupC container animated animatedFadeInUp fadeInUp">
-                <div className="signupCard">
-                    <h1 className="formTitle">Sign Up</h1>
-                    <form className="form">
-                        <input placeholder="First Name" id="firstName" name="firstName" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
-                        <input placeholder="Last Name" id="lastName" name="lastName" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
-                        <input placeholder="Username" id="username" name="username" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
-                        <input placeholder="Email" id="email" name="email" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
-                        <input placeholder="Password" id="password" name="password" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
-                        <div className="container">
-                            <button class="signSubmit-btn" type="button" onClick={handleSignup}>Sign Up</button>
-                        </div>
-                    </form>
+                <div className="signupC container animated animatedFadeInUp fadeInUp">
+                    <div className="signupCard">
+                        <h1 className="formTitle">Sign Up</h1>
+                        <form className="form">
+                            <input placeholder="First Name" id="firstName" name="firstName" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
+                            <input placeholder="Last Name" id="lastName" name="lastName" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
+                            <input placeholder="Username" id="username" name="username" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
+                            <input placeholder="Email" id="email" name="email" autoComplete="off" className="input" type="text" onChange={(e) => handleSignupChange(e)} />
+                            <input placeholder="Password" id="password" name="password" autoComplete="off" className="input" type="password" onChange={(e) => handleSignupChange(e)} />
+                            <div className="container">
+                                <button class="signSubmit-btn" type="button" onClick={handleSignup}>Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
             </Carousel>
         </div>
 
