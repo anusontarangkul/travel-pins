@@ -28,9 +28,14 @@ No installations necessary. Please clicked on the deployed link to access. [Depl
 
 ## Usage
 
+
+
+![SignUp](./images/getStarted.gif)
+
+
 1. Create an account or login.
 
-![SignUp](./images/signup.gif)
+![SignUp](./images/newLogin.gif)
 
 2. Find a country.
 
