@@ -108,8 +108,8 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
       //Fly to country
       console.log(mapElement.features)
       console.log(countryCode)
-      
-      
+
+
 
       $.ajax({
         url:
@@ -119,91 +119,91 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
           mapboxgl.accessToken,
         success: function (res) {
           console.log(res.features)
-          if (countryCode === "USA"){
-          map.fitBounds([
-            [res.features[0].bbox[0], res.features[0].bbox[1]],
-            [res.features[0].bbox[2], res.features[0].bbox[3]]
-          ],{padding:{top: 30, bottom: 200, right: 0, left: 0}});
-        } else if  (countryCode === "GRL"){
-          map.fitBounds([
-            [res.features[0].bbox[0], res.features[0].bbox[1]],
-            [res.features[0].bbox[2], res.features[0].bbox[3]]
-          ],{padding:{top: 160, bottom: 300, right: 0, left: 0}});
+          if (countryCode === "USA") {
+            map.fitBounds([
+              [res.features[0].bbox[0], res.features[0].bbox[1]],
+              [res.features[0].bbox[2], res.features[0].bbox[3]]
+            ], { padding: { top: 30, bottom: 200, right: 0, left: 0 } });
+          } else if (countryCode === "GRL") {
+            map.fitBounds([
+              [res.features[0].bbox[0], res.features[0].bbox[1]],
+              [res.features[0].bbox[2], res.features[0].bbox[3]]
+            ], { padding: { top: 160, bottom: 300, right: 0, left: 0 } });
+          }
+          else if (countryCode === "RUS" || countryCode === "CAN") {
+            map.fitBounds([
+              [res.features[0].bbox[0], res.features[0].bbox[1]],
+              [res.features[0].bbox[2], res.features[0].bbox[3]]
+            ], { padding: { top: 100, bottom: 300, right: 0, left: 0 } });
+          } else if (countryCode === "AUS") {
+            map.fitBounds([
+              [res.features[1].bbox[0], res.features[1].bbox[1]],
+              [res.features[1].bbox[2], res.features[1].bbox[3]]
+            ], { padding: { top: 100, bottom: 300, right: 50, left: 50 } });
+          } else if (countryCode === "MAR") {
+            map.fitBounds([
+              [res.features[2].bbox[0], res.features[2].bbox[1]],
+              [res.features[2].bbox[2], res.features[2].bbox[3]]
+            ], { padding: { top: 100, bottom: 350, right: 50, left: 225 } });
+          } else if (countryCode === "SOM") {
+            map.fitBounds([
+              [res.features[2].bbox[0], res.features[2].bbox[1]],
+              [res.features[2].bbox[2], res.features[2].bbox[3]]
+            ], { padding: { top: 100, bottom: 300, right: 50, left: 50 } });
+          } else if (countryCode === "NOR") {
+            map.fitBounds([
+              [res.features[4].bbox[0], res.features[4].bbox[1]],
+              [res.features[4].bbox[2], res.features[4].bbox[3]]
+            ], { padding: { top: 100, bottom: 480, right: 50, left: 50 } });
+          } else if (countryCode === "LAO") {
+            map.fitBounds([
+              [res.features[4].bbox[0], res.features[4].bbox[1]],
+              [res.features[4].bbox[2], res.features[4].bbox[3]]
+            ], { padding: { top: 100, bottom: 480, right: 50, left: 50 } });
+          } else if (countryCode === "SYR") {
+            map.fitBounds([
+              [res.features[1].bbox[0], res.features[1].bbox[1]],
+              [res.features[1].bbox[2], res.features[1].bbox[3]]
+            ], { padding: { top: 100, bottom: 300, right: 50, left: 50 } });
+          } else if (countryCode === "TUN") {
+            map.fitBounds([
+              [res.features[1].bbox[0], res.features[1].bbox[1]],
+              [res.features[1].bbox[2], res.features[1].bbox[3]]
+            ], { padding: { top: 100, bottom: 480, right: 50, left: 50 } });
+          } else if (countryCode === "KEN") {
+            map.fitBounds([
+              [res.features[1].bbox[0], res.features[1].bbox[1]],
+              [res.features[1].bbox[2], res.features[1].bbox[3]]
+            ], { padding: { top: 100, bottom: 300, right: 50, left: 50 } });
+          } else if (countryCode === "GUY") {
+            map.fitBounds([
+              [res.features[3].bbox[0], res.features[3].bbox[1]],
+              [res.features[3].bbox[2], res.features[3].bbox[3]]
+            ], { padding: { top: 100, bottom: 300, right: 50, left: 50 } });
+          } else if (countryCode === "SUR") {
+            map.fitBounds([
+              [res.features[3].bbox[0], res.features[3].bbox[1]],
+              [res.features[3].bbox[2], res.features[3].bbox[3]]
+            ], { padding: { top: 100, bottom: 300, right: 50, left: 50 } });
+          } else if (countryCode === "PRK") {
+            map.fitBounds([
+              [res.features[3].bbox[0], res.features[3].bbox[1]],
+              [res.features[3].bbox[2], res.features[3].bbox[3]]
+            ], { padding: { top: 100, bottom: 300, right: 50, left: 50 } });
+          } else if (countryCode === "SLE") {
+            map.fitBounds([
+              [res.features[1].bbox[0], res.features[1].bbox[1]],
+              [res.features[1].bbox[2], res.features[1].bbox[3]]
+            ], { padding: { top: 100, bottom: 480, right: 50, left: 50 } });
+          } else {
+            map.fitBounds([
+              [res.features[0].bbox[0], res.features[0].bbox[1]],
+              [res.features[0].bbox[2], res.features[0].bbox[3]]
+            ], { padding: { top: 100, bottom: 300, right: 50, left: 50 } });
+          }
         }
-        else if  (countryCode === "RUS" || countryCode === "CAN" ){
-          map.fitBounds([
-            [res.features[0].bbox[0], res.features[0].bbox[1]],
-            [res.features[0].bbox[2], res.features[0].bbox[3]]
-          ],{padding:{top: 100, bottom: 300, right: 0, left: 0}});
-        } else if  (countryCode === "AUS"){
-          map.fitBounds([
-            [res.features[1].bbox[0], res.features[1].bbox[1]],
-            [res.features[1].bbox[2], res.features[1].bbox[3]]
-          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
-        } else if  (countryCode === "MAR"){
-          map.fitBounds([
-            [res.features[2].bbox[0], res.features[2].bbox[1]],
-            [res.features[2].bbox[2], res.features[2].bbox[3]]
-          ],{padding:{top: 100, bottom: 350, right: 50, left: 225}});
-        } else if  (countryCode === "SOM"){
-          map.fitBounds([
-            [res.features[2].bbox[0], res.features[2].bbox[1]],
-            [res.features[2].bbox[2], res.features[2].bbox[3]]
-          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
-        } else if  (countryCode === "NOR"){
-          map.fitBounds([
-            [res.features[4].bbox[0], res.features[4].bbox[1]],
-            [res.features[4].bbox[2], res.features[4].bbox[3]]
-          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
-        } else if  (countryCode === "LAO"){
-          map.fitBounds([
-            [res.features[4].bbox[0], res.features[4].bbox[1]],
-            [res.features[4].bbox[2], res.features[4].bbox[3]]
-          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
-        } else if  (countryCode === "SYR"){
-          map.fitBounds([
-            [res.features[1].bbox[0], res.features[1].bbox[1]],
-            [res.features[1].bbox[2], res.features[1].bbox[3]]
-          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
-        } else if  (countryCode === "TUN"){
-          map.fitBounds([
-            [res.features[1].bbox[0], res.features[1].bbox[1]],
-            [res.features[1].bbox[2], res.features[1].bbox[3]]
-          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
-        } else if  (countryCode === "KEN"){
-          map.fitBounds([
-            [res.features[1].bbox[0], res.features[1].bbox[1]],
-            [res.features[1].bbox[2], res.features[1].bbox[3]]
-          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
-        } else if  (countryCode === "GUY"){
-          map.fitBounds([
-            [res.features[3].bbox[0], res.features[3].bbox[1]],
-            [res.features[3].bbox[2], res.features[3].bbox[3]]
-          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
-        } else if  (countryCode === "SUR"){
-          map.fitBounds([
-            [res.features[3].bbox[0], res.features[3].bbox[1]],
-            [res.features[3].bbox[2], res.features[3].bbox[3]]
-          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
-        } else if  (countryCode === "PRK"){
-          map.fitBounds([
-            [res.features[3].bbox[0], res.features[3].bbox[1]],
-            [res.features[3].bbox[2], res.features[3].bbox[3]]
-          ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
-        } else if  (countryCode === "SLE"){
-          map.fitBounds([
-            [res.features[1].bbox[0], res.features[1].bbox[1]],
-            [res.features[1].bbox[2], res.features[1].bbox[3]]
-          ],{padding:{top: 100, bottom: 480, right: 50, left: 50}});
-        } else {
-        map.fitBounds([
-          [res.features[0].bbox[0], res.features[0].bbox[1]],
-          [res.features[0].bbox[2], res.features[0].bbox[3]]
-        ],{padding:{top: 100, bottom: 300, right: 50, left: 50}});
-      }
-      }
       });
-    
+
       // Grab the country code from the map properties.
       fetch(`https://restcountries.eu/rest/v2/alpha/${countryCode}`) // Using tempalate tags to create the API request
         .then((data) => data.json()) //fetch returns an object with a .json() method, which returns a promise
@@ -254,6 +254,7 @@ const Map = ({ setCountry, setPopup, setCountryState, setUploadState, set }) => 
 
           // Event listener for traveled counries (On Click)
           $("#traveledbtn").click(function () {
+            console.log("jQuery")
             console.log(typeof countryCode);
             map.addLayer({
               id: countryCode,

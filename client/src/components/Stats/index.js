@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import './style.css';
 import blankPhoto from "./blank-profile-picture-png.png"
 import Feed from "../feed";
+import Upload from "../Upload";
 
 function Stats() {
     const [countriesState, setCountryState] = useState({
@@ -15,9 +16,11 @@ function Stats() {
         lastname: "",
         username: "",
         userId: "",
+        proflePic: "",
         email: ""
     });
     const [photoState, setPhotoState] = useState([]);
+    const [profileState, setProfileState] = useState(false);
 
     useEffect(() => {
         getStats();
@@ -43,8 +46,9 @@ function Stats() {
             lastname: results.data[0].lastName,
             username: results.data[0].username,
             userId: results.data[0].id,
-            email: results.data[0].email}
-            );
+            email: results.data[0].email,
+            profilePic: results.data[0].profilePic
+            });
         })
         .catch(err => console.log(err));
         //console.log(user);
@@ -81,28 +85,47 @@ function Stats() {
     //console.log(photoState);
     console.log(user)
 
+    const handleProfilePic = (event) =>{
+        event.preventDefault();
+        console.log("hit click for profile")
+        setProfileState(true);
+    }
+
     return (
-        <div>
-            <h2>Welcome {user.username}</h2>
-            <h2> {countriesState.countries} / 195 Countries</h2>
-            <div className = "stats">
-                <div className = "profile">
-                    <img className = "profilePic" src = {blankPhoto} alt ="profile pic" ></img>
+        <div id="profile">
+                <div className="container">
+                <div className = "picContainer">
+                    {profileState && 
+                    <Upload profile = {profileState} setProfileState ={setProfileState} />}
+                    {!profileState && (user.profilePic
+                    ? <img className = "profilePicStats" src = {user.profilePic} alt ="profile pic" onClick = {handleProfilePic}/>
+                    : <img className = "profilePicStats" src = {blankPhoto} alt ="profile pic" onClick = {handleProfilePic}></img>
+                    )}
                 </div>
-                <div className = "following">
+                </div>
+                <h2 className="username">{user.username}</h2>
+                <h2 className="countries"> {countriesState.countries} / 195 Countries</h2>
+                <div className = "stats">
+                <div className = "col following">
                     <h5>following</h5>
-                    <p>{followingState.length}</p>
+                    <h2>{followingState.length}</h2>
                 </div>
-                <div className = "followers">
+                <div className = "col followers">
                     <h5>followers</h5>
-                    <p>{followerState.length}</p>
+                    <h2>{followerState.length}</h2>
                 </div>
-                <div className = "posts">
+                <div className = "col posts">
                     <h5>posts</h5>
-                    <p>{photoState.length}</p>
+                    <h2>{photoState.length}</h2>
                 </div>
+                </div>
+            <div id="profileFeed">
+            {getImages && photoState.map((image, index) => 
+                <div className="profilePost" key={index}>
+                    <img className="profPostImg" src={image.photoUrl}></img>
+                </div>
+            )}
             </div>
-            {getImages && <Feed feedImages = {photoState}></Feed>}
         </div>
     )
 

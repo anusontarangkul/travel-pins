@@ -1,50 +1,66 @@
-import react from 'react';
-import './style.css';
+import react from "react";
+import "./style.css";
+import { NavLink } from "react-router-dom";
 import API from "../../utils/API";
 
-function handleLogout(event){
-    event.preventDefault();
-    console.log("clicked in function");
-    API.logout()
-    .then( res=>{
-        //console.log(res);
-        window.location.href = "/"
+function handleLogout(event) {
+  event.preventDefault();
+  console.log("clicked in function");
+  API.logout()
+    .then((res) => {
+      //console.log(res);
+      window.location.href = "/";
     })
-    .catch(err =>{console.log(err)});
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
-function Navbar(){
-    return <div className="navbar">
-            <div className="nav-item">
-                <a href = "/home">
-                    <i className="material-icons material-icons-outlined navicon" id="homeButton">
-                    home
-                    </i>
-                </a>
-            </div>
-            <div className="nav-item">
-            <a href = "/map">
-                <i className="material-icons material-icons-outlined navicon" id="mapButton">
-                room
-                </i>
-            </a>
-            </div>
-            <div className="nav-item">
-                <a href = "/profile">
-                    <i className="material-icons material-icons-outlined navicon" id="userButton">
-                    person_outline
-                    </i>
-                </a>
-            </div>
-            <div className="nav-item" >
-                <a onClick={handleLogout}>
-                    <i className="material-icons material-icons-outlined navicon" id="menuButton">
-                    exit_to_app
-                    </i>
-                </a>
-            </div>
-    </div> ;
-
+function Navbar() {
+  return (
+    <div className="navbar">
+      <div className="nav-item">
+        <NavLink
+          exact
+          to="/home"
+          className="material-icons navicon"
+          activeClassName="material-icons navicon material-icons-outlined"
+          id="homeButton"
+        >
+          home 
+        </NavLink>
+      </div>
+      <div className="nav-item">
+          <NavLink
+          exact
+          to="/map"
+          className="material-icons navicon"
+          activeClassName="material-icons navicon material-icons-outlined" id="mapButton">
+            room
+          </NavLink>
+      </div>
+      <div className="nav-item">
+          <NavLink
+          exact
+          to="/profile"
+          className="material-icons navicon"
+          activeClassName="material-icons navicon material-icons-outlined" id="userButton">
+            person
+          </NavLink>
+      </div>
+      <div className="nav-item">
+        <a onClick={handleLogout}>
+          <NavLink
+          exact
+          to="/home"
+          className="material-icons navicon"
+          activeClassName="material-icons navicon material-icons-outlined" id="logoutButton">
+            clear
+          </NavLink>
+        </a>
+      </div>
+    </div>
+  );
 }
 
 export default Navbar;

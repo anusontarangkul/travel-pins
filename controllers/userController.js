@@ -48,6 +48,11 @@ module.exports = {
       CountryName: req.body.country,
       UserId: req.user.id
     })
+      .then((country) => {
+        console.log(country);
+        res.json(country);
+      })
+      .catch((err) => res.status(422).json(err));
   },
   uploadImage: function (req, res) {
     console.log("uploading image")
@@ -63,6 +68,18 @@ module.exports = {
         //maybe send back a message to the user 
       });
     });
+  },
+
+  uploadProfileImage: function (req, res) {
+    cloudinary.uploader.upload(req.body.data, function (err, results) {
+      console.log("profile upload error: ", err);
+      //need to save the image url in db also the country code from map
+      db.User.update({
+        profilePic: results.secure_url
+      }
+        , { where: { id: req.user.id } })
+    }).then((user) => res.json(user))
+      .catch((err) => res.status(422).json(err));
   },
 
   findAllCountries: function (req, res) {

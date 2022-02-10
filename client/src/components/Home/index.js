@@ -67,6 +67,7 @@ function Home() {
           console.log(err);
         });
     }
+    window.location.href = "/home";
   };
 
   const handleUnfollow = (event) => {
@@ -79,6 +80,7 @@ function Home() {
         .catch((err) => {
           console.log(err);
         });
+        window.location.href = "/home";
   };
 
 
@@ -116,6 +118,7 @@ function Home() {
         for(let y = 0; y<res.data[x].Photos.length; y++){
           followerInfoToSort.push({
             username: res.data[x].username,
+            profilePic: res.data[x].profilePic,
             UserId: res.data[x].id,
             id: res.data[x].Photos[y].id,
             country: res.data[x].Photos[y].country,
@@ -198,15 +201,15 @@ function Home() {
             : <div>
                 {searchResultState.state && (
                 <div>
-                  <h5 id={searchResultState.userId}>
+                  <h5 id={searchResultState.userId} className="searchRtn">
                     {searchResultState.username}
                   </h5>
                   {isFollowingState ? (
-                    <button onClick={handleUnfollow} style={{ opacity: "0.5" }}>
+                    <button className="follow" onClick={handleUnfollow} style={{ opacity: "0.5" }}>
                       Unfollow
                     </button>
                   ) : (
-                    <button onClick={handleFollow}>+ Follow</button>
+                    <button className="follow" onClick={handleFollow}>+ Follow</button>
                   )}
                 </div>
               )}
