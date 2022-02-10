@@ -1,3 +1,5 @@
+![Banner](./images/travel-pins.herokuapp.com.png)
+
 # travel-pins
 
 A social media app that will inspire people to travel the world.
